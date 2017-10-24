@@ -1,4 +1,4 @@
-package com.ebi.new3iwebsite;
+package org.immunophenotype.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
