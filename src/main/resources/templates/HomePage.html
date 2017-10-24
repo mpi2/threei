@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title> This is home page</title>
+
+    <link th:href="@{/static/css/threei.css}" href="../../static/css/threei.css" rel="stylesheet" media="screen"/>
+
     <style>
         div.container {
             width: 100%;
@@ -68,7 +70,7 @@
 
     <header>
         <h3><div class="nav">
-            <img  src="../static/impc.png" alt="IMPC Icon"  />
+            <img th: src="../static/impc.png" alt="IMPC Icon"  />
 
             <a href="/contact">Contact</a>
             <a href="/contact">Contact</a>
