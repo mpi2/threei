@@ -1,88 +1,28 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title> This is home page</title>
-
-    <link th:href="@{/static/css/threei.css}" href="../../static/css/threei.css" rel="stylesheet" media="screen"/>
-
-    <style>
-        div.container {
-            width: 100%;
-            border: 1px solid gray;
-        }
-        #logo {
-            float: left;
-            display: inline-block;
-        }
-        aside{
-            width:20%;
-            border: 1px solid gray;
-            display:block;
-        }
-        header{
-            padding: 1em;
-            color: white;
-            background-color: LightGrey;
-            clear: left;
-            text-align: center;
-
-
-        }
-
-        footer {
-            padding: 1em;
-            color: white;
-            background-color: LightGrey;
-            clear: left;
-            text-align: center;
-        }
-
-        nav {
-            float: left;
-            color:black;
-            max-width: 160px;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul {
-            list-style-type: lower-alpha;
-            padding: 0;
-        }
-
-        nav ul a {
-            text-decoration: black;
-        }
-        p{
-
-            padding-right: 150px;
-            padding-left: 150px;
-        }
-        h3{
-            text-align: center;
-
-        }
-    </style>
+    <title>My test app</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
 </head>
+
 <body>
 
 <div class="container">
 
+
     <header>
         <h3><div class="nav">
-            <img th: src="../static/impc.png" alt="IMPC Icon"  />
 
-            <a href="/contact">Contact</a>
-            <a href="/contact">Contact</a>
+            <img th:src="@{/images/impc.png}" href="../static/images/impc.png"   />
+            <a href="#">Dashboard</a>
+            <a href="#">Content</a>
             <a href="#">Structure</a>
             <a href="#">Appearance</a>
             <a href="#">People</a>
             <a href="#">Modules</a>
         </div></h3>
     </header>
-
-
-
 
     <article>
         <h1>The 3i project is building an encyclopaedia of immunological gene functions to advance basic and translational research.</h1>
@@ -91,8 +31,6 @@
         <p>In addition to the 3i screen, the mice undergo a number of tests in the WTSI pipeline, ranging from tests assessing fertility, anatomical abnormalities, senses, behaviour, and metabolic parameters. The mice are sacrificed at 16 weeks of age and many more tests are performed upon necropsy. A comprehensive overview of tests and all results can be found on the IMPC website. Furthermore, 3i has two sister strategic awards, OBCD and DMDD, that look at bone and cartilage and embryonic development, respectively.</p>
         <p>The 3i consortium aims to actively engage the scientific community. Please do not hesitate to leave a comment on the site or email us with ideas and suggestions.</p>
     </article>
-
-
     <footer><div class="content">
         <a href="#">Dashboard</a>
         <a href="#">Content</a>
@@ -103,5 +41,6 @@
     </footer>
 
 </div>
+
 </body>
 </html>
