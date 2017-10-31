@@ -533,7 +533,7 @@ p.editlink{
     border-color:#0978a1;
     border:none;
     padding-bottom:5.5em;
-    background:url(/sites/all/themes/IMPC%20Theme/img/bg/body.png);
+    background:url(/static/images/impc_logo.png);
     background:#eee;
 }
 #searchbox .head,#searchbox .content{
@@ -586,7 +586,7 @@ p.editlink{
     width:100%;
 }
 #block-block-14 .head{
-    background:url(/sites/all/themes/IMPC%20Theme/img/logo/impresslogo.jpg) center right no-repeat;
+    background:url(/static/images/impresslogo.jpg) center right no-repeat;
     padding-right:0;
     margin-right:1em;
 }
@@ -703,7 +703,7 @@ img.fullimg{
     max-width:100%;
 }
 .attachment-file{
-    margin-top:0.5em 0;
+    margin-top:0.5em ;
 }
 .attachment-file .btn{
     background:none;
@@ -1117,7 +1117,7 @@ div#block-views-news-page-block ul.links{
     padding:0px;
 }
 div#block-views-news-page-block div.node-readmore{
-    text-align:right:
+    text-align:right;
 }
 div#block-views-news-page-block div.node-readmore A{
     text-decoration:none;
@@ -1360,12 +1360,12 @@ div.node > img{
     -webkit-filter:grayscale(1);
     -webkit-filter:grayscale(100%);
     -moz-filter:grayscale(100%);
-    filter:gray;
+    filter:gray(0);
     filter:grayscale(100%);
 }
 .intro{
     padding-bottom:50px;
-    background:url(/sites/all/themes/IMPC%20Theme/img/curve-840.png) bottom center no-repeat;
+    background:url(/static/images/curve-840.png) bottom center no-repeat;
 }
 #block-views-news-page-block{
     background-color:#eeeeee;
@@ -1412,13 +1412,13 @@ div.node > img{
     padding:0.3em;
     border-radius:4px;
     margin-top:1em;
-    background:url(/sites/all/themes/IMPC%20Theme/img/acc-open.png) left center no-repeat;
+    background:url(/static/images/impc.png) left center no-repeat;
     padding:0.3em 0.3em 0.3em 0.5em;
 }
 #node-5 h3.acc-open{
     border-bottom:0;
     border-radius:4px 4px 0 0;
-    background:url(/sites/all/themes/IMPC%20Theme/img/acc-close.png) left center no-repeat;
+    background:url(/static/images/impc.png) left center no-repeat;
 }
 #node-5>div{
     border-right:1px solid #eee;
@@ -1470,11 +1470,11 @@ div.node > img{
 }
 a[href$='.pdf']{
     padding:5px 20px 5px 0;
-    background:transparent url(/sites/all/themes/IMPC%20Theme/img/icon_pdf.gif) no-repeat center right;
+    background:transparent url(/static/images/impc.jpg) no-repeat center right;
 }
 ul.ul-pdf a[href$='.pdf']{
     padding:5px 0px 5px 20px;
-    background:transparent url(/sites/all/themes/IMPC%20Theme/img/icon_pdf.gif) no-repeat center left;
+    background:transparent url(/static/images/impc.jpg) no-repeat center left;
 }
 ul.ul-pdf{
     list-style-type:none;
@@ -1612,8 +1612,8 @@ td.rotated_cell > div:before{
     top: -20px;
 }
 
-.ajax-progress .throbber {
-    background: transparent url(/misc/throbber.gif) no-repeat 0px -18px;
+.ajax-progress  {
+    background: transparent  no-repeat 0px -18px;
     float: left;
     height: 15px;
     margin: 2px;
@@ -1979,7 +1979,7 @@ footer {
 
 .intro {
     padding-bottom: 50px;
-    background: url(../images/slider/themes/curve-840.png) bottom center no-repeat;
+    background: url(../images/curve-840.png) bottom center no-repeat;
     line-height: 1.1em;
     font-size: 1.5em;
     margin-bottom: 1em;
