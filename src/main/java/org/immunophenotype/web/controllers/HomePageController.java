@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomePageController {
     @RequestMapping("/")
     public String homecontroller(Model model){
-        return"index";
+        return  "index";
 
     }
-
+    @RequestMapping("/methods")
+    public String methodController(Model model){
+        return  "methods";
+    }
 
 
 }
