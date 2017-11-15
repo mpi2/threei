@@ -1,4 +1,4 @@
-package org.immunophenotype.web;
+package org.immunophenotype.web.controllers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

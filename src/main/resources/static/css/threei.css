@@ -1,7 +1,7 @@
 #wrapper{
-    min-width:1010px;
+    min-width:1000px;
 }
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, a, img, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+html, body, div, applet, object, iframe, h1,h2, h3, h4, h5, h6, p, a, img, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
     border: 0;
     outline: 0;
     font-weight: inherit;
@@ -1055,7 +1055,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
     position: absolute;
     top: 250px;
     z-index: 10;
-    font-size: 2.5em;
+    font-size: 30px;
     padding: 10px;
 }
 div#block-views-news-block a:HOVER{
@@ -1133,9 +1133,12 @@ div#block-block-2 .content{
     text-align:center;
     min-width:300px !important;
 }
-div#block-block-3{}div#block-block-4{
-                       border:none;
-                   }
+div#block-block-3{
+
+
+}div#block-block-4{
+     border:none;
+ }
 div#block-block-4  .head{
     color:#FFF;
     background-color:#FF8000;
@@ -1363,10 +1366,12 @@ div.node > img{
     filter:gray(0);
     filter:grayscale(100%);
 }
+
 .intro{
     padding-bottom:50px;
     background:url(/static/images/curve-840.png) bottom center no-repeat;
 }
+
 #block-views-news-page-block{
     background-color:#eeeeee;
 }
@@ -1474,7 +1479,7 @@ a[href$='.pdf']{
 }
 ul.ul-pdf a[href$='.pdf']{
     padding:5px 0px 5px 20px;
-    background:transparent url(/static/images/impc.jpg) no-repeat center left;
+    background:transparent url(/static/images/pdf.png) no-repeat center left;
 }
 ul.ul-pdf{
     list-style-type:none;
@@ -1904,7 +1909,6 @@ div.cell-Grey {
     height: 30px;
     float: left;
 }
-
 div.cell-Red {
     border: 1px solid #ccc;
     text-align: center;
@@ -1913,7 +1917,6 @@ div.cell-Red {
     height: 30px;
     float: left;
 }
-
 div.cell-White {
     border: 1px solid #ccc;
     text-align: center;
@@ -1922,7 +1925,6 @@ div.cell-White {
     height: 30px;
     float: left;
 }
-
 div#heatmap-footer {width: 650px;}
 
 div#block-block-22 {width: 302px;}
@@ -1937,22 +1939,16 @@ div#block-block-25 .content {
     text-align: center;
     border-radius: 4px
 }
-
 div#block-block-25 A {
     color: #fff;
     text-decoration: none;
 }
-
-
-
 div#block-views-news-page-block {
     margin-top: 175px;
 }
 .fa-caret-right:before {
     content: "\f0da";
 }
-
-
 
 .one-sidebar .region-content {
     width: 68%;
@@ -1961,8 +1957,63 @@ div#block-views-news-page-block {
 .sidebar-second .region-content {
     margin-right: 4%;
 }
-#block-views-content-slider-block-1{margin-top:0;padding-bottom:4%;}.views_slideshow_cycle_main{width:100%;}.views_slideshow_cycle_main .views-slideshow-cycle-main-frame{width:100% !important;height:auto;}.views_slideshow_cycle_main .views-slideshow-cycle-main-frame-row{width:100% !important;height:auto;}.views_slideshow_cycle_main .field-content{max-width:100%;width:100%;}.views_slideshow_cycle_main .field-content img{max-width:100%;width:100%;height:auto;margin:0;padding:0;}div.breadcrumb{visibility:hidden;display:none;}div#node-4 form{padding:0px;border:none;}div#block-views-news-block .content{border:none;line-height:30px;height:30px;overflow:hidden;}div#block-views-news-block a{text-decoration:none;}
-div#block-views-news-block a:HOVER{text-decoration:underline;}div#block-views-news-block .view-display-id-block:before{display:block;font-weight:bold;content:"Latest News:";float:left;padding-right:10px;}div.views-slideshow-controls-bottom{visibility:hidden;display:none;}
+#block-views-content-slider-block-1{
+    margin-top:0;
+    padding-bottom:4%;
+}
+.views_slideshow_cycle_main{
+    width:100%;
+}
+.views_slideshow_cycle_main .views-slideshow-cycle-main-frame{
+    width:100% !important;
+    height:auto;
+}
+.views_slideshow_cycle_main .views-slideshow-cycle-main-frame-row{
+    width:100% !important;
+    height:auto;
+}
+.views_slideshow_cycle_main .field-content{
+    max-width:100%;
+    width:100%;
+}
+.views_slideshow_cycle_main .field-content img{
+    max-width:100%;
+    width:100%;
+    height:auto;
+    margin:0;
+    padding:0;
+}
+div.breadcrumb{
+    visibility:hidden;display:none;
+}
+div#node-4 form{
+    padding:0px;border:none;
+}
+div#block-views-news-block .content{
+
+    border:none;
+    line-height:30px;
+    height:30px;
+    overflow:hidden;
+}
+div#block-views-news-block a{
+    text-decoration:none;
+}
+div#block-views-news-block a:HOVER{
+    text-decoration:underline;
+}
+div#block-views-news-block .view-display-id-block:before{
+    display:block;
+    font-weight:bold;
+    content:"Latest News:";
+    float:left;
+    padding-right:10px;
+
+}
+div.views-slideshow-controls-bottom{
+    visibility:hidden;
+    display:none;
+}
 
 footer {
     position: absolute;
@@ -1991,4 +2042,71 @@ footer {
     margin-bottom: 1em;
     color: #0978a1;
 }
+.intro1 {
+    padding-bottom: 10px;
+    line-height: 1.1em;
+    font-size: 1em;
+    margin-top: 220px;
+    margin-bottom: 1em;
 
+}
+#accordian1_main{
+    width:70%;
+}
+
+button.accordion {
+    line-height:1.1em;
+    font-size:1.2em;
+    margin-bottom:0;
+    color:#0978a1;
+    font-weight:400;
+    cursor:pointer;
+    border:1px solid #eee;
+    padding:0.3em;
+    border-radius:4px;
+    margin-top:1em;
+    background:url(/static/images/impc.png) left center no-repeat;
+    padding:0.3em 0.3em 0.3em 0.5em;
+    width: 100%;
+    text-align: left;
+}
+
+button.accordion.active, button.accordion:hover {
+
+}
+
+div.panel {
+    padding: 0 18px;
+    display: block;
+    background-color: white;
+    border:1px;
+    border-radius: 4px 4px 0 0;
+    border-style: solid;
+    border-color: #eee;
+
+
+}
+span{
+
+    font-weight: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    text-decoration: underline;
+    color: #0978a1; text-decoration-style: solid; cursor: pointer
+}
+
+
+span1{
+
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    color:#0978a1;
+    text-decoration-style: solid; cursor: pointer
+}

@@ -2,15 +2,14 @@ package org.immunophenotype.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomePageController {
-    @RequestMapping("/")
-    public String homecontroller(Model model){
-        return  "home";
 
-    }
+    @GetMapping("/")
+    public String homeController(Model model){ return  "index"; }
     @RequestMapping("/methods")
     public String methodController(Model model){
         return  "methods";
@@ -32,8 +31,7 @@ public class HomePageController {
     }
 
     @RequestMapping("/learnmore")
-    public String learnmoreController(Model model){
-        return  "learnmore";
-    }
+    public String learnmoreController(Model model){ return  "learnmore"; }
+
 
 }
