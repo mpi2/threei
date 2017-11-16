@@ -1478,7 +1478,6 @@ a[href$='.pdf']{
     background:transparent url(/static/images/impc.jpg) no-repeat center right;
 }
 ul.ul-pdf a[href$='.pdf']{
-    padding:5px 0px 5px 20px;
     background:transparent url(/static/images/pdf.png) no-repeat center left;
 }
 ul.ul-pdf{
@@ -2037,6 +2036,15 @@ footer {
 .intro {
     padding-bottom: 50px;
     background: url(../images/curve-840.png) bottom center no-repeat;
+    background-color: transparent;
+    background-image: url(../images/curve-840.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-size: auto auto;
     line-height: 1.1em;
     font-size: 1.5em;
     margin-bottom: 1em;
@@ -2077,7 +2085,7 @@ button.accordion.active, button.accordion:hover {
 
 div.panel {
     padding: 0 18px;
-    display: block;
+    display: none;
     background-color: white;
     border:1px;
     border-radius: 4px 4px 0 0;
@@ -2109,4 +2117,29 @@ span1{
     padding: 0;
     color:#0978a1;
     text-decoration-style: solid; cursor: pointer
+}
+article span a:visited {
+    color: #0978a1;
+}
+.ul-pdf li span a:visited {
+    color: #0978a1;
+}
+
+.ul-pdf li span a {
+    color: #0978a1;
+    padding-bottom: 5px;
+}
+a, a:hover, a:visited{
+    color: #0978a1;
+}
+footer1 {
+    position: absolute;
+
+    width: 100%;
+    height: 150px;
+    color: white;
+    background-color: #666;
+    clear: left;
+    padding:50px;
+    word-spacing:20px;
 }

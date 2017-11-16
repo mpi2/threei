@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
-    <title> Methods page</title>
+    <title> Analysis page</title>
 </head>
 
 <body>
@@ -15,10 +15,28 @@
     <div id="main" class="content">
 
         <div id="welcome" style="top:200px; font-size:30px" >
-            <h1>ANALYSIS </h1>
+            <h1>Analysis </h1>
         </div><br/>
-        <div class="intro1"><h2 style=" font-size:30px ">The Mice </h2> </div>
+        <p></p>
+        <div id="region region-content" style="width:68%; float:left;">
+            <div class="intro"><h2 style=" font-size:25px ">Dig deeper into the data by looking at it from different angles. </h2> </div>
+        <p></p>
+        <p></p>
+        <p>Hi there and welcome to our analysis section. This is a new addition to our website and we are hoping to add new features over the coming months.</p><br/>
+        <p></p>
+            Why this new space? We realised that we are producing a lot of data but it is actually not easy to figure out quickly what it is in there. With the graphics in this section we are hoping to give you the opportunity to browse our  data without looking through it gene by gene or assay by assay.We hope you will enjoy this page. Please let us know if there is anything in particular that you would like to see appear in this space by using the contact button on the CONTACT page.
+        <br/>
+        <p></p>
+            <p>Story 1: A map of the immune system</p><br/>
+         <p>The first thing that struck us when we were starting to dig deeper into the data was the fact that we had data for hundreds of wild type control mice and that we could use this data to build a map of the mouse immune system. The map below was built using data from more than 400 C57BL/6N wild type mice.</p>
+         <p></p>
+        </div>
+
     </div>
+    <div class="centercontent" ><script type='text/javascript' src='http://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 804px; height: 669px;'><noscript><a href='https:&#47;&#47;immunophenotype.org'><img alt='Map of the Mouse Immune System ' src='http:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MapoftheMouseImmuneSystem&#47;3iFlowData&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='804' height='669' style='display:none;'><param name='host_url' value='http%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='MapoftheMouseImmuneSystem&#47;3iFlowData' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='http:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ma&#47;MapoftheMouseImmuneSystem&#47;3iFlowData&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showTabs' value='y' /></object></div><div class="clear"></div></div>
+    <p></p>
+    <p></p>
 </div>
+<th:block th:include="fragments/footer::footer1"> </th:block>
 </body>
 </html>

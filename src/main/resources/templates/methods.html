@@ -167,9 +167,155 @@
             <p>In order to find defects in the knockout mice that only become apparent when the immune system is challenged, we subject the mice to a broad spectrum of challenges. A Salmonella typhimurium infection as an example of a bacterial infection is carried out by the team of Gordon Dougan at the Wellcome Trust Sanger Institute. For the 3i assays, we chose influenza as a viral infection, Trichuris muris as a parasite infection and DSS colitis as an example of a chemical stressor. Selected strains will furthermore be infected with Mycobacterium tuberculosis.</p>
 
         </div>
-    </div>
 
+        <button class="accordion">Salmonella typhimurium infection</button>
+        <div class="panel">
+            <p></p>
+            <p>For each knockout strain, 4 female and 4 male mice are intraperitoneally infected with strain M525, and weight is monitored daily. Half of the mice are sacrificed after 14 days, the other half after 28 days. The liver is collected for bacterial counts and for histology. Wild type littermates from various knockout lines are used as controls.</p>
+        </div>
+
+        <button class="accordion">Influenza infection</button>
+        <div class="panel">
+            <p></p>
+            <p>For each knockout strain, 3 female and 3 male mice are infected intranasally with strain X-31, and weight is monitored daily. After 10 days, the mice are sacrificed and immune cells from the lung are collected by bronchoalveolar lavage. Wild type littermates from various knockout lines are used as controls.</p>
+            <p></p>
+            <h4 style="font-size:1em;letter-spacing: -1px">Related Documents</h4><br/>
+            <ul class="ul-pdf">
+                <li><span>
+                <img th:src="@{/images/pdf.png}" href="..static/images/pdf.png" width="20" height="20" />
+                <a href="/methods-pdfs/Bronchoalveloar lavage - protocol.pdf">Bronchoalveloar lavage protocol</a></span>
+                </li>
+            </ul>
+        </div>
+
+        <button class="accordion">Trichuris muris infection</button>
+        <div class="panel">
+            <p></p>
+            <p>For each knockout strain, 6 female mice are infected with Trichuris muris eggs by oral gavage, and weight is monitored daily. After 33 days, the mice are sacrificed and the cecum is assessed for the presence or absence of worms. Serum is collected for confirmation of productive infection. Wild type littermates from various knockout lines are used as controls.</p>
+            <p></p>
+            <h4 style="font-size:1em;letter-spacing: -1px">Related Documents</h4><br/>
+            <ul class="ul-pdf">
+                <li><span>
+                <img th:src="@{/images/pdf.png}" href="..static/images/pdf.png" width="20" height="20" />
+                <a href="/methods-pdfs/Trichuris muris infection - protocol.pdf">Trichuris muris infection protocol</a></span>
+                </li>
+            </ul>
+        </div>
+
+        <button class="accordion">DSS colitis</button>
+        <div class="panel">
+            <p></p>
+            <p>For each knockout strain, 4 male mice receive 1.5% dextran sodium sulphate in drinking water for 7 days, and weight is monitored daily. After 10 days, the mice are sacrificed and samples from the medial and distal gut are collected for histological analysis. Wild type littermates from various knockout lines and wild type mice from a separate colony type colony housed in the same facility are used as controls.</p>
+        </div>
+
+        <button class="accordion">Mycobacterium tuberculosis infection</button>
+        <div class="panel">
+            <p></p>
+            <p>For selected knockout strains, 25 male mice are infected with a low dose aerosol of strain H37Rv.  After 24 hours, 3 weeks and 6 weeks, 5 mice each are sacrificed and lung and spleen are collected for bacterial counts. 10 mice are kept for survival analysis.</p>
+        </div>
+
+        <p></p>
+        <p></p>
+        <h3 style="font-size:2em;letter-spacing: -1px">How we Call a Hit</h3><br/>
+        <p></p>
+        <p>Due to different work flows, we use different statistical test to determine if the phenotyping results of a knockout line differ from the wild type mice. The two main approaches we are using are a reference range approach for continuous data and a Fisher’s exact test for categorical data.</p>
+        <p>Our statistical analysis is designed to differentiate as efficiently as possible between lines that show a phenotype and lines that do not. However, the criteria for calling a hit are very stringent, in order to make sure that when you order a mouse in, the phenotype we have observed will hold up. The other side of the coin is that we are likely to underestimate the number of true hits, i.e. have a higher number of false negatives. Therefore we encourage you to take a look at the raw data for phenotypes you are interested in and judge for yourself if a borderline case might actually be a true pheotype, even if it hasn't met our very stringent statistical criteria.</p>
+
+        <button class="accordion">Reference range</button>
+        <div class="panel">
+            <p></p>
+            <p>All tests from the observational screen are carried out on mice of the main Sanger phenotyping pipeline. An average of 84 mice are phenotyped every week on two separate days. Due to operational reasons, wild type controls are only processed on one of these days. Knockout mice enter the pipeline according to their age and mice from one strain are phenotyped on at least two different days to avoid any day effects. Due to this set-up, knockout mice cannot be compared to controls on the same day. Using daily controls would also not take advantage of the many wild type data points that are collected over time. It was therefore decided to use a so-called reference range approach to analyse the data.</p>
+            <p>Data from at least 70 wild type mice is used to generate a reference range. Knockout lines are considered to be significantly different from wild type mice if 60% of the mice for this strain lie outside the middle 95% of wild type data points, i.e. if they lie above the 97.5th or below the 2.5th percentile of the wild type data. For assays with at least 4 mice per gender, males and females are assessed separately. For assays with 2 or 3 mice per gender, separate reference ranges are constructed for male and female mice, but hits are only called if 60% of samples across both genders are outside their respective reference ranges (3 out of 4 or 4 out of 6).</p>
+            <p>The reference range approach does not take into account the actual distribution of the knockout data, therefore a p-value cannot be calculated. The reference range approach is a very stringent method to call hits. Assuming that all samples are independent of each other, false positive rates vary between 1 in 4.8 million for 7 mice per gender per knockout line (e.g. 16 week blood) and 1 in 16,000 for 4 mice per knockout line (e.g. for cytotoxicity).</p>
+        </div>
+
+        <button class="accordion">Fisher’s exact test</button>
+        <div class="panel">
+            <p></p>
+            <p>The screen for antinuclear antibodies in serum and the test for worm burden in Trichuris infection have a very different data structure than the other assays, as wild types are usually negative and positivity is a strong indication for an abnormal phenotype. These assays are therefore analysed with the categorical Fisher’s exact test. </p>
+            <p>Even though the intensity of antinuclear antibody is quantified on a continuous scale, the main readout is the presence or absence of antibody staining. The data is split into negative (scores 0-1) and positive samples (scores 2-5) and analysed categorically. Similarly, worms in the cecum could be counted to assess worm burden, but the more important finding is that worms are present at all.</p>
+        </div>
+
+        <button class="accordion">Flow-cytometric analysis of blood, spleen, mesenteric lymph nodes, and bone marrow, microscopic analysis of immune cell in the ear epidermis</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>Cell numbers for each population are expressed as percentage of parent gate, percentage of CD45+ cells, and, where appropriate, as absolute numbers </p>
+            <p><b>Statistical approach: </b>Reference range</p>
+        </div>
+
+        <button class="accordion">Microscopic analysis of immune cells in the ear epidermis</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>Number of cells per field of view, percentage of interacting cells, cell volume, cell shape (roundness), number and length of dendrites  </p>
+            <p><b>Statistical approach: </b>Reference range</p>
+        </div>
+
+        <button class="accordion">Cytotoxicity of splenic CD8 T cells</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b> Cytotoxicity is expressed as percent killing in comparison to the positive control, data is generated for five different effector:target ratios  </p>
+            <p><b>Statistical approach: </b>Reference range</p>
+            <p><b>Comment:</b> Since the assay generates a curve consisting of different target:effector ratios rather than a single value, a curve is considered to be outside the reference range if three consecutive values lie outside their reference range interval.</p>
+        </div>
+
+        <button class="accordion">Antinuclear antibodies (ANA)</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>Scores corresponding to intensity of antibody staining   </p>
+            <p><b>Statistical approach: </b>Fisher’s exact test </p>
+            <p><b>Comment:</b> Approximately 10% of wild type mice show a positive staining for antinuclear antibodies. Against this background, 4 out of 6 samples for a given knockout line need to be positive to reach a p-value below 0.01.</p>
+        </div>
+
+        <button class="accordion">Infection weight data</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>Daily weight measurements  </p>
+            <p><b>Statistical approach: </b>Reference range </p>
+            <p>The absolute values are converted into percentage of weight loss before plotting the curve. A curve is considered to be outside the reference range if three consecutive values lie outside their reference range interval. We are currently considering to alternatively assess the weight data by comparing the area under the curve.</p>
+        </div>
+
+        <button class="accordion">Salmonella bacterial counts</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>tbc</p>
+            <p><b>Statistical approach: </b>tbc </p>
+        </div>
+
+        <button class="accordion">Influenza BAL washes</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>Cell numbers for each population are expressed as percentage of total cell count and as absolute numbers </p>
+            <p><b>Statistical approach: </b>tbc </p>
+        </div>
+
+        <button class="accordion">Trichuris worm burden</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>presence or absence of worms in the cecum as categorical measure  </p>
+            <p><b>Statistical approach: </b>Fisher’s exact test  </p>
+            <p><b>Comment:</b>Wild type mice clear a Trichuris muris infection completely. Presence of worms in the cecum at day 33 therefore indicates a higher susceptibility. In cases of doubt, high levels of IgG2a in serum will be used to confirm increased susceptibility. Approximately 10% of wild type mice have a low number of worms in the cecum at day 33. Against this background, 4 out of 6 samples for a given knockout line need to be positive to reach a p-value below 0.01.</p>
+        </div>
+
+        <button class="accordion">DSS histology scores</button>
+        <div class="panel">
+            <p></p>
+            <p><b>Type of data: </b>scores ranging from 0 to 3 in four different categories, summed up to a total histology score ranging from 0 to 12.  </p>
+            <p><b>Statistical approach: </b>Reference range   </p>
+            <p><b>Comment:</b>Histology sections from mid and distal colon are assessed in four different categories indicating damage to the gut. Categories are scored individually and as a combined total score.</p>
+        </div>
+
+       <p></p>
+        <p></p>
+        <p><span>
+            <a href="https://public.tableau.com/views/MapoftheMouseImmuneSystem/3iFlowData?:embed=y&amp;:display_count=yes&amp;:showTabs=y" target="_blank">Map of the mouse immune system</a></span>
+        </p>
+        <p></p>
+        <p></p>
+    </div>
 </div>
+
+<th:block th:include="fragments/footer::footer1"> </th:block>
+
 
 <script type="text/javascript">
     /*<![CDATA[*/
@@ -177,6 +323,7 @@
     var i;
 
     for (i = 0; i < acc.length; i++) {
+
         acc[i].onclick = function(){
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
@@ -187,7 +334,11 @@
             }
         }
     }
+
+
     /*]]>*/
+
+
 </script>
 
 </body>
