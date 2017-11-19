@@ -5,24 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
-    <title> Methods page</title>
+    <title> Learnmore page</title>
 </head>
-<body>
+<body style="height:1054px;">
 <div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <th:block th:include="fragments/header::header"> </th:block>
 
-    <div id="main" class="content">
+    <div id="main" class="content" style="height: 1800px;">
 
         <div id="welcome" style="top:200px; font-size:30px" >
-            <h1>Analysis </h1>
+            <h1>Learn more </h1>
         </div><br/>
         <p></p>
-        <div id="region region-content" style="width:68%; float:left;">
+        <div id="region region-content" style="width:68%; float:left;height:100% ">
             <div class="intro"><h2 style=" font-size:25px ">Do not hesitate to contact us if you cannot find a answer to your question below. </h2> </div>
             <p></p>
             <p></p>
+            <h3 style="font-size: 25px;">FREQUENTLY ASKED QUESTIONS</h3><p></p>
+            <p>We have collated the questions most frequently asked and provided those in a managed archive.</p>
+            <p><a th:href="@{/faq}" class="btn" style="color: white;"><i class="fa" style="font-size:9px;position:relative;bottom:2px;" >&#xf04b;</i>Browse our FAQ list</a></p>
+
+            <h3 style="font-size: 25px;">Glossary</h3><p></p>
+            <p>If you are unsure of the terminology used in this website please use the following helpful glossary.</p>
+            <p><a th:href="@{/glossary}" class="btn" style="color: white;"><i class="fa" style="font-size:9px;position:relative;bottom:2px;" >&#xf04b;</i>Browse our Glossary</a></p>
+
+            <h3 style="font-size: 25px;">Publications</h3><p></p>
+            <p>We have collated a useful library of publications.</p>
+            <p><a th:href="@{/publications}" class="btn" style="color: white;"><i class="fa" style="font-size:9px;position:relative;bottom:2px;" >&#xf04b;</i>Browse our publications</a></p>
+            <p></p>
+
         </div>
-    </div>
+
 </div>
+    <footer>
+        <div class="foot_content">
+            <a style="text-decoration: none; color: white;" href="/">HOME</a>
+            <a style="text-decoration: none; color: white;" href="/data">DATA</a>
+            <a style="text-decoration: none; color: white;" href="/analysis">ANALYSIS</a>
+            <a style="text-decoration: none; color: white;" href="/methods">METHODS</a>
+            <a style="text-decoration: none; color: white;" href="/contact">CONTACT</a>
+            <a style="text-decoration: none; color: white;" href="/learnmore">LEARNMORE</a>
+            <div  id="foot_list"> <ul>
+                <li>   <a style="text-decoration: none;color: white;" href="#">FAQ</a></li>
+                <li>   <a style="text-decoration: none;color: white;" href="#">Glossary</a></li>
+                <li>    <a style="text-decoration: none;color:white;" href="#">Publications</a> </li>
+            </ul> </div>
+
+        </div>
+        <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
+    </footer>
+</div>
+
+
 </body>
 </html>

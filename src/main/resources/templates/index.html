@@ -32,9 +32,10 @@
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/methods') ? 'active' : ''}"><a th:href="@{/methods}">METHODS</a></li>
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/contact') ? 'active' : ''}"><a th:href="@{/contact}">CONTACT</a></li>
                             <li class="last expanded" th:classappend="${#strings.startsWith(view,'/learnmore') ? 'active' : ''}"><a th:href="@{/learnmore}">LEARN MORE</a>
-                                <ul class="menu"><li class="first leaf"><a href="/faq">FAQ</a></li>
-                                    <li class="leaf"><a href="/glossary">Glossary</a></li>
-                                    <li class="last leaf"><a href="/publications">Publications</a></li>
+                                <ul class="menu">
+                                    <li class="first leaf" th:classappend="${#strings.startsWith(view,'/faq') ? 'active' : ''}"><a th:href="@{/faq}">FAQ</a></li>
+                                    <li class="leaf" th:classappend="${#strings.startsWith(view,'/glossary') ? 'active' : ''}"><a th:href="@{/glossary}">Glossary</a></li>
+                                    <li class="last leaf" th:classappend="${#strings.startsWith(view,'/publications') ? 'active' : ''}"><a th:href="@{/publications}">Publications</a></li>
                                 </ul></li>
                     </ul><div class="clear"></div></div>
                 </div>
@@ -213,16 +214,16 @@
 
     <footer>
         <div class="foot_content">
-            <a style="text-decoration: none; color: white;" href="/">HOME</a>
-            <a style="text-decoration: none; color: white;" href="/data">DATA</a>
-            <a style="text-decoration: none; color: white;" href="/analysis">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" href="/methods">METHODS</a>
-            <a style="text-decoration: none; color: white;" href="/contact">CONTACT</a>
-            <a style="text-decoration: none; color: white;" href="/learnmore">LEARNMORE</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
             <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" href="#">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" href="#">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" href="#">Publications</a> </li>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
             </ul> </div>
 
         </div>

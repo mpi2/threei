@@ -33,5 +33,14 @@ public class HomePageController {
     @RequestMapping("/learnmore")
     public String learnmoreController(Model model){ return  "learnmore"; }
 
+    @RequestMapping("/faq")
+    public String faqController(Model model){ return  "faq"; }
+
+    @RequestMapping("/glossary")
+    public String glossaryController(Model model){ return  "glossary"; }
+
+    @RequestMapping("/publications")
+    public String publicationsController(Model model){ return  "publications"; }
+
 
 }
