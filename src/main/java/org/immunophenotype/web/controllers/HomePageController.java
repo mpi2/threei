@@ -42,5 +42,8 @@ public class HomePageController {
     @RequestMapping("/publications")
     public String publicationsController(Model model){ return  "publications"; }
 
+    @RequestMapping("/contactform")
+    public String contactformController(Model model){ return  "contactform"; }
+
 
 }

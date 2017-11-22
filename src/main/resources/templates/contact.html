@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
-    <title> Methods page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title> Contact page</title>
 </head>
 
 <body>
@@ -13,13 +14,53 @@
     <th:block th:include="fragments/header::header"> </th:block>
 
     <div id="main" class="content">
-
         <div id="welcome" style="top:200px; font-size:30px" >
             <h1>Contact </h1>
         </div><br/>
         <p></p>
+        <aside id="sidebar" style="position:absolute; top:400px ;left:700px;">
+            <div id="block block-block-contact">
+                <div class="content" Style="background-color:lightgrey;border-color: #333333; border-width: 10px; padding:10px;">
+                    <p></p>
+                    <h3><b>Contact Us</b></h3>
+                    <p></p>
+                    <p>For comments and inquiries or to request raw data</p>
+                    <p></p>
+                    <p><a href="/contactform" class="btn" target="_blank"><i class="fa" style="font-size:9px;position:relative;bottom:2px; " >&#xf04b;</i>Contact Us</a></p>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <p></p>
+            <p></p>
+            <div id=" block block-block-contact">
+                <div class="content" Style="background-color:lightgrey;border-color: #333333; border-width: 10px; padding:10px;">
+                    <p></p>
+                    <h3 ><b>Order a KO mouse</b></h3>
+                    <p></p>
+                    <p>Please order mouse lines and ES cells from the IMPC page</p>
+                    <p></p>
+                    <p><a href="https://www.mousephenotype.org/" class="btn" target="_blank"><i class="fa" style="font-size:10px;position:relative;bottom:3px;" >&#xf04b;</i>IMPC</a></p>
+                </div>
+            </div>
+            <p></p>
+            <p></p>
+            <p><a href="https://3i.vidavia.net/"  target="_blank" class="button_my3i" ><b>My 3i</b></a></p>
+            <p></p>
+            <p></p>
+            <p><img th:src="@{/images/contact-images/map.png}" href="..static/images/contact-images/map.png" width="300" height="450"/></p>
+            <p><img th:src="@{/images/contact-images/b1.gif}" href="..static/images/contact-images/b1.gif" width="20" height="20" />Wellcome Trust Sanger Institute, Hixton</p>
+            <p><img th:src="@{/images/contact-images/b2.gif}" href="..static/images/contact-images/b2.gif" width="20" height="20" />King's College, London</p>
+            <p><img th:src="@{/images/contact-images/b3.gif}" href="..static/images/contact-images/b3.gif" width="20" height="20"  />Imperial College, London</p>
+            <p><img th:src="@{/images/contact-images/b4.gif}" href="..static/images/contact-images/b4.gif" width="20" height="20"  />Cambridge University</p>
+            <p><img th:src="@{/images/contact-images/b5.gif}" href="..static/images/contact-images/b5.gif" width="20" height="20"  />Oxford University</p>
+            <p><img th:src="@{/images/contact-images/b6.gif}" href="..static/images/contact-images/b6.gif" width="20" height="20"  />Manchester University</p>
+            <p><img th:src="@{/images/contact-images/b7.gif}" href="..static/images/contact-images/b7.gif" width="20" height="20"  />Albert Einstein College of Medicine, New York</p>
+
+            <p></p>
+        </aside>
         <div id="region region-content" style="width:68%; float:left;">
-            <div class="intro"><h2 style=" font-size:25px ">We are keen to hear from you. You can contact us via the emails on the institute websites or via the buttons on the right. </h2> </div>
+            <div class="intro">
+                <h2 style=" font-size:25px ">We are keen to hear from you. You can contact us via the emails on the institute websites or via the buttons on the right. </h2> </div>
             <p></p>
             <h3 style="font-size:30px"><u>3i Members</u></h3><p></p>
             <h3 style="font-size:20px"><b>Lucie Abeler-Dörner</b></h3>
@@ -55,12 +96,59 @@
             <image th:src="@{/images/contact-images/wtsi_logo9a40.png}" href="..static/contact-images/wtsi_logo9a40.png" width="200" height="46" style="float: right;margin-top: -40px;" /><p></p>
             <p>Salmonella, influenza, DSS and Trichuris challenges</p>
             <a href="http://www.sanger.ac.uk/people/category/faculty" target="_blank" style="text-decoration: none;">Gordon Dougan’s research at the Wellcome Trust Sanger Institute</a>
-
+            <hr/>
+            <h3 style="font-size:20px">Gillian Griffiths </h3>
+            <h1>Cambridge University</h1>
+            <image th:src="@{/images/contact-images/cimr-logo2-on-white90c8.jpg}" href="..static/contact-images/cimr-logo2-on-white90c8.jpg" width="200" height="46" style="float: right;margin-top: -40px;" /><p></p>
+            <p>Analysis of cytotoxic potential of splenic CD8 T cells</p>
+            <a href="https://www.cimr.cam.ac.uk/research/principal-investigators/principal-investigators-a-h/griffiths" target="_blank" style="text-decoration: none;"> Gillian Griffiths' research at Cambridge University</a>
+            <hr/>
+            <h3 style="font-size:20px">Richard Grencis  </h3>
+            <h1>Manchester University</h1>
+            <image th:src="@{/images/contact-images/manchester_logof900.jpg}" href="..static/contact-images/manchester_logof900.jpg" width="200" height="46" style="float: right;margin-top: -40px;" /><p></p>
+            <p>Trichuris challenge</p>
+            <a href="https://www.research.manchester.ac.uk/portal/en/researchers/richard-grencis(8663ef93-0d33-4679-a0d9-5924ad2598cb).html" target="_blank" style="text-decoration: none;"> Richard Grencis’ research at Manchester University</a>
+            <hr/>
+            <h3 style="font-size:20px">William Jacobs, Jr   </h3>
+            <h1>Albert Einstein College of Medicine</h1>
+            <image th:src="@{/images/contact-images/einstein7fc6.jpg}" href="..static/contact-images/einstein7fc6.jpg" width="200" height="46" style="float: right;margin-top: -40px;" /><p></p>
+            <p>Tuberculosis follow-up on selected lines</p>
+            <a href="http://www.einstein.yu.edu/faculty/6703/william-jacobs-jr/" target="_blank" style="text-decoration: none;"> William Jacobs’ research at Albert Einstein College of Medicine</a>
+            <hr/>
+            <h3 style="font-size:20px">Clare Lloyd    </h3>
+            <h1>Imperial College London</h1>
+            <image th:src="@{/images/contact-images/imperiallogoa17d.jpg}" href="..static/contact-images/imperiallogoa17d.jpg" width="200" height="46" style="float: right;margin-top: -40px;" /><p></p>
+            <p>Clare Lloyd’s research at Imperial College London</p>
+            <a href="http://www.imperial.ac.uk/people/c.lloyd" target="_blank" style="text-decoration: none;"> Clare Lloyd’s research at Imperial College London</a>
+            <hr/>
+            <h3 style="font-size:20px">Kevin Maloy / Fiona Powrie    </h3>
+            <h1>Oxford University</h1>
+            <image th:src="@{/images/contact-images/Zb90SDVR310800f.jpg}" href="..static/contact-images/Zb90SDVR310800f.jpg" width="200" height="46" style="float: right;margin-top: -40px;" /><p></p>
+            <p>DSS challenge</p>
+            <a href="https://www.path.ox.ac.uk/research/immunology/kevin-maloy-group"> Kevin Maloy’s research at Oxford University</a>
+            <a href="https://www.ndm.ox.ac.uk/principal-investigators/researcher/fiona-powrie">Fiona Powrie’s research at Oxford University</a>
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+    <footercontact>
+        <div class="foot_content" >
+            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+            <div  id="foot_list"> <ul>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+            </ul> </div>
 
         </div>
-
-
-    </div>
+        <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
+    </footercontact>
 </div>
+
 </body>
 </html>
