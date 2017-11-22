@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 
 <body id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
-
-
 <div id="wrapper">
     <header id="header">
         <div class="region region-header">
@@ -27,7 +24,7 @@
                     <div class="content">
                         <ul class="menu" th:with="view=${#httpServletRequest.getServletPath()}">
                             <li class="first leaf" th:classappend="${#strings.equals(view,'/') ? 'active' : ''}"><a th:href="@{/}">HOME</a></li>
-                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/data') ? 'active' : ''}"><a th:href="@{/data/heatmap}">DATA</a></li>
+                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/data') ? 'active' : ''}"><a th:href="@{/data}">DATA</a></li>
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/analysis') ? 'active' : ''}"><a th:href="@{/analysis}">ANALYSIS</a></li>
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/methods') ? 'active' : ''}"><a th:href="@{/methods}">METHODS</a></li>
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/contact') ? 'active' : ''}"><a th:href="@{/contact}">CONTACT</a></li>
@@ -57,7 +54,7 @@
                             <div class="view-content">
                                 <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
                                     <div class="views-field views-field-php">
-                                        <span class="field-content"><p><a name="phenotype-of-the-month-view" href="/phenotype-of-the-month" class="simple-dialog simpleDialogProcessed" style="font-size: 1.5em;" rel="width:680;position:[center,160];" data-hasqtip="68" oldtitle="Phenotype of the Month" title="">Cxcr2</a></p></span>
+                                        <span class="field-content"><p><a name="phenotype-of-the-month-view" href="/phenotypeofthemonth" class="simple-dialog simpleDialogProcessed" style="font-size: 1.5em;" rel="width:680;position:[center,160];" data-hasqtip="68" oldtitle="Phenotype of the Month" title="">Cxcr2</a></p></span>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +84,7 @@
                                 <div class="views-row views-row-1 views-row-odd views-row-first">
                                     <div class="views-field views-field-title">
 							<span class="field-content">
-								<a href="/content/3i-consortium-meeting" target="_blank">3i consortium meeting</a>
+								<a href="/3i-consortium-meeting" target="_blank">3i consortium meeting</a>
 							</span>
                                     </div>
                                     <div class="views-field views-field-body">
@@ -99,7 +96,7 @@
                                 <div class="views-row views-row-2 views-row-even views-row-last">
                                     <div class="views-field views-field-title">
 							<span class="field-content">
-								<a href="/content/wgc-advanced-course-immunophenotyping" target="_blank">WGC Advanced Course Immunophenotyping</a>
+								<a href="/wgc-advanced-course-immunophenotyping" target="_blank">WGC Advanced Course Immunophenotyping</a>
 							</span>
                                     </div>
                                     <div class="views-field views-field-body">
@@ -141,7 +138,7 @@
             <div id="block-block-3" class="block block-block">
                 <div class="content"><div style="width: 100%; text-align: center; padding-bottom: 20px;">
                     <div style="width: 500px; margin: auto;">
-                        <form id="home-search-form" action="/data/heatmap" method="get">
+                        <form id="home-search-form" action="/data" method="get">
                             <input id="home-search-box" name="gene" style="width: 300px;" type="text" placeholder="Search by gene or phenotype..."/>
                             <input id="home-search-submit" class="btn" style="width: 200px;" type="submit" value="Advanced Search"/>
                         </form>
@@ -206,31 +203,33 @@
                     <span><a href="http://www.boneandcartilage.com"  target="_blank">OBCD</a></span> and
                     <span><a href="https://dmdd.org.uk/" target="_blank"> DMDD </a> </span>, that look at bone and cartilage and embryonic development, respectively.</p>
                 <p>The 3i consortium aims to actively engage the scientific community. Please do not hesitate to leave a comment on the site or email us with ideas and suggestions.</p>
+                <p></p>
             </article>
         </div>
         <!--Left Main Ends-->
     </div>
     <!--Main Ends-->
 
-    <footer>
-        <div class="foot_content">
-            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-            <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
-            </ul> </div>
 
-        </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
-    </footer>
 
 </div>
+<footer>
+    <div class="foot_content">
+        <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+        <div  id="foot_list"> <ul>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+            <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+        </ul> </div>
+
+    </div>
+    <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
+</footer>
 
 <script type="text/javascript">
     /*<![CDATA[*/

@@ -10,11 +10,13 @@
 
 <body>
 <div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
+
     <th:block th:include="fragments/header::header"> </th:block>
+    <th:block th:include="fragments/slideshow::slideshow"></th:block>
 
     <div id="main" class="content">
 
-        <div id="welcome" style="top:200px; font-size:30px" >
+        <div id="welcome" style="top:200px; font-size:30px;z-index: 9999;" >
             <h1>METHODS </h1>
         </div><br/>
         <div class="intro1"><h2 style=" font-size:30px ">The Mice </h2> </div>
@@ -314,8 +316,8 @@
     </div>
 </div>
 
-<th:block th:include="fragments/footer::footer1"> </th:block>
 
+<th:block th:include="fragments/footer::footer1"> </th:block>
 
 <script type="text/javascript">
     /*<![CDATA[*/

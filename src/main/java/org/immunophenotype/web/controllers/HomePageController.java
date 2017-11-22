@@ -45,5 +45,17 @@ public class HomePageController {
     @RequestMapping("/contactform")
     public String contactformController(Model model){ return  "contactform"; }
 
+    @RequestMapping("/3i-consortium-meeting")
+    public String consortiummeetingController(Model model){ return  "3i-consortium-meeting"; }
+
+    @RequestMapping("/wgc-advanced-course-immunophenotyping")
+    public String wgcController(Model model){return "wgc-advanced-course-immunophenotyping";}
+
+    @RequestMapping("/image-acknowledgements")
+    public String imageackController(Model model){return "image-acknowledgements";}
+
+    @RequestMapping("/phenotypeofthemonth")
+    public String PhenotypeController(Model model){return "phenotypeofthemonth";}
+
 
 }

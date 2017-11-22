@@ -2016,7 +2016,7 @@ div.views-slideshow-controls-bottom{
 
 footer {
     position: absolute;
-    top: 1182px;
+    top: 1220px;
     width: 100%;
     height: 150px;
     color: white;
@@ -2187,15 +2187,4 @@ footercontact {
     word-spacing:20px;
     left:0px;
 }
-.button_my3i{
 
-    background-color:#0978a1;
-    border: none;
-    text-decoration-color: white;
-    padding: 15px 50px;
-    display: inline-block;
-    font-size: 30px;
-    margin: 4px 2px;
-    cursor: pointer;
-    text-align:center;
-}

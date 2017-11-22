@@ -7,13 +7,13 @@
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
     <title> Learnmore page</title>
 </head>
-<body style="height:1054px;">
+<body>
 <div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <th:block th:include="fragments/header::header"> </th:block>
+    <th:block th:include="fragments/slideshow::slideshow"></th:block>
+    <div id="main" class="content" style="height: 800px;">
 
-    <div id="main" class="content" style="height: 1800px;">
-
-        <div id="welcome" style="top:200px; font-size:30px" >
+        <div id="welcome" style="top:200px; font-size:30px;z-index: 9999;" >
             <h1>Learn more </h1>
         </div><br/>
         <p></p>
@@ -37,25 +37,27 @@
         </div>
 
 </div>
-    <footer>
-        <div class="foot_content">
-            <a style="text-decoration: none; color: white;" href="/">HOME</a>
-            <a style="text-decoration: none; color: white;" href="/data">DATA</a>
-            <a style="text-decoration: none; color: white;" href="/analysis">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" href="/methods">METHODS</a>
-            <a style="text-decoration: none; color: white;" href="/contact">CONTACT</a>
-            <a style="text-decoration: none; color: white;" href="/learnmore">LEARNMORE</a>
-            <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" href="#">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" href="#">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" href="#">Publications</a> </li>
-            </ul> </div>
 
-        </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
-    </footer>
+
 </div>
 
+<footer>
+    <div class="foot_content">
+        <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+        <div  id="foot_list"> <ul>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+            <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+        </ul> </div>
+
+    </div>
+    <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
+</footer>
 
 </body>
 </html>

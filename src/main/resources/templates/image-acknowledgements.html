@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
+    <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title> Image acknowledgements page</title>
+</head>
+
+<body>
+<div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
+    <th:block th:include="fragments/header::header"> </th:block>
+
+    <div id="main" class="content">
+
+        <div id="welcome" style="top:200px; font-size:30px" >
+            <h1>Image acknowledgements </h1>
+        </div><br/>
+        <p></p>
+        <div id="region region-content" style="width:68%; float:left;">
+            <div class="intro"><h2 style=" font-size:25px ">We would like to acknowledge the images used within this website. </h2> </div>
+            <p></p>
+            <p></p>
+            <img th:src="@{/images/Image-acknowledgements-images/Macrophageinfected1639E47-ack.jpg}" href="..static/images/Image-acknowledgements-imagess/Macrophageinfected1639E47-ack.jpg" width="200" height="200"  align="left" />
+
+            <img th:src="@{/images/Image-acknowledgements-images/Salmonella-ack.jpg}" href="..static/images/Image-acknowledgements-images/Salmonella-ack.jpg"  width="200" height="200" align="right"/>
+             <p></p>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

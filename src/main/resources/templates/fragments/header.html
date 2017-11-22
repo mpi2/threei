@@ -27,7 +27,7 @@
                         <div class="content">
                             <ul class="menu" th:with="view=${#httpServletRequest.getServletPath()}">
                             <li class="first leaf" th:classappend="${#strings.equals(view,'/') ? 'active' : ''}"><a th:href="@{/}">HOME</a></li>
-                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/data') ? 'active' : ''}"><a th:href="@{/data/heatmap}">DATA</a></li>
+                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/data') ? 'active' : ''}"><a th:href="@{/data}">DATA</a></li>
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/analysis') ? 'active' : ''}"><a th:href="@{/analysis}">ANALYSIS</a></li>
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/methods') ? 'active' : ''}"><a th:href="@{/methods}">METHODS</a></li>
                             <li class="leaf" th:classappend="${#strings.startsWith(view,'/contact') ? 'active' : ''}"><a th:href="@{/contact}">CONTACT</a></li>
@@ -45,133 +45,7 @@
         </header>
         <!--End of Header-->
         <!--Main Starts-->
-        <div id="main">
-            <!--Side bar Starts-->
-            <aside id="sidebar">
-                <div class="region region-sidebar-second">
-                    <div id="block-views-phenotype-of-the-month-block-1" class="block block-views">
-                        <div class="head">Phenotype of the Month</div>
-                        <div class="content">
-                            <div class="view view-phenotype-of-the-month view-id-phenotype_of_the_month view-display-id-block_1 view-dom-id-aea57fa4b3e8167014066f06dcf76299">
-                                <div class="view-content">
-                                    <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
-                                        <div class="views-field views-field-php">
-                                            <span class="field-content"><p><a name="phenotype-of-the-month-view" href="/phenotype-of-the-month" class="simple-dialog simpleDialogProcessed" style="font-size: 1.5em;" rel="width:680;position:[center,160];" data-hasqtip="68" oldtitle="Phenotype of the Month" title="">Cxcr2</a></p></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div id="block-block-23" class="block block-block">
-                        <div class="content">
-
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-
-
-                    <div id="block-block-2" class="block block-block">
-                        <div class="content">
-                            <p><a href="http://www.wellcome.ac.uk/" target="_blank">
-
-
-                                <img th:src="@{/images/slider/wt_logo.png}" href="../static/images/slider/wt_logo.png" width="300" height="39"/></a><br></br><a href="https://www.immunology.org/" target="_blank"></a>
-                                <img th:src="@{/images/slider/bsi_logo-250x52.png}"
-                                     href="../static/images/slider/bsi_logo-250x52.png" target="blank"  width="250" height="52"/><br></br>
-                                <img th:src="@{/images/slider/impc_logo-150x50.png}"
-                                     href="../static/images/slider/impc_logo-150x50.png" width="150" height="50"/></p>
-
-
-                            <div class="clear"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </aside>
-            <!--Side bar Ends-->
-            <!--Left Main Starts-->
-            <div id="region region-content" style="width:68%; float:left;">
-                <div id="block-block-3" class="block block-block">
-                    <div class="content"><div style="width: 100%; text-align: center; padding-bottom: 20px;">
-                        <div style="width: 500px; margin: auto;">
-                            <form id="home-search-form" action="/data/heatmap" method="get">
-                                <input id="home-search-box" name="gene" style="width: 300px;" type="text" placeholder="Search by gene or phenotype..."/>
-                                <input id="home-search-submit" class="btn" style="width: 200px;" type="submit" value="Advanced Search"/>
-                            </form>
-                        </div>
-                    </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-
-                <div class="slideshow-container">
-
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/ANA746a.jpg}" href="../static/images/slider/ANA746a.jpg"  style="width:100%"  />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/CD8cellattacking745.jpg}" href="../static/images/slider/CD8cellattacking.jpg"  style="width:100%"  />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/Diff count 5b10e.jpg}"
-                             href="../static/images/slider/Diff count 5b10e.jpg" style="width:100%" />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/Ear epidermis resized_0ba5a.png}"
-                             href="../static/images/slider/Ear epidermis resized_0ba5a.png" style="width:100%" />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/FACS Plot resized7d67.png}"
-                             href="../static/images/slider/FACS Plot resized7d67.png" style="width:100%" />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/GutL3_lowvac_0040 small0a9d.jpg}"
-                             href="../static/images/slider/GutL3_lowvac_0040 small0a9d.jpg" style="width:100%" />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/Influenza in respiratory tract - resized2369.jpg}"
-                             href="../static/images/slider/Influenza in respiratory tract - resized2369.jpg" style="width:100%" />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/Macrophage infected1639E47 - resized074c.jpg}"
-                             href="../static/images/slider/Macrophage infected1639E47 - resized074c.jpg" style="width:100%" />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/Neutrophil - resizedda33.jpg}"
-                             href="../static/images/slider/Neutrophil - resizedda33.jpg" style="width:100%" />
-                    </div>
-                    <div class="mySlides fade">
-                        <img th:src="@{/images/slider/Salmonella - resized145f.jpg}"
-                             href="../static/images/slider/Salmonella - resized145f.jpg" style="width:100%" />
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
-
-
-
-    <script type="text/javascript">
-        /*<![CDATA[*/
-        var slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 5000); // Change image every 2 seconds
-        }
-        /*]]>*/
-    </script>
 </div>
 </body>
 

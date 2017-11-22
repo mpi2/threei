@@ -12,6 +12,7 @@
 <body>
 <div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <th:block th:include="fragments/header::header"> </th:block>
+    <th:block th:include="fragments/slideshow::slideshow"></th:block>
 
     <div id="main" class="content">
         <div id="welcome" style="top:200px; font-size:30px" >
@@ -44,7 +45,7 @@
             </div>
             <p></p>
             <p></p>
-            <p><a href="https://3i.vidavia.net/"  target="_blank" class="button_my3i" ><b>My 3i</b></a></p>
+            <p><a href="https://3i.vidavia.net/"  target="_blank" class="btn" style="padding: 15px 60px; background-color: #0978A1; font-size:20px;" ><b>My 3i</b></a></p>
             <p></p>
             <p></p>
             <p><img th:src="@{/images/contact-images/map.png}" href="..static/images/contact-images/map.png" width="300" height="450"/></p>
