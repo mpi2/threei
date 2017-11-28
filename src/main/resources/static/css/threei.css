@@ -10,15 +10,16 @@ html, body, div, applet, object, iframe, h1,h2, h3, h4, h5, h6, p, a, img, ol, u
     vertical-align: baseline;
     margin: 0;
     padding: 0;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 input, textarea, select, body {
     background: #fff;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
     font-weight: 400;
     font-size: 100%;
     line-height: 1.3em;
     color: #666;
+
 }
 #header {
     padding: 1.1em 0;
@@ -45,7 +46,7 @@ input, textarea, select, body {
     float: left;
     font-size: 1.2em;
     margin-right: 0.3em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ol, ul {
     list-style: none;
@@ -71,12 +72,12 @@ ol, ul {
     color: #666;
     display: block;
     padding: 0.3em 0.6em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 li {
     display: list-item;
     text-align: -webkit-match-parent;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #mn ul ul {
     transform: rotateX(30deg);
@@ -101,7 +102,7 @@ li {
     margin-right: 0;
     border-left: #ccc 1px solid;
     border-right: #ccc 1px solid;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 #mn li li a {
     border-left: none;
@@ -144,7 +145,7 @@ div#block-block-1 .head, #block-views-phenotype-of-the-month-block-1 .head {
     font-size: 1.4em;
     text-align: center;
     border-radius: 4px 4px 0px 0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .region-sidebar-second p{
     font-size:1em;
@@ -214,7 +215,7 @@ input.auto{
     position:absolute;
     font-size:0.8em;
     margin-top:-4px;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 .one-sidebar .region-content{
     width:68%;
@@ -229,7 +230,7 @@ input.auto{
     line-height:0.8em;
     font-size:1em;
     color:#fff;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #block-system-user-menu li,#tn li{
     float:left;
@@ -247,12 +248,12 @@ input.auto{
     text-decoration:underline;
 }
 #messages:before{
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
     position:absolute;
     margin-left:-1.25em;
 }
 #my-impc:before,#login:before,#logout:before,#register:before,#logout:before{
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
     position:absolute;
     margin-left:-1em;
 }
@@ -306,13 +307,13 @@ input.auto{
     font-size:1.5em;
     float:left;
     padding-right:0.7em;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 #footersitemap li li{
     font-size:0.8em;
     float:none;
     width:auto;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 #footersitemap ul ul{
     margin-top:0.5em;
@@ -337,7 +338,7 @@ input.auto{
     z-index:0;
     margin-top:-4em;
     font-size:0.8em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .breadcrumb a{
     color:#666;
@@ -457,7 +458,7 @@ p.editlink{
     margin-left:1em;
     padding-left:1em;
     font-weight:400;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #flyingnavi li + li{
     border-left:#fff 1px solid;
@@ -496,7 +497,7 @@ p.editlink{
     margin-left:1em;
     padding-left:1em;
     font-weight:400;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 #block-menu-menu-goals-anchor-menu li + li{
     border-left:#fff 1px solid;
@@ -517,7 +518,7 @@ p.editlink{
     font-weight:300;
     color:#333;
     letter-spacing:-0.01em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .view-header i,.block .head i{
     margin-right:0.3em;
@@ -528,11 +529,11 @@ p.editlink{
 .region-content .view-header,.region-content .block .head{
     font-size:1.8em;
     margin-bottom:0.5em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .region-sidebar-first .block .head,.region-sidebar-second .block .head{
     font-size:1.4em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .region-sidebar-first .block,.region-sidebar-second .block{
     border:#ddd 1px solid;
@@ -572,7 +573,7 @@ p.editlink{
     font-size:1.2em;
     border:none;
     color:#0978a1;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #sicon{
     position:absolute;
@@ -580,7 +581,7 @@ p.editlink{
     margin-left:0.5em;
     margin-top:0.6em;
     font-size:1.2em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .reposition{
     position:absolute;
@@ -619,12 +620,12 @@ p.editlink{
     float:left;
     font-size:1.2em;
     margin-top:0.5em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #slogantext h1{
     margin:0;
     font-size:2.2em;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 .view-latest-news .view-header,.block-system .block-views .head{
     padding:0.5em;
@@ -645,7 +646,7 @@ p.editlink{
 }
 .views-field-field-date,.date{
     font-size:0.9em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #slider{
     background:#eee;
@@ -697,7 +698,7 @@ p.editlink{
     padding:0.5em 0.3em !important;
     font-size:0.9em;
     list-style:none;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .sliderbar li.active{
     color:#0978a1;
@@ -707,7 +708,7 @@ p.editlink{
     font-size:1.5em;
     margin-bottom:1em;
     color:#0978a1;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .columns,.spalten{
     -moz-column-count:2;
@@ -750,7 +751,7 @@ img.fullimg{
     margin-top:0.5em;
 }
 .oklist li:before{
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
     content:"\f00c";
     position:absolute;
     margin-left:-1.2em;
@@ -768,12 +769,12 @@ th{
     font-size:1.2em;
     color:#333;
     border-bottom:#777 1px solid;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 @media only screen and (min-width:1450px){
     th{
         font-size:1.4em;
-        font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+        font-family:"Euphemia UCAS","Kannada Sangam MN";
     }
 }
 th a{
@@ -788,7 +789,7 @@ th i{
 }
 .reduceheader th{
     font-size:1.3em;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 td{
     border-bottom:#efefef 1px solid;
@@ -807,7 +808,7 @@ td .title{
     font-size:1.4em;
     margin-bottom:0.5em;
     font-weight:600;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 td .title a{
     text-decoration:none;
@@ -823,14 +824,14 @@ tr .subinfo{
     font-size:0.9em;
     line-height:1em;
     color:#aaa;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 tr:hover .subinfo{
     visibility:visible;
 }
 .label{
     font-weight:600;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 .loadmore td{
     color:#666;
@@ -846,7 +847,7 @@ tr:hover .subinfo{
     font-size:inherit;
     font-weight:inherit;
     border:none;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div.with-label,p.with-label{
     padding-left:150px;
@@ -910,7 +911,7 @@ div.no-margin + p,p.no-margin + p{
     font-weight:600;
     padding-left:0.2em;
     padding-top:0.5em;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 #facet .facetSubCat:hover td{
     background:none;
@@ -923,10 +924,10 @@ div.no-margin + p,p.no-margin + p{
     padding-left:0.8em;
     font-size:1.4em;
     cursor:pointer;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .geneSubTypeTrCap td:before,.facetSubCat td:before,.facetCat:before{
-    font-family:'FontAwesome',"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";;
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
     content:"\f0da";
     position:absolute;
     margin-left:-0.8em;
@@ -948,7 +949,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
     font-size:0.8em;
     right:0.2em;
     margin-top:-2em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .imgSubfacetCount,.geneSubfacetCount{
     text-align:right;
@@ -965,7 +966,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
 }
 .geneSubfacet.highlight{
     font-weight:600;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #geneFacet,#mpFacet,#pipelineFacet{
     margin-bottom:1em;
@@ -1005,7 +1006,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
     color:#0978A1;
 }
 .section.collapsed .title:before{
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
     content:"\f0da";
     position:absolute;
     margin-left:-0.8em;
@@ -1041,11 +1042,11 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
 }
 .fieldset-description,.form-item label{
     font-weight:600;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 .form-item label.option{
     font-weight:inherit;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 .form-required{
     color:#ccc;
@@ -1059,7 +1060,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
 }
 .mollom-switch-captcha{
     font-size:0.8em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #edit-mollom-captcha{
     width:auto;
@@ -1082,7 +1083,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
 }
 .messages .placeholder{
     font-weight:600;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .messages ul{
     margin:0 !important;
@@ -1094,7 +1095,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
     z-index: 10;
     font-size: 30px;
     padding: 10px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-views-news-block a:HOVER{
     text-decoration:underline;
@@ -1105,7 +1106,7 @@ div#block-views-news-block .view-display-id-block:before{
     content:"Latest News:";
     float:left;
     padding-right:10px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div.views-slideshow-controls-bottom{
     visibility:hidden;
@@ -1123,7 +1124,7 @@ div#block-block-1  .head,#block-views-phenotype-of-the-month-block-1 .head{
     font-size:1.4em;
     text-align:center;
     border-radius:4px 4px 0px 0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-1  .content,#block-views-phenotype-of-the-month-block-1 .content{
     color:#fff;
@@ -1132,16 +1133,16 @@ div#block-block-1  .content,#block-views-phenotype-of-the-month-block-1 .content
     text-align:center;
     border-radius:0px 0px 4px 4px;
     font-weight:600;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-1  .content A,#block-views-phenotype-of-the-month-block-1 .content A{
     text-decoration:none;
     color:#fff;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-1  .content A:HOVER,#block-views-phenotype-of-the-month-block-1 .content A:HOVER{
     font-weight:bold;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-views-news-page-block{}div#block-views-news-page-block .content{
                                      border-top:1px #ddd solid;
@@ -1175,7 +1176,7 @@ div#block-block-2 .content{
     background:none;
     text-align:center;
     min-width:300px !important;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-3{
 
@@ -1188,7 +1189,7 @@ div#block-block-4  .head{
     background-color:#FF8000;
     text-align:center;
     border-radius:8px 8px 0px 0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-4  .content{
     color:#FFF;
@@ -1196,11 +1197,11 @@ div#block-block-4  .content{
     text-align:center;
     padding-bottom:30px;
     border-radius:0px 0px 8px 8px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-4  .content p{
     font-size:3.0em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-5{
     border:none;
@@ -1210,7 +1211,7 @@ div#block-block-5  .head{
     background-color:#0978a1;
     text-align:center;
     border-radius:8px 8px 0px 0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-5  .content{
     color:#FFF;
@@ -1218,23 +1219,23 @@ div#block-block-5  .content{
     text-align:center;
     padding-bottom:30px;
     border-radius:0px 0px 8px 8px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-5  .content p{
     font-size:3.0em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list{
     list-style-type:none;
     padding:0px;
     margin:0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li{
     color:#0978a1;
     font-size:1.2em;
     margin-bottom:0.5em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li.b1:before{
     display:block;content:" ";
@@ -1244,7 +1245,7 @@ ul#about-list li.b1:before{
     border-radius:8px;
     float:left;
     margin:3px 5px 0px 20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li.b2:before{
     display:block;content:" ";
@@ -1254,7 +1255,7 @@ ul#about-list li.b2:before{
     border-radius:8px;
     float:left;
     margin:3px 5px 0px 20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li.b3:before{
     display:block;content:" ";
@@ -1264,7 +1265,7 @@ ul#about-list li.b3:before{
     border-radius:8px;
     float:left;
     margin:3px 5px 0px 20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li.b4:before{
     display:block;content:" ";
@@ -1274,7 +1275,7 @@ ul#about-list li.b4:before{
     border-radius:8px;
     float:left;
     margin:3px 5px 0px 20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li.b5:before{
     display:block;content:" ";
@@ -1284,7 +1285,7 @@ ul#about-list li.b5:before{
     border-radius:8px;
     float:left;
     margin:3px 5px 0px 20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li.b6:before{
     display:block;
@@ -1295,7 +1296,7 @@ ul#about-list li.b6:before{
     border-radius:8px;
     float:left;
     margin:3px 5px 0px 20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 ul#about-list li.b7:before{
     display:block;
@@ -1306,7 +1307,7 @@ ul#about-list li.b7:before{
     border-radius:8px;
     float:left;
     margin:3px 5px 0px 20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div.pane-views-members-block{
     padding-top:2em;
@@ -1316,7 +1317,7 @@ div.view-members div.views-field-title{
     font-weight:bold;
     color:#000;
     padding-bottom:5px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div.view-members div.views-row{
     border-bottom:1px #ddd solid;
@@ -1332,7 +1333,7 @@ div.view-members div.views-field-field-member-body{
 }
 div.view-members div.views-field-field-member-body h1{
     font-size:1.2em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div.view-members div.views-field-field-member-body A{
     text-decoration:none;
@@ -1377,7 +1378,7 @@ div.view-members div.views-field-field-member-logo img{
     -o-border-radius:8px;
     -ms-border-radius:8px;
     border-radius:8px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #home-search-box{
     padding:8px 7px 7px 7px;
@@ -1390,21 +1391,21 @@ div.view-members div.views-field-field-member-logo img{
     -o-border-radius:8px;
     -ms-border-radius:8px;
     border-radius:8px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .front div.content > h1,h2.has-img{
     position:absolute;
     z-index:11;
     background:#fff;
     padding:2px 8px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .front div.content > h1{
     margin-top:-100px;
 }
 h2.has-img{
     margin-top:15%;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div.node > img{
     width:auto;
@@ -1444,12 +1445,12 @@ div.node > img{
 .view-news-page .date-display-single{
 
     font-size:0.8em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #block-views-news-page-block .head{
     font-size:1.5em;
     text-transform:uppercase;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 .front .region-content{
 }
@@ -1465,7 +1466,7 @@ div.node > img{
 }
 .map-table{
     font-size:0.7em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .map-table tr{
 
@@ -1476,7 +1477,7 @@ div.node > img{
     border-bottom:none;
 }
 #node-5 h3{
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
     line-height:1.1em;
     font-size:1.5em;
     margin-bottom:0;
@@ -1535,7 +1536,7 @@ div.node > img{
 }
 #simple-dialog-container{
     font-size:smaller;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 #simple-dialog-container li{
     list-style-type:disc;
@@ -1543,7 +1544,7 @@ div.node > img{
 }
 #simple-dialog-container strong{
     font-size:larger;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 a[href$='.pdf']{
     padding:5px 20px 5px 0;
@@ -1620,7 +1621,7 @@ ul.ul-pdf{
     padding:2em;
     border:#ddd 1px solid;
     border-radius:4px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .view-id-heatmap td.cell-link{
     cursor:pointer;
@@ -1641,7 +1642,7 @@ td.rotated_cell{
     font-size:1em;
     padding:6px;
     overflow:hidden;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 td.rotated_cell > div{
     display:inline-block;
@@ -1702,13 +1703,13 @@ td.rotated_cell > div:before{
     text-decoration: none;
     color: #aaa;
     font-size: 0.9em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 #heatmap td>a:HOVER {
     color: #0978a1;
     text-decoration: underline;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 div#block-block-23 {border: none;}
@@ -1735,7 +1736,7 @@ div#block-heatmap-stats-KO .content {
     font-weight: bold;
     font-size: 1.5em;
     padding-bottom: 15px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 div#block-heatmap-stats-phenotypes {
@@ -1744,7 +1745,7 @@ div#block-heatmap-stats-phenotypes {
     border-radius: 4px;
     color: white;
     float: right;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";;
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 div#block-heatmap-stats-phenotypes .head {color: white;}
@@ -1754,7 +1755,7 @@ div#block-heatmap-stats-phenotypes .content {
     font-weight: bold;
     font-size: 1.5em;
     padding-bottom: 15px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 .heatmap_pager {padding-top: 10px;}
@@ -1770,7 +1771,7 @@ div#block-heatmap-stats-phenotypes .content {
     background-color: #eee;
     line-height: 35px;
     font-size: 1.3em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 .heatmap_pager a.prev {border-radius: 10px 0px 0px 10px;}
@@ -1780,7 +1781,7 @@ div#block-heatmap-stats-phenotypes .content {
 .heatmap_pager a.current {
     font-weight: bold;
     color: #88f !important;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 
 .heatmap_pager a:HOVER {
@@ -1874,7 +1875,7 @@ div#heatmap-filters button {
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 
 div#heatmap-filters button:HOVER {background-color: rgb(27,120,154);}
@@ -1901,7 +1902,7 @@ div#heatmap A {
     text-decoration: none;
     color: #aaa;
     font-size: 0.9em;
-    font-family:"Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 
 div#heatmap A:HOVER {
@@ -2019,7 +2020,7 @@ div#block-block-25 .content {
     font-size: 1.4em;
     text-align: center;
     border-radius: 4px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 div#block-block-25 A {
     color: #fff;
@@ -2090,7 +2091,7 @@ div#block-views-news-block .view-display-id-block:before{
     content:"Latest News:";
     float:left;
     padding-right:10px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 
 }
 div.views-slideshow-controls-bottom{
@@ -2108,17 +2109,17 @@ footer {
     clear: left;
     padding:50px;
     word-spacing:20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .foot_content{
     position:absolute;
     left:340px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 #foot_list{
     position: absolute;
     left:445px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 .intro {
     padding-bottom: 50px;
@@ -2136,7 +2137,7 @@ footer {
     font-size: 1.5em;
     margin-bottom: 1em;
     color: #0978a1;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .intro1 {
     padding-bottom: 10px;
@@ -2144,7 +2145,7 @@ footer {
     font-size: 1em;
     margin-top: 220px;
     margin-bottom: 1em;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 
 }
 #accordian1_main{
@@ -2166,7 +2167,7 @@ button.accordion {
     padding:0.3em 0.3em 0.3em 0.5em;
     width: 100%;
     text-align: left;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 button.accordion.active, button.accordion:hover {
@@ -2181,7 +2182,7 @@ div.panel {
     border-radius: 4px 4px 0 0;
     border-style: solid;
     border-color: #eee;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 
 
 }
@@ -2192,7 +2193,7 @@ span{
     vertical-align: baseline;
     text-decoration: underline;
     color: #0978a1; text-decoration-style: solid; cursor: pointer;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 
@@ -2207,25 +2208,25 @@ span1{
     padding: 0;
     color:#0978a1;
     text-decoration-style: solid; cursor: pointer;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family:"Euphemia UCAS","Kannada Sangam MN";
 }
 article span a:visited {
     color: #0978a1;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .ul-pdf li span a:visited {
     color: #0978a1;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 .ul-pdf li span a {
     color: #0978a1;
     padding-bottom: 5px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 a, a:hover, a:visited{
     color: #0978a1;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 footer1 {
     position: absolute;
@@ -2236,7 +2237,7 @@ footer1 {
     clear: left;
     padding:50px;
     word-spacing:20px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 .panel_glossary {
@@ -2252,11 +2253,11 @@ footer1 {
     color: white;
     font-size: 25px;
     width: 623px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 .fa {
     display: inline-block;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
     font-style: normal;
     font-weight: normal;
     line-height: 1;
@@ -2271,7 +2272,7 @@ div#block-block-contact {
     font-size: 1em;
     text-align:left;
     border-radius: 4px 4px 0px 0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 footercontact {
     position: absolute;
@@ -2284,7 +2285,7 @@ footercontact {
     padding:50px;
     word-spacing:20px;
     left:0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 footerack {
@@ -2295,9 +2296,9 @@ footerack {
     color: white;
     background-color: #666;
     clear: left;
-    padding:50px;
-    word-spacing:20px;
-    left:0px;
-    font-family: "Fira Code","Fira Code Light","Fira Code Medium","Fira Code Retina";
+    padding: 50px;
+    word-spacing: 20px;
+    left: 0px;
+    font-family: "Euphemia UCAS", "Kannada Sangam MN";
 }
 

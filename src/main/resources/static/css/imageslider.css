@@ -1,5 +1,5 @@
 * {box-sizing:border-box}
-body {font-family: Verdana,sans-serif;}
+body {font-family: "Euphemia UCAS","Kannada Sangam MN";}
 .mySlides {display:none}
 
 /* Slideshow container */
@@ -19,7 +19,7 @@ body {font-family: Verdana,sans-serif;}
   bottom: 8px;
   width: 100%;
   text-align: center;
-  font-family: "Helvetica Neue";
+  font-family: "Euphemia UCAS","Kannada Sangam MN";
 }
 
 /* Fading animation */
