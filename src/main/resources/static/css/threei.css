@@ -1924,9 +1924,11 @@ div.rotate > div {
     width: 30px;
 }
 
-div.rotate > div > span {}
+div.rotate > div > span {
+    text-decoration: none;
+}
 
-div#heatmap-data {width: 652px;}
+div#heatmap-data {width: 620px;}
 
 div#heatmap-data  div.heatmap-row {
     height: 30px;
@@ -1955,9 +1957,14 @@ div#heatmap-data  div.cell {
     float: left;
 }
 
+h2 {
+    font-size: 2.5em;
+    letter-spacing: -1px;
+    margin-top: 20px;
+}
 div.heatmap-row {
     height: 30px;
-    line-height: 30px;
+    line-height: 27.5px;
 }
 
 div.cell {
@@ -2110,6 +2117,7 @@ footer {
     padding:50px;
     word-spacing:20px;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
+
 }
 .foot_content{
     position:absolute;
@@ -2238,6 +2246,7 @@ footer1 {
     padding:50px;
     word-spacing:20px;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
+
 }
 
 .panel_glossary {
