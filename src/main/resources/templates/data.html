@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
-    <link th:href="@{/css/heatmap.js}" href="../static/css/heatmap.js" type="text/javascript"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <title> Data page</title>
 </head>
 
@@ -18,7 +18,7 @@
 
     <div id="main" class="content">
 
-        <aside id="sidebar" style="position:absolute; top:400px ;left:700px;">
+        <aside id="sidebar" style="position:absolute; top:400px ;left:750px;">
 
             <div id="block-block-22" class="block block-block">
                 <div class="head" style="font-size: 1.4em;background: #eee; padding-left: 15px;padding-top: 15px; word-spacing: -0.2em; color: #333;">How to use this heat map:</div>
@@ -368,7 +368,23 @@
             </div>
         </div>
     </div>
+    <footerdata>
+        <div class="foot_content" >
+            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+            <div  id="foot_list"> <ul>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+            </ul> </div>
 
+        </div>
+        <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
+    </footerdata>
 </div>
 
 </body>
