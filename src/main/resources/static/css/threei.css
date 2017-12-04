@@ -2325,3 +2325,16 @@ footerdata {
     left:0px;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
+spandata{
+
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    color:black;
+    text-decoration-style: solid;
+    font-family:"source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
+}
