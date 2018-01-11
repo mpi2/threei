@@ -1,5 +1,9 @@
 package org.immunophenotype.web.controllers;
 
+import java.sql.SQLException;
+
+import org.immunophenotype.web.services.HeatmapService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomePageController {
 
+	@Autowired
+	HeatmapService heatmapService;
+	
     @GetMapping("/")
     public String homeController(Model model){ return  "index"; }
     @RequestMapping("/methods")
@@ -27,6 +34,17 @@ public class HomePageController {
 
     @RequestMapping("/data")
     public String dataController(Model model){
+    	System.out.println("calling data page");
+    	//need to get the data from a service so we can replace a data source behind it easily
+
+    	try {
+			heatmapService.getHeatmapRows();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
         return  "data";
     }
 
