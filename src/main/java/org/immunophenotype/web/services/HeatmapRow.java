@@ -32,6 +32,13 @@ public class HeatmapRow {
 		this.gene=gene;
 		this.construct=construct;
 	}
+
+	@Override
+	public String toString() {
+		return "HeatmapRow [gene=" + gene + ", construct=" + construct + ", procedureSignificance="
+				+ procedureSignificance + "]";
+	}
+	
 	
 
 }
