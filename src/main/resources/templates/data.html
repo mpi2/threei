@@ -50,15 +50,9 @@
 
                 <div class="content"><div id="node-203" class="node node-page">
                     <h2 class="page__title title" id="page-title">Data Search</h2>
+
 <p th:text="${columnHeaders}"></p>
-<p th:text="${heatmap_rows}"></p>
-<table>
-	<tr th:each="row : ${rows}">
-        <td th:text="${row.gene}">1</td>
-        <!-- <td><a href="#" th:text="${row.procedureName}">Procedure Name ...</a></td> -->
-        <td th:text="${row.construct}">Construct ...</td>
-    </tr>
-    </table>
+
                     <div class="clear"></div>
 
 
