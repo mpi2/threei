@@ -89,10 +89,11 @@
                             
                         </div>
 
-                        <script th:inline="javascript">
-                            /*<![CDATA[*/
 
-                         var heatmap_rows = /*[[${heatmap_rows}]]*/ 'defaultanyvalue';
+                        <script type="text/javascript" th:inline="javascript">
+                        /*<![CDATA[*/
+
+                         var heatmap_rows = /*[(${heatmap_rows})]*/ 'defaultanyvalue';
                         console.log(heatmap_rows);
                             var _heatmap_data_filtered = false;
                             var _heatmap_sortBy = null;
