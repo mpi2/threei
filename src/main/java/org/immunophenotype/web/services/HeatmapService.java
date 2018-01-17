@@ -27,6 +27,10 @@ public class HeatmapService {
 
             String gene = results.getString("Gene");
             String construct = results.getString("Construct");
+            if(construct.contains("(")){
+            	String [] constructs =construct.split("\\(");
+            	construct=constructs[0];
+            }
             String procedureName = results.getString("ProcedureName");
             String callType = results.getString("CallType");
             if (!rows.containsKey(gene)) {
@@ -70,8 +74,8 @@ public class HeatmapService {
         //1 not enough data yet
         //2 not significantly different from WT calls
         //3 high sig
-        //4 no data, call it 0 before display as ranks senisbly then
-        int monthNumber = 0;
+        //4 or 0 no data, call it 0 before display as ranks senisbly then
+        int rank = 0;
 
         if (significanceString == null) {
             return 0;
@@ -79,26 +83,27 @@ public class HeatmapService {
 
         switch (significanceString.toLowerCase()) {
             case "not significant":
-                monthNumber = 2;
+                rank = 2;
                 break;
-//            case "pending":
-//                monthNumber = 4;
-//                break;
+                //if 4 then call it 0 and change all 0s to 4s at the end when creating rows.
+            case "pending":
+                rank = 1;
+                break;
 //            case "not performed or applicable":
-//                monthNumber = 4;
+//                significance = 4;
 //                break;
             case "significant":
-                monthNumber = 3;
+                rank = 3;
                 break;
             case "early indication of possible phenotype":
-                monthNumber = 1;
+                rank = 1;
                 break;
             default:
-                monthNumber = 0;
+                rank = 0;
                 break;
         }
 
-        return monthNumber;
+        return rank;
 
     }
 

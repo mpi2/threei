@@ -46,6 +46,7 @@ public class HomePageController {
         try {
             List<HeatmapRow> rows = heatmapService.getHeatmapRows();
             List<String> columnHeaders = heatmapService.getDistinctProcedureNames(rows);
+            JSONArray columnHeadersJson=new JSONArray(columnHeaders);
 
             // JSON object representing the rows in the heatmap
             JSONArray heatmap = new JSONArray();
@@ -88,6 +89,7 @@ public class HomePageController {
 //            heatmapRows += ",]";
 
             model.addAttribute("columnHeaders", columnHeaders);
+            model.addAttribute("columnHeadersJson", columnHeadersJson);
             System.out.println("columnHeaders.size=" + columnHeaders.size());
             model.addAttribute("rows", rows);
 
