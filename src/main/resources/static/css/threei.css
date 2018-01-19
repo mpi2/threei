@@ -119,7 +119,7 @@ li {
     position: relative;
     width: 65%;
     min-width: 960px;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 25px;
 }
@@ -206,7 +206,7 @@ input.auto{
     position:relative;
     width:65%;
     min-width:960px;
-    max-width:1200px;
+    max-width:712px;
     margin:0 auto;
     padding:0 25px;
 }
@@ -1839,6 +1839,7 @@ div#heatmap-filters {
     padding: 10px;
     height: 75px;
     border-radius: 4px;
+    width: 712px;
 }
 
 div#heatmap-filters  > div.filter-gene {
@@ -1881,7 +1882,7 @@ div#heatmap-filters button {
 div#heatmap-filters button:HOVER {background-color: rgb(27,120,154);}
 
 div#heatmap-header {
-    width: 652px;
+    width: 712px;
     height: 210px;
     text-align: left;
     background: #fff;
@@ -1928,10 +1929,10 @@ div.rotate > div > span {
     text-decoration: none;
 }
 
-div#heatmap-data {width: 620px;}
+div#heatmap-data {width: 712px;}
 
 div#heatmap-data  div.heatmap-row {
-    height: 30px;
+    height: 32px;
     vertical-align: middle;
 }
 
@@ -1976,8 +1977,8 @@ div.cell-Blue {
     border: 1px solid #ccc;
     text-align: center;
     background-color: blue;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     float: left;
 }
 
@@ -1985,8 +1986,8 @@ div.cell-Green {
     border: 1px solid #ccc;
     text-align: center;
     background-color: green;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     float: left;
 }
 
@@ -1994,24 +1995,24 @@ div.cell-Grey {
     border: 1px solid #ccc;
     text-align: center;
     background-color: grey;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     float: left;
 }
 div.cell-Red {
     border: 1px solid #ccc;
     text-align: center;
     background-color: red;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     float: left;
 }
 div.cell-White {
     border: 1px solid #ccc;
     text-align: center;
     background-color: white;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     float: left;
 }
 div#heatmap-footer {width: 650px;}
