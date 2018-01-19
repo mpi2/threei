@@ -20,10 +20,11 @@ public class HeatmapService {
         Map<String, HeatmapRow> rows = new HashMap<>();
 
         Connection connection = komp2DataSource.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select * from threei_data_for_heat_map");// where Gene='Elac2' order by Gene");
+        PreparedStatement statement = connection.prepareStatement("select Gene, Construct, ProcedureName, CallType from threei_data_for_heat_map order by Gene");// where Gene='Elac2' order by Gene");
         ResultSet results = statement.executeQuery();
-        HeatmapRow row = null;
+
         while (results.next()) {
+
 
             String gene = results.getString("Gene");
             String construct = results.getString("Construct");
@@ -31,14 +32,18 @@ public class HeatmapService {
             	String [] constructs =construct.split("\\(");
             	construct=constructs[0];
             }
+
+            HeatmapRow row = null;
+            if (!rows.containsKey(gene)) {
+                row = new HeatmapRow(gene, construct);
+                rows.put(gene, row);
+            } else {
+                row = rows.get(gene);
+            }
+
             String procedureName = results.getString("ProcedureName");
             String callType = results.getString("CallType");
-            if (!rows.containsKey(gene)) {
-                if (row != null) {
-                    rows.put(row.getGene(), row);
-                }
-                row = new HeatmapRow(gene, construct);
-            }
+
             //System.out.println("adding result="+results.getString("Gene")+"|"+results.getString("Construct")+"|"+results.getString("ProcedureName")+"|"+results.getString("CallType")+"|"+results.getString("Gender"));
             if (!row.getProcedureSignificance().containsKey(procedureName)) {
                 row.getProcedureSignificance().put(procedureName, getRankFromSignificanceName(callType));//set rank for a new procedure
@@ -46,16 +51,17 @@ public class HeatmapService {
                 //assign the highest rank for a the procedure
                 row = this.setHighestRankForProcedure(row, procedureName, callType);
             }
-            //genes.add(results.getString("Gene"));
-            //genes.add(results.getString("Construct"));
 
         }
+
 
         List<HeatmapRow> heatmapRows = new ArrayList<>();
         for (String key : rows.keySet()) {
-            //System.out.println(rows.get(key));
             heatmapRows.add(rows.get(key));
         }
+
+
+
         return heatmapRows;
     }
 
@@ -117,12 +123,7 @@ public class HeatmapService {
         Set<String> uniqueProcedures = new HashSet<>();
         for (HeatmapRow row : rows) {
             Set<String> procedures = row.getProcedureSignificance().keySet();
-            for (String procedure : procedures) {
-                if (!uniqueProcedures.contains(procedure)) {
-                    uniqueProcedures.add(procedure);
-                }
-
-            }
+            uniqueProcedures.addAll(procedures);
         }
         return new ArrayList<>(uniqueProcedures);
     }
