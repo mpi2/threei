@@ -328,7 +328,8 @@
                                     case 2:		var param = value.split('*');
                                         var marker_symbol 	= param[0];
                                         var heatmap_col 	= param[1];
-                                        window.open('link?link=procedure&marker_symbol='+marker_symbol+'&heatmap_col='+heatmap_col); break;
+                                        var link='link?gene='+marker_symbol+'&procedure="'+column_headers[heatmap_col]+'"';
+                                        window.open(link); break;
                                     default:	break;
                                 }
                             }
