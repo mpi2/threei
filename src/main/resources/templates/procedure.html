@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/threei.css}" href="../static/css/threei.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title> Data page</title>
+</head>
+
+<body>
+<div id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
+    <th:block th:include="fragments/header::header"></th:block>
+
+
+    <div id="main" class="content">
+
+
+        <div class="clear"></div>
+        <h1>Procedure [(${procedure})] data for gene [(${gene})]</h1>
+
+        <div class="content">
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Female Hom</th>
+                    <th>Male Hom</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <!-- Loop through the parameters for this gene -->
+
+                <tr th:each="parameter : ${parameters}">
+                    <td th:text="${parameter.name}">parameter name</td>
+                    <td th:text="${parameter.maleSignificant}">male significant</td>
+                    <td th:text="${parameter.femaleSignificant}">female significant</td>
+                </tr>
+
+
+                </tbody>
+
+            </table>
+
+            <p th:text="${parameters}"></p>
+
+
+            <div class="clear"></div>
+        </div>
+
+    </div>
+    <footerdata>
+        <div class="foot_content">
+            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+            <div id="foot_list">
+                <ul>
+                    <li><a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+                    <li><a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+                    <li><a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
+    </footerdata>
+</div>
+
+</body>
+</html>

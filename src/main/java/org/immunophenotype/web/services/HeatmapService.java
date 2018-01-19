@@ -1,8 +1,8 @@
 package org.immunophenotype.web.services;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,13 +13,17 @@ import java.util.*;
 @Service
 public class HeatmapService {
 
-    @Autowired
-    DataSource komp2DataSource;
+    private DataSource dataSource;
+
+    public HeatmapService(DataSource dataSource) {
+        Assert.notNull(dataSource, "Datasource cannot be null");
+        this.dataSource = dataSource;
+    }
 
     public List<HeatmapRow> getHeatmapRows() throws SQLException {
         Map<String, HeatmapRow> rows = new HashMap<>();
 
-        Connection connection = komp2DataSource.getConnection();
+        Connection connection = dataSource.getConnection();
         PreparedStatement statement = connection.prepareStatement("select Gene, Construct, ProcedureName, CallType from threei_data_for_heat_map order by Gene");// where Gene='Elac2' order by Gene");
         ResultSet results = statement.executeQuery();
 
