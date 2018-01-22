@@ -24,7 +24,11 @@ public class DetailsPageController {
                            @RequestParam("procedure") String procedure) {
 
         Set<ParameterDetails> parameters = detailsService.getParametersForGeneAndProcedure(gene, procedure);
-
+        System.out.println("parameters.size="+parameters.size());
+        for(ParameterDetails details:parameters){
+        	System.out.println("parameterDetails="+details);
+        }
+        
         model.addAttribute("parameters", parameters);
         model.addAttribute("gene", gene);
         model.addAttribute("procedure", procedure);

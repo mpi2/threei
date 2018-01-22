@@ -8,32 +8,31 @@ public enum SignificanceType {
     // 4 no data call it 0 before display as ranks sensibly then
 
 
-    not_enough_data("1"),
-    not_significant("2"),
-    significant("3"),
-    no_data("4");
+    not_enough_data(1),
+    not_significant(2),
+    significant(3),
+    no_data(4);
 
-    private final String text;
-    SignificanceType(String text) {
-        this.text = text;
+    private final Integer manualCall;
+    SignificanceType(Integer manualCall) {
+        this.manualCall = manualCall;
+    }
+    
+
+    public Integer getManualCall() {
+        return this.manualCall;
+    }
+    
+    public String getManualCallText() {
+        return Integer.toString(this.manualCall);
     }
 
-    public String toString() {
-        return text;
-    }
 
-    /**
-     * convenience method for bean access from jsp
-     * @return
-     */
-    public String getText(){
-        return this.text;
-    }
 
-    public static SignificanceType fromString(String text) {
-        if (text != null) {
+    public static SignificanceType fromInt(Integer manualCall) {
+        if (manualCall != null) {
             for (SignificanceType b : SignificanceType.values()) {
-                if (text.equalsIgnoreCase(b.text)) {
+                if (manualCall==b.manualCall) {
                     return b;
                 }
             }

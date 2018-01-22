@@ -11,8 +11,35 @@
 
 <body>
 <div id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
-    <th:block th:include="fragments/header::header"></th:block>
+    <header id="header">
+            <div class="region region-header">
+                <div id="tn"></div>
+                <div id="logo">
+                    <a href="/"><img src="images/impc.png" alt="IMPC Logo"/></a>
+                    <!-- <div id="logoslogan">3i</div>  -->
+                </div>
+                <nav id="mn">  <div class="region region-mainnavi">
+                    <div id="block-system-main-menu" class="block block-system block-menu">
 
+                        <div class="content">
+                            <ul class="menu" th:with="view=${#httpServletRequest.getServletPath()}">
+                            <li class="first leaf" th:classappend="${#strings.equals(view,'/') ? 'active' : ''}"><a th:href="@{/}">HOME</a></li>
+                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/data') ? 'active' : ''}"><a th:href="@{/data}">DATA</a></li>
+                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/analysis') ? 'active' : ''}"><a th:href="@{/analysis}">ANALYSIS</a></li>
+                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/methods') ? 'active' : ''}"><a th:href="@{/methods}">METHODS</a></li>
+                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/contact') ? 'active' : ''}"><a th:href="@{/contact}">CONTACT</a></li>
+                            <li class="last expanded" th:classappend="${#strings.startsWith(view,'/learnmore') ? 'active' : ''}"><a th:href="@{/learnmore}">LEARN MORE</a>
+                                <ul class="menu"><li class="first leaf"><a href="/faq">FAQ</a></li>
+                                <li class="leaf"><a href="/glossary">Glossary</a></li>
+                                <li class="last leaf"><a href="/publications">Publications</a></li>
+                            </ul></li>
+                        </ul><div class="clear"></div></div>
+                    </div>
+                </div>
+                </nav>
+                <div class="clear"></div>
+            </div>
+        </header>
 
     <div id="main" class="content">
 
@@ -36,9 +63,10 @@
                 <!-- Loop through the parameters for this gene -->
 
                 <tr th:each="parameter : ${parameters}">
-                    <td th:text="${parameter.name}">parameter name</td>
-                    <td th:text="${parameter.maleSignificant}">male significant</td>
-                    <td th:text="${parameter.femaleSignificant}">female significant</td>
+                
+                    <td th:text="${parameter.name}">Viability</td>
+                    <td class="cell-Blue" th:text="${parameter.maleSignificant}">male significant</td>
+                    <td class="cell-Blue" th:text="${parameter.femaleSignificant}">female significant</td>
                 </tr>
 
 
