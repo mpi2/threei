@@ -8,14 +8,22 @@ public enum SignificanceType {
     // 4 no data call it 0 before display as ranks sensibly then
 
 
-    not_enough_data(1),
-    not_significant(2),
-    significant(3),
-    no_data(4);
+    not_enough_data(1, "Not Enough Data"),//grey
+    not_significant(2, "Not Significant"),//blue
+    significant(3, "Significant"),//red
+    no_data(4, "No Data");//white
 
     private final Integer manualCall;
-    SignificanceType(Integer manualCall) {
+    private final String label;
+    
+    public String getLabel() {
+		return label;
+	}
+
+
+	SignificanceType(Integer manualCall, String label) {
         this.manualCall = manualCall;
+        this.label=label;
     }
     
 

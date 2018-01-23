@@ -64,8 +64,10 @@
 
                 <div class="content"><div class="head" style="display:none;">3i Heatmap</div>
                     <div class="content">
-                        <div id="heatmap-filters"><div class="filter-gene">Gene Name<br/>
-                            <input id="heatmap_filter_gene" type="text" value=""/></div>
+                        <div id="heatmap-filters">
+                        <div class="filter-gene">Gene Name<br/>
+                            <input id="heatmap_filter_gene" type="text" value=""/>
+                            </div>
                             <div class="filter-construct">Construct<br/>
                                 <select id="heatmap_filter_construct">
                                     <option selected="">- Any -</option>
@@ -297,7 +299,8 @@
                             {
                                 _heatmap_start = 0;
                                 _heatmap_data_filtered = true;
-                                document.getElementById('impc_search').value=document.getElementById('heatmap_filter_gene').value;
+                                //document.getElementById('impc_search').value=document.getElementById('heatmap_filter_gene').value;
+                                document.getElementById('heatmap_filter_gene').value;
                                 _heatmap_render();
                             }
 

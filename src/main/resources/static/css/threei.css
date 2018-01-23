@@ -1982,6 +1982,15 @@ div.cell-Blue {
     float: left;
 }
 
+td.cell-Blue {
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: blue;
+    /* width: 32px;
+    height: 32px;
+    float: left; */
+}
+
 div.cell-Green {
     border: 1px solid #ccc;
     text-align: center;
@@ -1999,6 +2008,16 @@ div.cell-Grey {
     height: 32px;
     float: left;
 }
+
+td.not_enough_data {
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: grey;
+   /*  width: 32px;
+    height: 32px;
+    float: left; */
+}
+
 div.cell-Red {
     border: 1px solid #ccc;
     text-align: center;
@@ -2007,6 +2026,12 @@ div.cell-Red {
     height: 32px;
     float: left;
 }
+
+td.significant {
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: red;
+}
 div.cell-White {
     border: 1px solid #ccc;
     text-align: center;
@@ -2014,6 +2039,12 @@ div.cell-White {
     width: 32px;
     height: 32px;
     float: left;
+}
+
+td.no_data {
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: white;
 }
 div#heatmap-footer {width: 650px;}
 
