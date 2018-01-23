@@ -24,7 +24,7 @@ public class HeatmapService {
         Map<String, HeatmapRow> rows = new HashMap<>();
 
         Connection connection = dataSource.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select Gene, Construct, ProcedureName, CallType from threei_data_for_heat_map order by Gene");// where Gene='Elac2' order by Gene");
+        PreparedStatement statement = connection.prepareStatement("select Gene, Construct, ProcedureName, ManualCallId from threei_data_for_heat_map order by Gene");// where Gene='Elac2' order by Gene");
         ResultSet results = statement.executeQuery();
 
         while (results.next()) {
@@ -46,14 +46,14 @@ public class HeatmapService {
             }
 
             String procedureName = results.getString("ProcedureName");
-            String callType = results.getString("CallType");
-
+            Integer manualCallId = results.getInt("ManualCallId");
+            
             //System.out.println("adding result="+results.getString("Gene")+"|"+results.getString("Construct")+"|"+results.getString("ProcedureName")+"|"+results.getString("CallType")+"|"+results.getString("Gender"));
             if (!row.getProcedureSignificance().containsKey(procedureName)) {
-                row.getProcedureSignificance().put(procedureName, getRankFromSignificanceName(callType));//set rank for a new procedure
+                row.getProcedureSignificance().put(procedureName, manualCallId);//set rank for a new procedure
             } else {
                 //assign the highest rank for a the procedure
-                row = this.setHighestRankForProcedure(row, procedureName, callType);
+                row = this.setHighestRankForProcedure(row, procedureName, manualCallId);
             }
 
         }
@@ -69,7 +69,7 @@ public class HeatmapService {
         return heatmapRows;
     }
 
-    private HeatmapRow setHighestRankForProcedure(HeatmapRow row, String procedureName, String callType) {
+    private HeatmapRow setHighestRankForProcedure(HeatmapRow row, String procedureName, Integer callType) {
         Integer oldCall = row.getProcedureSignificance().get(procedureName);
         Integer newCall = this.getRankFromSignificanceName(callType);
         if (newCall > oldCall) {
@@ -79,7 +79,7 @@ public class HeatmapService {
 
     }
 
-    private Integer getRankFromSignificanceName(String significanceString) {
+    private Integer getRankFromSignificanceName(Integer significance) {
 
         //1 not enough data yet
         //2 not significantly different from WT calls
@@ -87,31 +87,31 @@ public class HeatmapService {
         //4 or 0 no data, call it 0 before display as ranks senisbly then
         int rank = 0;
 
-        if (significanceString == null) {
+        if (significance == null || significance==4) {
             return 0;
         }
 
-        switch (significanceString.toLowerCase()) {
-            case "not significant":
-                rank = 2;
-                break;
-                //if 4 then call it 0 and change all 0s to 4s at the end when creating rows.
-            case "pending":
-                rank = 1;
-                break;
-//            case "not performed or applicable":
-//                significance = 4;
+//        switch (significanceString.toLowerCase()) {
+//            case "not significant":
+//                rank = 2;
 //                break;
-            case "significant":
-                rank = 3;
-                break;
-            case "early indication of possible phenotype":
-                rank = 1;
-                break;
-            default:
-                rank = 0;
-                break;
-        }
+//                //if 4 then call it 0 and change all 0s to 4s at the end when creating rows.
+//            case "pending":
+//                rank = 1;
+//                break;
+////            case "not performed or applicable":
+////                significance = 4;
+////                break;
+//            case "significant":
+//                rank = 3;
+//                break;
+//            case "early indication of possible phenotype":
+//                rank = 1;
+//                break;
+//            default:
+//                rank = 0;
+//                break;
+//        }
 
         return rank;
 

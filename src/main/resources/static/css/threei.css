@@ -1982,7 +1982,7 @@ div.cell-Blue {
     float: left;
 }
 
-td.cell-Blue {
+td.not_significant {
     border: 1px solid #ccc;
     text-align: center;
     background-color: blue;

@@ -41,14 +41,10 @@
             </div>
         </header>
 
-    <div id="main" class="content">
-
-
-        <div class="clear"></div>
-        <h1>Procedure [(${procedure})] data for gene [(${gene})]</h1>
+    <div id="main" class="content"> 
 
         <div class="content">
-
+<h1>Procedure [(${procedure})] data for gene [(${gene})]</h1>
             <table>
                 <thead>
                 <tr>
@@ -65,16 +61,14 @@
                 <tr th:each="parameter : ${parameters}">
                 
                     <td th:text="${parameter.name}">Viability</td>
-                    <td th:class="${parameter.maleSignificant}" th:text="${parameter.maleSignificant.label}">male significant</td>
-                    <td th:class="${parameter.femaleSignificant}" th:text="${parameter.femaleSignificant.label}">female significant</td>
+                    <td th:class="${parameter.maleSignificant}" th:title="${parameter.maleSignificant.label}"></td>
+                    <td th:class="${parameter.femaleSignificant}" th:title="${parameter.femaleSignificant.label}"></td>
                 </tr>
 
 
                 </tbody>
 
             </table>
-
-            <p th:text="${parameters}"></p>
 
 
             <div class="clear"></div>
