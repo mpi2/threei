@@ -20,7 +20,7 @@ public class DetailsService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private String query = "SELECT ParameterName, Gender, Genotype, ManualCallId FROM threei_data_for_heat_map WHERE Gene = ? AND ProcedureName = ?";
+    private String query = "SELECT ParameterName, Gender, Genotype, CallType FROM threei_data_for_heat_map WHERE Gene = ? AND ProcedureName = ?";
     private DataSource dataSource;
 
     public DetailsService(DataSource dataSource) {
@@ -60,16 +60,20 @@ public class DetailsService {
 
                 ParameterDetails p = parameters.get(parameter);
 
+                String callType=r.getString("CallType");
+                SignificanceType sig=SignificanceType.fromString(callType);
                 if(r.getString("Gender").toLowerCase().equals("male")) {
-                    p.setMaleSignificant(SignificanceType.fromInt(r.getInt("ManualCallId")));
+                    p.setMaleSignificant(sig);
+                    p.setFemaleSignificant(SignificanceType.not_significant);
                 }
 
                 if(r.getString("Gender").toLowerCase().equals("female")) {
-                    p.setFemaleSignificant(SignificanceType.fromInt(r.getInt("ManualCallId")));
+                    p.setFemaleSignificant(sig);
+                    p.setMaleSignificant(SignificanceType.not_significant);
                 }
                 if(r.getString("Gender").toLowerCase().equals("both")) {
-                    p.setFemaleSignificant(SignificanceType.fromInt(r.getInt("ManualCallId")));
-                    p.setMaleSignificant(SignificanceType.fromInt(r.getInt("ManualCallId")));
+                    p.setFemaleSignificant(sig);
+                    p.setMaleSignificant(sig);
                 }
 
             }

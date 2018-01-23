@@ -8,12 +8,12 @@ public enum SignificanceType {
     // 4 no data call it 0 before display as ranks sensibly then
 
 
-    not_enough_data(1, "Not Enough Data"),//grey
-    not_significant(2, "Not Significant"),//blue
-    significant(3, "Significant"),//red
-    no_data(4, "No Data");//white
-
-    private final Integer manualCall;
+    not_significant("Not Significant"),//grey
+    pending("Pending"),//blue
+    significant("Significant"),//red
+    no_data("Not performed or applicable"),
+    early_indication("Early indication of possible phenotype");//white
+	
     private final String label;
     
     public String getLabel() {
@@ -21,31 +21,21 @@ public enum SignificanceType {
 	}
 
 
-	SignificanceType(Integer manualCall, String label) {
-        this.manualCall = manualCall;
+	SignificanceType(String label) {
         this.label=label;
     }
-    
-
-    public Integer getManualCall() {
-        return this.manualCall;
-    }
-    
-    public String getManualCallText() {
-        return Integer.toString(this.manualCall);
-    }
 
 
 
-    public static SignificanceType fromInt(Integer manualCall) {
+    public static SignificanceType fromString(String manualCall) {
         if (manualCall != null) {
             for (SignificanceType b : SignificanceType.values()) {
-                if (manualCall==b.manualCall) {
+                if (manualCall.equalsIgnoreCase(b.label)) {
                     return b;
                 }
             }
         }
-        return null;
+        return no_data;
     }
 
 
