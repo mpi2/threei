@@ -62,16 +62,19 @@ public class DetailsService {
 
                 String callType=r.getString("CallType");
                 SignificanceType sig=SignificanceType.fromString(callType);
-                if(r.getString("Gender").toLowerCase().equals("male")) {
+                String gender=r.getString("Gender").toLowerCase();
+                System.out.println(callType+" "+gender);
+               
+                if(gender.equals("male")) {
                     p.setMaleSignificant(sig);
                     p.setFemaleSignificant(SignificanceType.not_significant);
                 }
 
-                if(r.getString("Gender").toLowerCase().equals("female")) {
+                if(gender.toLowerCase().equals("female")) {
                     p.setFemaleSignificant(sig);
                     p.setMaleSignificant(SignificanceType.not_significant);
                 }
-                if(r.getString("Gender").toLowerCase().equals("both")) {
+                if(gender.toLowerCase().equals("both")) {
                     p.setFemaleSignificant(sig);
                     p.setMaleSignificant(sig);
                 }
