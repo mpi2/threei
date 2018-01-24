@@ -1,14 +1,27 @@
 package org.immunophenotype.web.services;
 
+import org.immunophenotype.web.common.Result;
 import org.immunophenotype.web.common.SignificanceType;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class ParameterDetails {
 
-    private String name;
-    private SignificanceType maleSignificant;
-    private SignificanceType femaleSignificant;
+	private Map<String, List<Result>>resultsBySex;
+    
+
+	public Map<String, List<Result>> getResultsBySex() {
+		return resultsBySex;
+	}
+
+	public void setResultsBySex(Map<String, List<Result>> resultsBySex) {
+		this.resultsBySex = resultsBySex;
+	}
+
+	private String name;
+    
 
     public String getName() {
         return name;
@@ -18,44 +31,34 @@ public class ParameterDetails {
         this.name = name;
     }
 
-    public SignificanceType getMaleSignificant() {
-        return maleSignificant;
-    }
-
-    public void setMaleSignificant(SignificanceType maleSignificant) {
-        this.maleSignificant = maleSignificant;
-    }
-
-    public SignificanceType getFemaleSignificant() {
-        return femaleSignificant;
-    }
-
-    public void setFemaleSignificant(SignificanceType femaleSignificant) {
-        this.femaleSignificant = femaleSignificant;
-    }
+   
 
     @Override
     public String toString() {
         return "ParameterDetails{" +
                 "name='" + name + '\'' +
-                ", maleSignificant=" + maleSignificant +
-                ", femaleSignificant=" + femaleSignificant +
+                
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ParameterDetails that = (ParameterDetails) o;
-        return Objects.equals(name, that.name) &&
-                maleSignificant == that.maleSignificant &&
-                femaleSignificant == that.femaleSignificant;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        ParameterDetails that = (ParameterDetails) o;
+//        return Objects.equals(name, that.name) &&
+//                maleSignificant == that.maleSignificant &&
+//                femaleSignificant == that.femaleSignificant;
+//    }
 
-    @Override
-    public int hashCode() {
+//    @Override
+//    public int hashCode() {
+//
+//        return Objects.hash(name, maleSignificant, femaleSignificant);
+//    }
 
-        return Objects.hash(name, maleSignificant, femaleSignificant);
-    }
+	public Result getResults() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
