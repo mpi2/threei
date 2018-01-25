@@ -49,8 +49,9 @@
                 <thead>
                 <tr>
                     <th>Parameter</th>
-                    <th>Female Hom</th>
-                    <th>Male Hom</th>
+                    <th:block th:each="header : ${headers}">
+                    	<th th:text=${#strings.capitalize(header)}>No header</th>
+              		</th:block>
                 </tr>
                 </thead>
 
@@ -58,11 +59,23 @@
 
                 <!-- Loop through the parameters for this gene -->
 
-                <tr th:each="parameter : ${parameters}">
+                <tr th:each="parameterDetails : ${parameters}">
                 
-                    <td th:text="${parameter.name}">Viability</td>
-                    <td th:class="${parameter.maleSignificant}" th:title="${parameter.maleSignificant.label}"></td>
-                    <td th:class="${parameter.femaleSignificant}" th:title="${parameter.femaleSignificant.label}"></td>
+                    <td th:text="${parameterDetails.name}">No Parameter name</td>
+                	
+                    <th:block th:each="header : ${headers}">
+                    	
+                    	<th:block th:each="result : ${parameterDetails.results}">
+                    	<div th:switch="${result.headerKey}">
+                		
+                    			<td th:case="${header}" th:class="${result.significant}" th:title="${result.significant}" th:text=${result.headerKey}></td>
+                    	</div>	
+                    		
+                    		
+	                   	</th:block>
+	                </th:block>
+	                
+	                
                 </tr>
 
 

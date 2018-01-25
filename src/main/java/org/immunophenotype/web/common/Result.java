@@ -30,6 +30,15 @@ public class Result {
 		public void setZygosityType(ZygosityType zygosityType) {
 			this.zygosityType = zygosityType;
 		}
+		
+		public String getHeaderKey(){
+			String sex=this.getSexType().getName();
+			if(this.getSexType().equals(SexType.both)){
+				sex="Male/Female";
+			}
+			String headerKey=sex+" "+this.getZygosityType();
+			return headerKey;
+		}
 
 	
 

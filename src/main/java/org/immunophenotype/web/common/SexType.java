@@ -5,7 +5,8 @@ public enum SexType {
 	female("female"),
 	hermaphrodite("hermaphrodite"),
 	male("male"),
-	no_data("no data");
+	no_data("no data"),
+	both("both");
 	
 
 	private final String name;

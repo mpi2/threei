@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.sql.DataSource;
 
 import org.immunophenotype.web.common.SexType;
+import org.immunophenotype.web.common.SignificanceType;
 import org.immunophenotype.web.common.ZygosityType;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,9 +32,11 @@ public class DetailsServiceTest {
 	@Test
 	public final void testGetParametersForGeneAndProcedure() {
 		Set<ParameterDetails> details = detailsService.getParametersForGeneAndProcedure("Nxn", "CTL Assay");
-		assertTrue(details.size()==3);//3 rows currently
+		System.out.println("details size="+details.size());
+		assertTrue(details.size()>0);
 		for(ParameterDetails parameter :details){
-		//asserTrue(parameter.getResults().getBySex(SexType.male).equals(ZygosityType.heterozygote));
+		assertTrue(parameter.getMaleResults().get(0).getZygosityType().equals(ZygosityType.Het));
+		assertTrue(parameter.getMaleResults().get(0).getSignificant().equals(SignificanceType.not_significant));
 		}
 	}
 	

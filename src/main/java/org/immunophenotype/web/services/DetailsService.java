@@ -1,7 +1,10 @@
 package org.immunophenotype.web.services;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.immunophenotype.web.common.Result;
+import org.immunophenotype.web.common.SexType;
 import org.immunophenotype.web.common.SignificanceType;
+import org.immunophenotype.web.common.ZygosityType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -64,21 +67,26 @@ public class DetailsService {
                 SignificanceType sig=SignificanceType.fromString(callType);
                 String gender=r.getString("Gender").toLowerCase();
                 System.out.println(callType+" "+gender);
-               
-//                if(gender.equals("male")) {
-//                    p.setMaleSignificant(sig);
-//                    p.setFemaleSignificant(SignificanceType.not_significant);
-//                }
-//
-//                if(gender.toLowerCase().equals("female")) {
-//                    p.setFemaleSignificant(sig);
-//                    p.setMaleSignificant(SignificanceType.not_significant);
-//                }
-//                if(gender.toLowerCase().equals("both")) {
-//                    p.setFemaleSignificant(sig);
-//                    p.setMaleSignificant(sig);
-//                }
+                String zygosity=r.getString("genotype");
+         
+                Result result=new Result();
+                result.setZygosityType(ZygosityType.valueOf(zygosity));
+                result.setSignificant(sig);
+                if(gender.equals("male")) {
+                	result.setSexType(SexType.male);
+                    p.addMaleResult(result);
+                }
 
+                if(gender.toLowerCase().equals("female")) {
+                	result.setSexType(SexType.female);
+                    p.addFemaleResult(result);
+                   // p.setMaleSignificant(SignificanceType.not_significant);
+                }
+                if(gender.toLowerCase().equals("both")) {
+                	result.setSexType(SexType.both);
+                    p.addBothSexResult(result);
+                }
+                
             }
         } catch (Exception e) {
             logger.info("Sql exception when getting details for gene %s, procedure %s", gene, procedureName, e);
