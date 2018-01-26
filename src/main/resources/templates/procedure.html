@@ -6,6 +6,16 @@
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    
+    <link rel="stylesheet" th:href="@{/js/vendor/jquery/jquery.fancybox-2.1.5/jquery.fancybox.css}">
+    
+     
+     <!--We're calling these from Google as this will download from the closest geographic location which will speed page-loads for Aussies and Kiwis-->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/vendor/jquery/jquery.fancybox-2.1.5/jquery.fancybox.pack.js}"></script>
+    <script type="text/javascript" src="/js/default.js"></script>
+    
     <title> Data page</title>
 </head>
 
@@ -59,7 +69,7 @@
 
                 <!-- Loop through the parameters for this gene -->
 
-                <tr th:each="parameterDetails : ${parameters}">
+                <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" class="fancyboxGraph" href="https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession=MGI:894679&parameter_stable_id=SLM_SLM_016_001">
                 
                     <td th:text="${parameterDetails.name}">No Parameter name</td>
                 	
@@ -68,7 +78,11 @@
                     	<th:block th:each="result : ${parameterDetails.results}">
                     	<div th:switch="${result.headerKey}">
                 		
-                    			<td th:case="${header}" th:class="${result.significant}" th:title="${result.significant}" th:text=${result.headerKey}></td>
+                    			
+                    				<td th:case="${header}" th:class="${result.significant}">
+                    					<a th:title="${result.significant}" th:text=${result.headerKey}></a>
+                    				</td>
+                    			
                     	</div>	
                     		
                     		
