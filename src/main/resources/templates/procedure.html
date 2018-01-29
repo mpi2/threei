@@ -5,21 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"/>
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     
-    <link rel="stylesheet" th:href="@{/js/vendor/jquery/jquery.fancybox-2.1.5/jquery.fancybox.css}">
-    
-     
-     <!--We're calling these from Google as this will download from the closest geographic location which will speed page-loads for Aussies and Kiwis-->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/vendor/jquery/jquery.fancybox-2.1.5/jquery.fancybox.pack.js}"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
     <script type="text/javascript" th:src="@{/js/default.js}"></script>
     
     <title> Data page</title>
 </head>
 
 <body>
+
+<a data-fancybox="gallery" href="/images/impc.png"><img src="/images/impc.png"></a>
+
+<a data-fancybox data-type="iframe" data-src="https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession=MGI:894679&parameter_stable_id=SLM_SLM_016_001&chart_only=true" href="javascript:;">
+	Webpage
+</a>
+
 <div id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <header id="header">
             <div class="region region-header">
@@ -69,7 +73,7 @@
 
                 <!-- Loop through the parameters for this gene -->
 
-                <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" class="fancyboxGraph" href="https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession=MGI:894679&parameter_stable_id=SLM_SLM_016_001">
+                <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" data-fancybox data-type="iframe" data-src="https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession=MGI:894679&parameter_stable_id=SLM_SLM_016_001&chart_only=true" href="javascript:;">
                 
                     <td th:text="${parameterDetails.name}">No Parameter name</td>
                 	
