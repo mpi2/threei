@@ -18,7 +18,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class AppServiceTestConfig {
 
-	
+	/**
+	 * Note these must be provided in the environment tab in eclipse with name value filled out to match so connection is made. Probably need to skip tests in general builds on jenkins?
+	 */
 	 	@Value("${datasource.komp2.url}")
 	    private String datasourceKomp2Url;
 
@@ -51,6 +53,7 @@ public class AppServiceTestConfig {
 	public GeneService geneService() {
         return new GeneService();
     }
+	
 	
 	//Gene
 		@Bean(name = "geneCore")
