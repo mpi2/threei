@@ -1,11 +1,9 @@
 package org.immunophenotype.web.services;
 
-import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.List;
 
-import javax.validation.constraints.NotNull;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -13,7 +11,6 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
