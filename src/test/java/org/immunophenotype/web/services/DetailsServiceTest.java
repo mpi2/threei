@@ -23,10 +23,13 @@ public class DetailsServiceTest {
 	@Autowired
 	DataSource komp2DataSource;
 	
+	@Autowired
+	GeneService geneService;
+	
 	DetailsService detailsService;
 	@Before
 	public void setUp() throws Exception {
-       this.detailsService=new DetailsService((org.apache.tomcat.jdbc.pool.DataSource) komp2DataSource);
+       this.detailsService=new DetailsService((org.apache.tomcat.jdbc.pool.DataSource) komp2DataSource, geneService);
 	}
 
 	@Test

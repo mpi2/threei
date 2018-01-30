@@ -2,7 +2,9 @@ package org.immunophenotype.web.services;
 
 
 import javax.sql.DataSource;
+import javax.validation.constraints.NotNull;
 
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -25,6 +27,11 @@ public class AppServiceTestConfig {
 
 	    @Value("${datasource.komp2.password}")
 	    private String password;
+	    
+	    @NotNull
+		//@Value("${solr.host}")
+		@Value("http://ves-ebi-d0.ebi.ac.uk:8090/mi/impc/dev/solr")
+		private String solrBaseUrl;
 
 	    
 	@Bean
@@ -39,6 +46,17 @@ public class AppServiceTestConfig {
         dataSourceBuilder.password(password);
         return dataSourceBuilder.build();   
     }	
+	
+	@Bean
+	public GeneService geneService() {
+        return new GeneService();
+    }
+	
+	//Gene
+		@Bean(name = "geneCore")
+		HttpSolrClient getGeneCore() {
+			return new HttpSolrClient(solrBaseUrl + "/gene");
+		}
 
 
 }
