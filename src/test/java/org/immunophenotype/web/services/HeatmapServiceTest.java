@@ -30,15 +30,24 @@ public class HeatmapServiceTest {
 
 	@Test
 	public final void testGetHeatmapRows() {
-		List<HeatmapRow> rows=null;
+		List<HeatmapRow> rows = null;
 		try {
 			rows = heatmapService.getHeatmapRows();
-			
+			List<String> headers = heatmapService.getDistinctProcedureNames(rows);
+			System.out.println("{");
+			for (String header : headers) {
+
+				System.out.println("\""+header + "\",");
+
+			}
+			System.out.println("}");
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		assertTrue(rows.size()>100);
+		assertTrue(rows.size() > 100);
+		assertTrue(HeatmapService.getHeaderorder().get(0).equalsIgnoreCase("Viability Primary Screen"));
 	}
 
 }

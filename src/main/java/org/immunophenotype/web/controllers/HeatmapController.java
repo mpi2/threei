@@ -12,10 +12,13 @@ import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
 public class HeatmapController {
+	
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -35,8 +38,13 @@ public class HeatmapController {
         try {
             List<HeatmapRow> rows = heatmapService.getHeatmapRows();
             List<String> columnHeaders = heatmapService.getDistinctProcedureNames(rows);
-            JSONArray columnHeadersJson=new JSONArray(columnHeaders);
-
+            List<String> headerOrder = HeatmapService.getHeaderorder();
+            JSONArray columnHeadersJson=new JSONArray(headerOrder);
+            if(headerOrder.size()==columnHeaders.size()){
+            	columnHeaders=headerOrder;//if size the same then lets just convert the ordered column headers to the ones we use
+            }else{
+                	System.err.println("!!!!!! column headers or order has changed as the number of headers is not the same as the number of ordered headers specified headerOrder.size="+headerOrder.size()+" columnHeaders size="+columnHeaders.size());
+                }
             // JSON object representing the rows in the heatmap
             JSONArray heatmap = new JSONArray();
 
@@ -46,18 +54,22 @@ public class HeatmapController {
                 heatmapRow
                         .put(row.getGene())
                         .put(row.getConstruct());
+                
+               
 
                 // put the numbers in for each column header to insure column numbers same and same order
-                for (String key : columnHeaders) {
+                
+                for (String key : headerOrder) {//use the hard coded header order instead of keys
 
                     // 4 is the constant for "No data"
                     Integer call = row.getProcedureSignificance().getOrDefault(key, 4);
                     heatmapRow.put(call);
                 }
                 heatmap.put(heatmapRow);
-            }
+                }
+                
+            
 
-            model.addAttribute("columnHeaders", columnHeaders);
             model.addAttribute("columnHeadersJson", columnHeadersJson);
             model.addAttribute("heatmap_rows", heatmap);
 

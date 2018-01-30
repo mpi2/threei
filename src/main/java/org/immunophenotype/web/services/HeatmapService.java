@@ -13,7 +13,14 @@ import java.util.*;
 @Service
 public class HeatmapService {
 
-    private DataSource dataSource;
+	public static final String [] headerArray={	"Viability Primary Screen", "Fertility of Homozygous Knock-out Mice",  "Haematology",	"Buffy coat peripheral blood leukocyte immunophenotyping", "Whole blood peripheral blood leukocyte immunophenotyping", "Spleen Immuno Phenotyping", 	"Mesenteric Lymph Node Immunophenotyping", 	"Bone marrow immunophenotyping", "Ear epidermis immunophenotyping",	"Anti-nuclear antibody assay", "Antigen Specific Immunoglobulin Assay", "CTL assay", "3i DSS Challenge", "Infection Challenge Weights",	"3i Trichurus Challenge",	"Salmonella Challenge"	};
+	public static final List<String> headerOrder =  new ArrayList<>(Arrays.asList(headerArray)); 
+	
+    public static List<String> getHeaderorder() {
+		return headerOrder;
+	}
+
+	private DataSource dataSource;
 
     public HeatmapService(DataSource dataSource) {
         Assert.notNull(dataSource, "Datasource cannot be null");
