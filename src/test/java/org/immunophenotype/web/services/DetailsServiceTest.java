@@ -43,5 +43,12 @@ public class DetailsServiceTest {
 		}
 	}
 	
+	@Test
+	public final void testGetAccessionForGene() {
+		String accession = detailsService.getAccessionForGene("Nxn");
+		System.out.println("accession="+accession);
+		assertTrue(accession.equals("MGI:109331"));
+		
+	}
 
 }
