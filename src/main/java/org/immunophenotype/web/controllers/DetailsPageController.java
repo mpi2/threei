@@ -25,6 +25,7 @@ public class DetailsPageController {
                            @RequestParam("procedure") String procedure) {
 
         Set<ParameterDetails> parameters = detailsService.getParametersForGeneAndProcedure(gene, procedure);
+        String accession=detailsService.getAccessionForGene(gene);
         System.out.println("parameters.size="+parameters.size());
         
         Set<String> headers=new HashSet<String>();
@@ -33,6 +34,7 @@ public class DetailsPageController {
         	Set headerKeys=details.getHeaderKeysForParameter();
         	headers.addAll(headerKeys);
         }
+        model.addAttribute("accession", accession);
         model.addAttribute("headers", headers);
         model.addAttribute("parameters", parameters);
         model.addAttribute("gene", gene);

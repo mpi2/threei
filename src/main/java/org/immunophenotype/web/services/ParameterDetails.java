@@ -13,7 +13,22 @@ import org.immunophenotype.web.common.SexType;
 public class ParameterDetails {
 	
 	private Map<SexType, List<Result>>resultsBySex;
+	private String parameterId="";
 	
+	public String getParameterId() {
+		return parameterId;
+	}
+
+
+
+
+	public void setParameterId(String parameterId) {
+		this.parameterId = parameterId;
+	}
+
+
+
+
 	public ParameterDetails(){
 		this.resultsBySex=new HashMap<>();
 		this.resultsBySex.put(SexType.male, new ArrayList<Result>());

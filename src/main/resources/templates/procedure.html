@@ -18,11 +18,11 @@
 
 <body>
 
-<a data-fancybox="gallery" href="/images/impc.png"><img src="/images/impc.png"></a>
+<!-- <a data-fancybox="gallery" href="/images/impc.png"><img src="/images/impc.png"></a>
 
 <a data-fancybox data-type="iframe" data-src="https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession=MGI:894679&parameter_stable_id=SLM_SLM_016_001&chart_only=true" href="javascript:;">
 	Webpage
-</a>
+</a> -->
 
 <div id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <header id="header">
@@ -73,7 +73,7 @@
 
                 <!-- Loop through the parameters for this gene -->
 
-                <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" data-fancybox data-type="iframe" data-src="https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession=MGI:894679&parameter_stable_id=SLM_SLM_016_001&chart_only=true" href="javascript:;">
+                <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" data-fancybox data-type="iframe" th:attr="data-src='https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession='+${accession}+'&parameter_stable_id='+${parameterDetails.parameterId}+'&chart_only=true'" href="javascript:;">
                 
                     <td th:text="${parameterDetails.name}">No Parameter name</td>
                 	

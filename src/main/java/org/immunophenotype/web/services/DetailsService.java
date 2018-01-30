@@ -1,5 +1,6 @@
 package org.immunophenotype.web.services;
 
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.immunophenotype.web.common.Result;
 import org.immunophenotype.web.common.SexType;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,12 +25,15 @@ public class DetailsService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private String query = "SELECT ParameterName, Gender, Genotype, CallType FROM threei_data_for_heat_map WHERE Gene = ? AND ProcedureName = ?";
+    private String query = "SELECT ParameterName, ParameterId, Gender, Genotype, CallType FROM threei_data_for_heat_map WHERE Gene = ? AND ProcedureName = ?";
     private DataSource dataSource;
 
-    public DetailsService(DataSource dataSource) {
+	private GeneService geneService;
+
+    public DetailsService(DataSource dataSource, GeneService geneService) {
         Assert.notNull(dataSource, "Data source cannot be null");
         this.dataSource = dataSource;
+        this.geneService=geneService;
     }
 
     public Set<ParameterDetails> getParametersForGeneAndProcedure(String gene, String procedureName) {
@@ -62,7 +67,8 @@ public class DetailsService {
                 }
 
                 ParameterDetails p = parameters.get(parameter);
-
+                String parameterId=r.getString("ParameterId");
+                p.setParameterId(parameterId);
                 String callType=r.getString("CallType");
                 SignificanceType sig=SignificanceType.fromString(callType);
                 String gender=r.getString("Gender").toLowerCase();
@@ -94,6 +100,25 @@ public class DetailsService {
 
         return new HashSet<>(parameters.values());
 
+    }
+
+	public String getAccessionForGene(String gene) {
+		String accession="";
+        try {
+			accession=this.getMgiAccessionFromGeneSymbol(gene);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SolrServerException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        System.out.println("accession in detail service="+accession);
+		return accession;
+	}
+    
+    private String getMgiAccessionFromGeneSymbol(String geneSymbol) throws IOException, SolrServerException{
+    	return geneService.getMgiAccessionFromGeneSymbol(geneSymbol);
     }
 
 
