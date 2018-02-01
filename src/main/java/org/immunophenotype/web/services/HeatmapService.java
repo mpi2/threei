@@ -1,6 +1,7 @@
 package org.immunophenotype.web.services;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.immunophenotype.web.common.WebStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 @Service
-public class HeatmapService {
+public class HeatmapService implements WebStatus{
 
 	public static final String [] headerArray={	"Viability Primary Screen", "Fertility of Homozygous Knock-out Mice",  "Haematology",	"Buffy coat peripheral blood leukocyte immunophenotyping", "Whole blood peripheral blood leukocyte immunophenotyping", "Spleen Immuno Phenotyping", 	"Mesenteric Lymph Node Immunophenotyping", 	"Bone marrow immunophenotyping", "Ear epidermis immunophenotyping",	"Anti-nuclear antibody assay", "Antigen Specific Immunoglobulin Assay", "CTL assay", "3i DSS Challenge", "Infection Challenge Weights",	"3i Trichurus Challenge",	"Salmonella Challenge"	};
 	public static final List<String> headerOrder =  new ArrayList<>(Arrays.asList(headerArray)); 
@@ -138,5 +139,19 @@ public class HeatmapService {
         }
         return new ArrayList<>(uniqueProcedures);
     }
+
+	@Override
+	public long getWebStatus() throws Exception {
+		Connection connection = dataSource.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select count(Gene) from Gene");// where Gene='Elac2' order by Gene");
+        ResultSet results = statement.executeQuery();
+        return results.getLong(0);
+	}
+
+	@Override
+	public String getServiceName() {
+		
+		return "HeatmapService";
+	}
 
 }

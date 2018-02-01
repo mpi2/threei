@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+</head>
+<body>
+Status OK:${ok}<br/>
+
+<p><b>Cache</b> hits: ${hits}, misses: ${misses}, ratio: ${ratio} <a href="clearCache">clear</a></p>
+
+<p>Cores Services Statuses:</p>
+<ol>
+    <c:forEach var="status" items="${webStatusModels}">
+        <li<c:if test="${status.number==0}"> style="color:red;"</c:if>>${status.name} : ${status.number}</li>
+    </c:forEach>
+</ol>
+
+<p>Non Essential Statuses:</p>
+<ol>
+    <c:forEach var="status" items="${nonEssentialWebStatusModels}">
+        <li<c:if test="${status.number==0}"> style="color:red;"</c:if>>${status.name} : ${status.number}</li>
+    </c:forEach>
+</ol>
+
+
+</body>
+</html>
