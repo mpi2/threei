@@ -5,24 +5,26 @@
 
 </head>
 <body>
-Status OK:${ok}<br/>
+Status OK:<span th:text="| ${ok}|">Not OK</span><br/>
 
-<p><b>Cache</b> hits: ${hits}, misses: ${misses}, ratio: ${ratio} <a href="clearCache">clear</a></p>
+<p><b>Cache</b> <span th:text="|hits: ${hits}, misses ${misses}, ratio ${ratio}|"></span> <a href="clearCache">clear</a></p>
 
 <p>Cores Services Statuses:</p>
-<ol>
-    <c:forEach var="status" items="${webStatusModels}">
-        <li<c:if test="${status.number==0}"> style="color:red;"</c:if>>${status.name} : ${status.number}</li>
-    </c:forEach>
+<ol th:each="status: ${webStatusModels}">
+	<li th:text="${status.name}+' ' +${status.number}">
+	</li>
+    <!-- <c:forEach var="status" items="${webStatusModels}"> -->
+        <!-- <li<c:if test="${status.number==0}"> style="color:red;"</c:if>>${status.name} : ${status.number}</li> -->
+    <!-- </c:forEach> -->
 </ol>
 
-<p>Non Essential Statuses:</p>
+<!-- <p>Non Essential Statuses:</p>
 <ol>
     <c:forEach var="status" items="${nonEssentialWebStatusModels}">
         <li<c:if test="${status.number==0}"> style="color:red;"</c:if>>${status.name} : ${status.number}</li>
     </c:forEach>
 </ol>
-
+ -->
 
 </body>
 </html>

@@ -143,9 +143,13 @@ public class HeatmapService implements WebStatus{
 	@Override
 	public long getWebStatus() throws Exception {
 		Connection connection = dataSource.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select count(Gene) from Gene");// where Gene='Elac2' order by Gene");
+        PreparedStatement statement = connection.prepareStatement("select count(Gene) from threei_data_for_heat_map");// where Gene='Elac2' order by Gene");
         ResultSet results = statement.executeQuery();
-        return results.getLong(0);
+        long numberOfGenes=0;
+        while (results.next()) {
+        	numberOfGenes=results.getLong(1);
+        }
+        return numberOfGenes;
 	}
 
 	@Override

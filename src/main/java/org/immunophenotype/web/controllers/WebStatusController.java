@@ -34,7 +34,8 @@ public class WebStatusController {
     private final Logger logger = LoggerFactory.getLogger(WebStatusController.class);
 
     public static final Integer TIMEOUT_INTERVAL = 2;
-
+    
+    @Autowired
     HeatmapService heatmapService;
     
     private Model savedModel = null;
