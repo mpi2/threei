@@ -1911,7 +1911,9 @@ div#heatmap A:HOVER {
     text-decoration: underline;
 }
 
-div#heatmap-header > div {display: inline-block;}
+div#heatmap-header > div {
+	display: inline-block;
+}
 
 div.rotate {
     height: 200px;
