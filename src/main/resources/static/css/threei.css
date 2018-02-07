@@ -2331,7 +2331,7 @@ footercontact {
 
 footerack {
     position: absolute;
-    top: 2300px;
+    top: 2600px;
     width: 100%;
     height: 150px;
     color: white;
@@ -2370,3 +2370,20 @@ spandata{
     text-decoration-style: solid;
     font-family:"source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
+
+footerprocedure {
+    clear:left;
+    position:fixed;
+    bottom:0;
+    width: 100%;
+    height: 150px;
+    color: white;
+    background-color: #666;
+    clear: left;
+    padding:50px;
+    word-spacing:20px;
+    left:0px;
+    font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
+
+}
+
