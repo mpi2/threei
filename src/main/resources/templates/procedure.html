@@ -1,131 +1,116 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"/>
-    <link th:href="@{/css/threei.css}" href="../static/css/threei.css" rel="stylesheet" type="text/css"/>
-    
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
-
-    <script type="text/javascript" th:src="@{/js/default.js}"></script>
-    
-    <title> Data page</title>
+    <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
+    <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title> 3i Consortium Meeting Page</title>
 </head>
 
-<body>
 
-<!-- <a data-fancybox="gallery" href="/images/impc.png"><img src="/images/impc.png"></a>
+<body id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
 
-<a data-fancybox data-type="iframe" data-src="https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession=MGI:894679&parameter_stable_id=SLM_SLM_016_001&chart_only=true" href="javascript:;">
-	Webpage
-</a> -->
 
-<div id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
+<div id="wrapper">
     <header id="header">
-            <div class="region region-header">
-                <div id="tn"></div>
-                <div id="logo">
-                    <a href="/"><img src="images/impc.png" alt="IMPC Logo"/></a>
-                    <!-- <div id="logoslogan">3i</div>  -->
-                </div>
-                <nav id="mn">  <div class="region region-mainnavi">
-                    <div id="block-system-main-menu" class="block block-system block-menu">
+        <div class="region region-header">
+            <div id="tn"></div>
+            <div id="logo">
+                <a href="/"><img src="images/impc.png" alt="IMPC Logo"/></a>
+                <!-- <div id="logoslogan">3i</div>  -->
+            </div>
+            <nav id="mn">  <div class="region region-mainnavi">
+                <div id="block-system-main-menu" class="block block-system block-menu">
 
-                        <div class="content">
-                            <ul class="menu" th:with="view=${#httpServletRequest.getServletPath()}">
-                            <li class="first leaf" th:classappend="${#strings.equals(view,'/') ? 'active' : ''}"><a th:href="@{/}">HOME</a></li>
-                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/data') ? 'active' : ''}"><a th:href="@{/data}">DATA</a></li>
-                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/analysis') ? 'active' : ''}"><a th:href="@{/analysis}">ANALYSIS</a></li>
-                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/methods') ? 'active' : ''}"><a th:href="@{/methods}">METHODS</a></li>
-                            <li class="leaf" th:classappend="${#strings.startsWith(view,'/contact') ? 'active' : ''}"><a th:href="@{/contact}">CONTACT</a></li>
-                            <li class="last expanded" th:classappend="${#strings.startsWith(view,'/learnmore') ? 'active' : ''}"><a th:href="@{/learnmore}">LEARN MORE</a>
-                                <ul class="menu"><li class="first leaf"><a href="/faq">FAQ</a></li>
+                    <div class="content">
+                        <ul class="menu"><li class="first leaf"><a href="/" title="" class="active">HOME</a></li>
+                            <li class="leaf"><a href="/data/heatmap" data-hasqtip="38" oldtitle="Data Search and Heatmap" title="">DATA</a></li>
+                            <li class="leaf"><a href="/analysis">ANALYSIS</a></li>
+                            <li class="leaf"><a href="/methods">METHODS</a></li>
+                            <li class="leaf"><a href="/contact">CONTACT</a></li>
+                            <li class="last expanded"><a href="/learn-more">LEARN MORE</a><ul class="menu"><li class="first leaf"><a href="/faq">FAQ</a></li>
                                 <li class="leaf"><a href="/glossary">Glossary</a></li>
                                 <li class="last leaf"><a href="/publications">Publications</a></li>
                             </ul></li>
                         </ul><div class="clear"></div></div>
-                    </div>
                 </div>
-                </nav>
-                <div class="clear"></div>
             </div>
-        </header>
-
-    <div id="main" class="content"> 
-
-        <div class="content">
-<h1>Procedure [(${procedure})] data for gene [(${gene})]</h1>
-            <table>
-                <thead>
-                <tr>
-                    <th>Parameter</th>
-                    <th:block th:each="header : ${headers}">
-                    	<th th:text=${#strings.capitalize(header)}>No header</th>
-              		</th:block>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                <!-- Loop through the parameters for this gene -->
-
-                <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" data-fancybox data-type="iframe" th:attr="data-src='https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession='+${accession}+'&parameter_stable_id='+${parameterDetails.parameterId}+'&chart_only=true'" href="javascript:;">
-                
-                    <td th:text="${parameterDetails.name}">No Parameter name</td>
-                	
-                    <th:block th:each="header : ${headers}">
-                    	
-                    	<th:block th:each="result : ${parameterDetails.results}">
-                    	<div th:switch="${result.headerKey}">
-                		
-                    			
-                    				<td th:case="${header}" th:class="${result.significant}">
-                    					<a th:title="${result.significant}" th:text=${result.headerKey}></a>
-                    				</td>
-                    			
-                    	</div>	
-                    		
-                    		
-	                   	</th:block>
-	                </th:block>
-	                
-	                
-                </tr>
-
-
-                </tbody>
-
-            </table>
-
-
+            </nav>
             <div class="clear"></div>
         </div>
+    </header>
 
+    <div id="main">
+        <h1><b>Procedure [(${procedure})] data for gene [(${gene})]</b></h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter</th>
+                <th:block th:each="header : ${headers}">
+                    <th th:text=${#strings.capitalize(header)}>No header</th>
+                </th:block>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <!-- Loop through the parameters for this gene -->
+
+            <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" data-fancybox data-type="iframe" th:attr="data-src='https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession='+${accession}+'&parameter_stable_id='+${parameterDetails.parameterId}+'&chart_only=true'" href="javascript:;">
+
+                <td th:text="${parameterDetails.name}">No Parameter name</td>
+
+                <th:block th:each="header : ${headers}">
+
+                    <th:block th:each="result : ${parameterDetails.results}">
+                        <div th:switch="${result.headerKey}">
+
+
+                            <td th:case="${header}" th:class="${result.significant}">
+                                <a th:title="${result.significant}" th:text=${result.headerKey}></a>
+                            </td>
+
+                        </div>
+
+
+                    </th:block>
+                </th:block>
+
+
+            </tr>
+
+
+            </tbody>
+
+        </table>
+
+
+        <div class="clear"></div>
+      <br/><br/><br/><br/><br/><br/>
     </div>
-    <footerdata>
-        <div class="foot_content">
+</div>
+   <br/><br/><br/>
+    <footerprocedure>
+
+        <div class="foot_content" >
             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
             <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
             <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
             <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
             <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
             <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-            <div id="foot_list">
-                <ul>
-                    <li><a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-                    <li><a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-                    <li><a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a></li>
-                </ul>
-            </div>
+            <div  id="foot_list"> <ul>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+            </ul> </div>
 
         </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2017 Wellcome Trust Sanger Institute</p>
-    </footerdata>
-</div>
+        <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
+    </footerprocedure>
+
 
 </body>
 </html>
