@@ -149,6 +149,7 @@ public class HeatmapService implements WebStatus{
         while (results.next()) {
         	numberOfGenes=results.getLong(1);
         }
+        dataSource.close();
         return numberOfGenes;
 	}
 
