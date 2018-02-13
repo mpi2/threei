@@ -28,54 +28,55 @@ public class HeatmapService implements WebStatus{
         this.dataSource = dataSource;
     }
 
-    public List<HeatmapRow> getHeatmapRows() throws SQLException {
-        Map<String, HeatmapRow> rows = new HashMap<>();
+	public List<HeatmapRow> getHeatmapRows() throws SQLException {
+		Map<String, HeatmapRow> rows = new HashMap<>();
 
-        Connection connection = dataSource.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select Gene, Construct, ProcedureName, CallType from threei_data_for_heat_map order by Gene");// where Gene='Elac2' order by Gene");
-        ResultSet results = statement.executeQuery();
+		String query = "select Gene, Construct, ProcedureName, CallType from threei_data_for_heat_map order by Gene";
+		try (Connection connection = dataSource.getConnection();
+				PreparedStatement p = connection.prepareStatement(query)) {
+			ResultSet results = p.executeQuery();
 
-        while (results.next()) {
+			while (results.next()) {
 
+				String gene = results.getString("Gene");
+				String construct = results.getString("Construct");
+				if (construct.contains("(")) {
+					String[] constructs = construct.split("\\(");
+					construct = constructs[0];
+				}
 
-            String gene = results.getString("Gene");
-            String construct = results.getString("Construct");
-            if(construct.contains("(")){
-            	String [] constructs =construct.split("\\(");
-            	construct=constructs[0];
-            }
+				HeatmapRow row = null;
+				if (!rows.containsKey(gene)) {
+					row = new HeatmapRow(gene, construct);
+					rows.put(gene, row);
+				} else {
+					row = rows.get(gene);
+				}
 
-            HeatmapRow row = null;
-            if (!rows.containsKey(gene)) {
-                row = new HeatmapRow(gene, construct);
-                rows.put(gene, row);
-            } else {
-                row = rows.get(gene);
-            }
+				String procedureName = results.getString("ProcedureName");
+				String callType = results.getString("CallType");
 
-            String procedureName = results.getString("ProcedureName");
-            String callType = results.getString("CallType");
+				// System.out.println("adding
+				// result="+results.getString("Gene")+"|"+results.getString("Construct")+"|"+results.getString("ProcedureName")+"|"+results.getString("CallType")+"|"+results.getString("Gender"));
+				if (!row.getProcedureSignificance().containsKey(procedureName)) {
+					row.getProcedureSignificance().put(procedureName, getRankFromSignificanceName(callType));// set
+																								// new
+																												// procedure
+				} else {
+					// assign the highest rank for a the procedure
+					row = this.setHighestRankForProcedure(row, procedureName, callType);
+				}
 
-            //System.out.println("adding result="+results.getString("Gene")+"|"+results.getString("Construct")+"|"+results.getString("ProcedureName")+"|"+results.getString("CallType")+"|"+results.getString("Gender"));
-            if (!row.getProcedureSignificance().containsKey(procedureName)) {
-                row.getProcedureSignificance().put(procedureName, getRankFromSignificanceName(callType));//set rank for a new procedure
-            } else {
-                //assign the highest rank for a the procedure
-                row = this.setHighestRankForProcedure(row, procedureName, callType);
-            }
+			}
+		}
 
-        }
+		List<HeatmapRow> heatmapRows = new ArrayList<>();
+		for (String key : rows.keySet()) {
+			heatmapRows.add(rows.get(key));
+		}
 
-
-        List<HeatmapRow> heatmapRows = new ArrayList<>();
-        for (String key : rows.keySet()) {
-            heatmapRows.add(rows.get(key));
-        }
-
-
-
-        return heatmapRows;
-    }
+		return heatmapRows;
+	}
 
     private HeatmapRow setHighestRankForProcedure(HeatmapRow row, String procedureName, String callType) {
         Integer oldCall = row.getProcedureSignificance().get(procedureName);
@@ -141,16 +142,20 @@ public class HeatmapService implements WebStatus{
     }
 
 	@Override
-	public long getWebStatus() throws Exception {
-		Connection connection = dataSource.getConnection();
-        PreparedStatement statement = connection.prepareStatement("select count(Gene) from threei_data_for_heat_map");// where Gene='Elac2' order by Gene");
-        ResultSet results = statement.executeQuery();
-        long numberOfGenes=0;
-        while (results.next()) {
-        	numberOfGenes=results.getLong(1);
-        }
-        dataSource.close();
-        return numberOfGenes;
+	public long getWebStatus() throws SQLException {
+		String query = "select count(Gene) from threei_data_for_heat_map";
+
+		try (Connection connection = dataSource.getConnection();
+				PreparedStatement p = connection.prepareStatement(query)) {
+
+			ResultSet results = p.executeQuery();
+			long numberOfGenes = 0;
+			while (results.next()) {
+				numberOfGenes = results.getLong(1);
+			}
+
+			return numberOfGenes;
+		}
 	}
 
 	@Override
