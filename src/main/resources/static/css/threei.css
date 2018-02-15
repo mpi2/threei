@@ -1887,6 +1887,10 @@ div#heatmap-header {
     text-align: left;
     background: #fff;
     border-bottom: 1px solid #ccc;
+    top:0px;
+    position:-webkit-sticky;
+    position:sticky;
+
 }
 
 div#heatmap-header > div.gene {
@@ -2389,3 +2393,12 @@ footerprocedure {
 
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 102px;
+}
