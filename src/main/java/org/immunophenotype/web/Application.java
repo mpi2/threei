@@ -2,6 +2,7 @@ package org.immunophenotype.web;
 
 
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
+//import org.h2.server.web.WebServlet;
 import org.immunophenotype.web.services.GeneService;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -9,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
@@ -35,12 +37,15 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 	
+	
+	
 //	@Bean
-//    @Primary
-//    @ConfigurationProperties(prefix = "datasource.komp2")
-//    public DataSource komp2DataSource() {
-//        return DataSourceBuilder.create().driverClassName("com.mysql.jdbc.Driver").build();
+//    ServletRegistrationBean h2servletRegistration(){
+//        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
+//        registrationBean.addUrlMappings("/console/*");
+//        return registrationBean;
 //    }
+	
 	
 	@Bean
 	@Primary
