@@ -18,7 +18,7 @@
 
 
 
-    <div id="main" class="content">
+    <div id="main" class="content"style="padding-top: 102px;" >
 
         <aside id="sidebar" style="position:absolute; top:400px ;left:800px;">
 
@@ -87,7 +87,8 @@
                         <br/>
                         <br/><br/><br/>
                         <br/><br/><br/><br/>
-                        <div id="heatmap">
+                        <div id="heatmap" >
+
                             
                         </div>
 
@@ -332,12 +333,12 @@
                                 value+='';
                                 switch(kind)
                                 {
-                                    case 0:		window.open('link?link=search&q='+ value);				break;
-                                    case 1:		window.open('link?link=genedata&marker_symbol='+ value); break;
+                                    case 0:		window.open('https://en.wikipedia.org/wiki/'+ value);				break;
+                                    case 1:		window.open('https://en.wikipedia.org/wiki/'+ value); break;
                                     case 2:		var param = value.split('*');
                                         var marker_symbol 	= param[0];
                                         var heatmap_col 	= param[1];
-                                        var link='link?gene='+marker_symbol+'&procedure="'+column_headers[heatmap_col]+'"';
+                                        var link='https://en.wikipedia.org/wiki/'+column_headers[heatmap_col];
                                         window.open(link); break;
                                     default:	break;
                                 }
@@ -350,10 +351,34 @@
 
 
 
+                        $(function(){
+                            var stickyHeaderTop = $('#stickytypeheader').offset().top;
+
+                            $(window).scroll(function(){
+                                if( $(window).scrollTop() > stickyHeaderTop ) {
+                                    $('#stickytypeheader').css({position: 'fixed', top: '0px'});
+                                    $('#sticky').css('display', 'block');
+                                } else {
+                                    $('#stickytypeheader').css({position: 'static', top: '0px'});
+                                    $('#sticky').css('display', 'none');
+                                }
+                            });
+                        });
 
 
 
+                            window.onscroll = function() {myFunction()};
 
+                            var header = document.getElementById("heatmap-header ");
+                            var sticky = header.offsetTop;
+
+                            function myFunction() {
+                                if (window.pageYOffset >= sticky) {
+                                    header.classList.add("sticky");
+                                } else {
+                                    header.classList.remove("sticky");
+                                }
+                            }
                             /*]]>*/
                         </script>
                     </div><div class="clear"></div></div>
