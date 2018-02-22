@@ -1,5 +1,6 @@
 #wrapper{
     min-width:1000px;
+    position:relative;
 }
 html, body, div, applet, object, iframe, h1,h2, h3, h4, h5, h6, p, a, img, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
     border: 0;
@@ -9,7 +10,6 @@ html, body, div, applet, object, iframe, h1,h2, h3, h4, h5, h6, p, a, img, ol, u
     font-size: 100%;
     vertical-align: baseline;
     margin: 0;
-    padding: 0;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
 input, textarea, select, body {
@@ -2144,9 +2144,14 @@ div.views-slideshow-controls-bottom{
     display:none;
 }
 
-footer {
+footer.footerToBottom {
     position: absolute;
-    top: 1300px;
+    width:100%;
+    bottom:0px;
+}
+
+footer {
+    display:block;
     width: 100%;
     height: 150px;
     color: white;
@@ -2157,8 +2162,9 @@ footer {
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 
 }
-.foot_content{
+foot_content{
     position:absolute;
+
     left:340px;
     font-family:"source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
@@ -2377,28 +2383,30 @@ spandata{
     font-family:"source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
 
-footerprocedure {
-    clear:left;
-    position:fixed;
-    bottom:0;
+#footerprocedure {
+
+    position: absolute;
+    height:150px;
     width: 100%;
-    height: 150px;
+    bottom: 0px;
+    left: 0px;
+    right: 0;
+    clear:left;
     color: white;
     background-color: #666;
-    clear: left;
     padding:50px;
     word-spacing:20px;
-    left:0px;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
+.push{
+    height:150px;
 }
-
-.sticky + .content {
-    padding-top: 102px;
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {height: auto;}
 }
