@@ -65,10 +65,46 @@
 	 }
 	}
 
-	
-	
 	if (document.getElementById('heatmap-header')!=null)heatmap_legend_scrollB("heatmap-header");
 
-	
- 
+
+
+
+
+    function initWindow() {
+        /* if the body is not high enough, put the footer to the bottom of the window */
+        var wrapperHeight  = parseInt($('#wrapper').innerHeight());
+        var viewportHeight = parseInt(window.innerHeight);
+        if (!viewportHeight) {
+            /* later IE 9 */
+            viewportHeight = parseInt(window.document.documentElement.clientHeight);
+        }
+        if (viewportHeight - 50 > wrapperHeight) {
+            $('footer').addClass('footerToBottom');
+        } else {
+            $('footer').removeClass('footerToBottom');
+        }
+    }
+
+
+
+    /* Window resize event */
+    $(window).resize(function() {
+
+        initWindow();
+
+    });
+
+
+    $(document).ready(function() {
+
+        initWindow();
+
+    });
+
+
+
+
  })(jQuery);
+
+

@@ -6,7 +6,10 @@
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <title> 3i Consortium Meeting Page</title>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/default.js}"></script>
+
+    <title> Procedure Page</title>
 </head>
 
 
@@ -87,12 +90,10 @@
         </table>
 
 
-        <div class="clear"></div>
-      <br/><br/><br/><br/><br/><br/>
     </div>
 </div>
-   <br/><br/><br/>
-    <footerprocedure>
+
+    <footer id="procedure">
 
         <div class="foot_content" >
             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
@@ -109,8 +110,7 @@
 
         </div>
         <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
-    </footerprocedure>
-
+    </footer>
 
 </body>
 </html>
