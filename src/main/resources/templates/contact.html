@@ -125,23 +125,7 @@
             <p></p>
         </div>
     </div>
-    <footercontact>
-        <div class="foot_content" >
-            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-            <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
-            </ul> </div>
-
-        </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
-    </footercontact>
+    <th:block th:include="fragments/footer::footer"> </th:block>
 </div>
 
 </body>

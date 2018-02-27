@@ -11,14 +11,14 @@
     <title> Data page</title>
 </head>
 
-<body>
-<div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
+<body id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
+
     <th:block th:include="fragments/header::header"> </th:block>
     <th:block th:include="fragments/slideshow::slideshow"></th:block>
 
 
 
-    <div id="main" class="content"style="padding-top: 102px;" >
+    <div id="wrapper" class="content"style="padding-top: 102px;" >
 
         <aside id="sidebar" style="position:absolute; top:400px ;left:800px;">
 
@@ -338,7 +338,7 @@
                                     case 2:		var param = value.split('*');
                                         var marker_symbol 	= param[0];
                                         var heatmap_col 	= param[1];
-                                        var link='../link?gene='+marker_symbol+'&procedure="'+column_headers[heatmap_col]+'"';
+                                        var link='link?gene='+marker_symbol+'&procedure="'+column_headers[heatmap_col]+'"';
                                         window.open(link); break;
                                     default:	break;
                                 }
@@ -385,24 +385,9 @@
             </div>
         </div>
     </div>
-    <footerdata>
-        <div class="foot_content" >
-            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-            <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
-            </ul> </div>
+   
+    <th:block th:include="fragments/footer::footer"> </th:block>
 
-        </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
-    </footerdata>
-</div>
 
 </body>
 </html>
