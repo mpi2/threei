@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" th:src="@{/js/default.js}"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+    
 
     <title> Procedure Page</title>
 </head>
@@ -72,7 +76,7 @@
 
 
                             <td th:case="${header}" th:class="${result.significant}">
-                                <a th:title="${result.significant}" th:text=${result.headerKey}></a>
+                                <a th:title="${result.significant}"></a>
                             </td>
 
                         </div>
