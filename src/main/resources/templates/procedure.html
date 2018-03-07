@@ -21,12 +21,12 @@
 
 
 <div id="wrapper">
-    <header id="header">
+    <!-- <header id="header">
         <div class="region region-header">
             <div id="tn"></div>
             <div id="logo">
                 <a href="/"><img src="images/impc.png" alt="IMPC Logo"/></a>
-                <!-- <div id="logoslogan">3i</div>  -->
+                <div id="logoslogan">3i</div> 
             </div>
             <nav id="mn">  <div class="region region-mainnavi">
                 <div id="block-system-main-menu" class="block block-system block-menu">
@@ -47,7 +47,9 @@
             </nav>
             <div class="clear"></div>
         </div>
-    </header>
+    </header> -->
+    
+    <th:block th:include="fragments/header::header"> </th:block>
 
     <div id="main">
         <h1><b>Procedure [(${procedure})] data for gene [(${gene})]</b></h1>
