@@ -334,7 +334,8 @@
                                 switch(kind)
                                 {
                                     case 0:		window.open('link?link=search&q='+ value);				break;
-                                    case 1:		window.open('https://en.wikipedia.org/wiki/'+ value); break;
+                                    case 1:		window.open('\n' +
+                                        ' http://www.genecards.org/Search/Keyword?queryString='+ value); break;
                                     case 2:		var param = value.split('*');
                                         var marker_symbol 	= param[0];
                                         var heatmap_col 	= param[1];
@@ -406,3 +407,4 @@
 
 </body>
 </html>
+<!-- http://www.genecards.org/Search/Keyword?queryString=3830406C13Rik
