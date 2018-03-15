@@ -1085,6 +1085,7 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
     background: #fff;
     position: absolute;
     top: 140px;
+
     z-index: 9999;
     font-size: 30px;
     padding: 10px;
@@ -1716,9 +1717,9 @@ div#block-block-23 .content {
 div#block-heatmap-stats {text-align: center;}
 
 div#block-heatmap-stats-KO {
-    width: 48%;
+    width: 49%;
     background-color: orange;
-    border-radius: 4px;
+    border-radius: 5px;
     color: white;
     float: left;
 }
@@ -2423,3 +2424,9 @@ spandata{
     text-align: center;
 }
 
+hr{
+    color: #ddd;
+    border-bottom: 1px;
+    border-bottom-color:lightgrey;
+
+}
