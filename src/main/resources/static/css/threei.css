@@ -2297,6 +2297,7 @@ footer1 {
     border-style: solid;
     border-color: #eee;
     position: absolute;
+    top:350px;
     height: 50px;
     color: white;
     font-size: 25px;
