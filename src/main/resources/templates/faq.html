@@ -14,15 +14,26 @@
     <th:block th:include="fragments/slideshow::slideshow"></th:block>
 
     <div id="main" class="content">
-        <div id="welcome" style="top:190px; font-size:30px;z-index: 9999;" >
-            <h1>FAQ </h1>
+
+        <div id="welcome"  >
+            <h1>FAQ</h1>
         </div><br/>
+        <p></p>
+        <div id="region region-content" style="width:68%; float:left;">
+            <div class="intro"><h2 >Dig deeper into the data by looking at it from different angles. </h2> </div>
+            <p></p>
+            <p></p>
+            <br/>
+            <br/>
 
         <div class="panel_glossary">
             <i class="fa fa-list-alt"></i>
             Frequently Asked Questions
         </div>
-        <div id="accordian1_main" style="position: absolute;top: 380px; border: 1px solid #eee; width: 65%;">
+        <br/>
+        <br/>
+        <div id="accordian1_main" style=" border: 1px solid #eee; width: 100%;">
+            <p></p>
             <button class="accordion" style="border-color: white; "><span>There's no such thing as a free lunch, so where's the catch?</span></button>
             <div class="panel">
                 <p>There is no catch. The Wellcome Trust has invested this money to create a resource for the scientific community. In fact, we are not only paid to conduct the phenotyping but also to promote the uptake of mouse lines and the use of the phenotyping data we generate so please use this resource and let us know if you have any questions. Of course the data is freely available, so your competitor will be able to look it it as well. We still think you get a really good deal by combining our data with your expert knowledge to create new hypotheses and by taking on gold-standard knockout mouse lines which have undergone stringent quality control from ES cells to final genotyping.</p>
@@ -37,7 +48,7 @@
             </div>
             <button class="accordion" style="border-color: white;"><span>How can I leave a comment?</span></button>
             <div class="panel">
-            <p>Please chose the "Leave a comment" form on the contact page.</p>
+                <p>Please chose the "Leave a comment" form on the contact page.</p>
             </div>
 
             <button class="accordion" style="border-color: white;"><span>How can I access the raw data?</span></button>
@@ -48,7 +59,7 @@
             <button class="accordion" style="border-color: white;"><span>Can I use 3i protocols for my own research?</span></button>
             <div class="panel">
                 <p>Yes, the project is entirely open-source and we are aiming to provide access to all our protocols shortly.</p>
-                 </div>
+            </div>
             <button class="accordion" style="border-color: white;"><span>Can I send you my mice for phenotyping?</span></button>
             <div class="panel">
                 <p>Unfortunately we cannot phenotype external mice in the Sanger pipeline. However, we are aiming to provide all our protocols online to enable you to run a 3i-like phenotyping yourself. If you have any questions or would like to collaborate with any of the partners, please contact the members of the consortium directly or send us an email via the links on the contact page.</p>
@@ -57,38 +68,41 @@
 
         </div>
 
+        <br/>
+        <br/>
+        <br/>
 
     </div>
 
+    </div>
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-<script type="text/javascript">
-    /*<![CDATA[*/
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+        for (i = 0; i < acc.length; i++) {
 
-    for (i = 0; i < acc.length; i++) {
-
-        acc[i].onclick = function(){
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
+            acc[i].onclick = function(){
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
             }
         }
-    }
 
 
-    /*]]>*/
+        /*]]>*/
 
 
-</script>
+    </script>
 
 </div>
 
-    <footer id="procedure" style="top:1600px">
-
+<footer id="procedure">
+    <div class="centercontent">
     <div class="foot_content"  >
         <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
         <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
@@ -100,10 +114,13 @@
             <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
             <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
             <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+
         </ul> </div>
 
     </div>
-    <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
+        <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
+            © 2018 Wellcome Trust Sanger Institute</p>
+    </div>
 </footer>
 
 </body>
