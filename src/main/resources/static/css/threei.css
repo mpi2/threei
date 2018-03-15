@@ -2297,11 +2297,10 @@ footer1 {
     border-style: solid;
     border-color: #eee;
     position: absolute;
-    top: 405px;
     height: 50px;
     color: white;
     font-size: 25px;
-    width: 800px;
+    width: 65%;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
 .fa {
