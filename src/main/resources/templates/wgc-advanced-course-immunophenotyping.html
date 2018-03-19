@@ -6,6 +6,11 @@
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/default.js}"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
     <title> 3i Consortium Meeting Page</title>
 </head>
 
@@ -76,27 +81,10 @@
             Wellcome Genome Campus, Hinxton, Cambridgeshire, UK<br/>
             The application deadline: 10 November 2017
         </p>
-    </div>
+        </div>
+
 </div>
-
-<footerprocedure>
-
-    <div class="foot_content" >
-        <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
-        <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
-        <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
-        <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
-        <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
-        <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-        <div  id="foot_list"> <ul>
-            <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-            <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-            <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
-        </ul> </div>
-
-    </div>
-    <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
-</footerprocedure>
+<th:block th:include="fragments/footer::footer1"> </th:block>
 
 </body>
 </html>

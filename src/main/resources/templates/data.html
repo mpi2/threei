@@ -14,9 +14,6 @@
 <body>
 <div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <th:block th:include="fragments/header::header"> </th:block>
-    <th:block th:include="fragments/slideshow::slideshow"></th:block>
-
-
 
     <div id="main" class="content"style="padding-top: 102px;" >
 
@@ -51,7 +48,7 @@
             <div id="block-system-main" class="block block-system">
 
                 <div class="content"><div id="node-203" class="node node-page">
-                    <h2 class="page__title title" id="page-title">Data Search</h2>
+                    <h2 class="page__title title" id="page-title" style="font-size: 35px">Data Search</h2>
 <!-- <table>
 	<td th:text="${columnHeaders}"></td>
 </table> -->
@@ -218,13 +215,16 @@
                                                 case 1: 	row+='cell-Grey'; 	break; 	// not significantly different from wild type controls
                                                 case 2: 	row+='cell-Blue'; 	break; 	// not enough data (yet) to make a call
                                                 case 3: 	row+='cell-Red';  	break; 	// significantly different from wild type controls
-                                                default:	row+='cell-White';	break;	// no data / test not performed
+                                                default:	row+='cell-White'; 	break;	// no data / test not performed
                                             }
                                             row+='"';
+
                                             if (call>0) row+=' style="cursor:pointer;" onClick="_heatmap_link(2,\'' +heatmap_rows[a][0]+'*'+(c-2)+ '\')" ';
+
                                             row +='>';
                                             row +='</div>';
                                         }
+
                                         _heatmap_data.innerHTML+=row;
                                     }
 
@@ -387,6 +387,7 @@
         </div>
     </div>
     <footerdata>
+        <div class="centercontent">
         <div class="foot_content" >
             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
             <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
@@ -398,13 +399,15 @@
                 <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
                 <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
                 <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+                <li>Software v0.0.6</li>
             </ul> </div>
 
         </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
+            <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
+                © 2018 Wellcome Trust Sanger Institute</p>
+        </div>
     </footerdata>
 </div>
 
 </body>
 </html>
-<!-- http://www.genecards.org/Search/Keyword?queryString=3830406C13Rik

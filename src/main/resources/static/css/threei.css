@@ -117,9 +117,9 @@ li {
 }
 .region-header, .centercontent, #footerlogos, #main {
     position: relative;
-    width: 65%;
-    min-width: 960px;
-    max-width: 1500px;
+    width: 70%;
+    min-width: 1100px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 25px;
 }
@@ -202,14 +202,7 @@ input.auto{
 .form-textarea.error,.form-text.error{
     background-color:#FDF2E6;
 }
-.region-header,.centercontent,#footerlogos,#main{
-    position:relative;
-    width:65%;
-    min-width:960px;
-    max-width:712px;
-    margin:0 auto;
-    padding:0 25px;
-}
+
 #logoslogan{
     display:none;
     position:absolute;
@@ -705,7 +698,7 @@ p.editlink{
 }
 .intro{
     line-height:1.1em;
-    font-size:1.5em;
+    font-size:1.3em;
     margin-bottom:1em;
     color:#0978a1;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
@@ -1091,8 +1084,9 @@ td.unCollapse:before,.facetCat.facetCatUp:before{
 #welcome{
     background: #fff;
     position: absolute;
-    top: 250px;
-    z-index: 10;
+    top: 140px;
+
+    z-index: 9999;
     font-size: 30px;
     padding: 10px;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
@@ -1609,6 +1603,7 @@ ul.ul-pdf{
     width:32px;
     height:32px;
     padding:0px;
+    pointer-events: none;
 }
 .view-id-heatmap table th,td{
     padding:6px;
@@ -1722,9 +1717,9 @@ div#block-block-23 .content {
 div#block-heatmap-stats {text-align: center;}
 
 div#block-heatmap-stats-KO {
-    width: 48%;
+    width: 49%;
     background-color: orange;
-    border-radius: 4px;
+    border-radius: 5px;
     color: white;
     float: left;
 }
@@ -1965,7 +1960,7 @@ div#heatmap-data  div.cell {
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 1em;
     letter-spacing: -1px;
     margin-top: 20px;
 }
@@ -2045,6 +2040,7 @@ div.cell-White {
     width: 32px;
     height: 32px;
     float: left;
+    pointer-events: none;
 }
 
 td.no_data {
@@ -2186,7 +2182,7 @@ foot_content{
     background-position-y: bottom;
     background-size: auto auto;
     line-height: 1.1em;
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-bottom: 1em;
     color: #0978a1;
     font-family:"source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
@@ -2301,11 +2297,11 @@ footer1 {
     border-style: solid;
     border-color: #eee;
     position: absolute;
-    top: 325px;
+    top:350px;
     height: 50px;
     color: white;
     font-size: 25px;
-    width: 623px;
+    width: 65%;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
 .fa {
@@ -2409,4 +2405,28 @@ spandata{
         padding: 15px;
     }
     .row.content {height: auto;}
+}
+#clear{
+    clear: both;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.footernew {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
+
+hr{
+    color: #ddd;
+    border-bottom: 1px;
+    border-bottom-color:lightgrey;
+
 }

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <title> Glossary page</title>
 </head>
 
@@ -14,92 +13,117 @@
     <th:block th:include="fragments/header::header"> </th:block>
     <th:block th:include="fragments/slideshow::slideshow"></th:block>
 
-
     <div id="main" class="content">
-        <div id="welcome" style="top:190px; font-size:30px;z-index: 9999;" >
-            <h1>Glossary </h1>
-        </div><br/>
 
-            <div class="panel_glossary">
+        <div id="welcome"  >
+            <h1>Glossary</h1>
+        </div><br/>
+        <p></p>
+        <div id="region region-content" style="width:68%; float:left;">
+            <div class="intro"><h2 >We have compiled the following glossary of technical and scientific terms. </h2> </div>
+            <p></p>
+            <p></p>
+            <div class="clear"></div>
+            <div class="clear"></div>
+            <div class="clear"></div>
+            <div class="panel_glossary" >
                 <i class="fa fa-list-alt"></i>
                 Glossary
             </div>
-                <div id="accordian1_main" style="position: absolute;top: 380px; border: 1px solid #eee; width: 65%;">
-                    <button class="accordion" style="border-color: white;">3i</button>
-                    <div class="panel">
-                        <p>The 3i Consortium.</p>
-                        <p>3i is an abbreviation for: Infection, Immunity, Immunophenotyping.</p>
-                        <p>The 3i consortium members can be found on the 3i Contact Page.</p>
-                    </div>
+            <br/>
+            <br/>
+            <br/>
+            <div id="accordian1_main" style=" border: 1px solid #eee; width: 100%; border-radius: 4px;">
+                <p></p>
+                <br/>
+                <button class="accordion" style="border-color: white;"><span>3i</span></button>
+                <div class="panel" style="font-size: 15px">
+                    <p>The 3i Consortium.<br/>
+                    3i is an abbreviation for: Infection, Immunity, Immunophenotyping.<br/>
+                        The 3i consortium members can be found on the <span><a href="/contact"> 3i Contact Page.</a> </span></p>
+                </div>
 
-        <button class="accordion" style="border-color: white;">DETC</button>
-        <div class="panel">
-            <p></p>
-            <p>Dendritic Epidermal T Cells (DETC) are TCRγδ-positive T cells that populate the mouse epidermis where they are in close contact with Langerhans cells (LC).</p>
-        </div>
 
-        <button class="accordion" style="border-color: white;">IKMC</button>
-        <div class="panel">
-            <p></p>
-            <p>The International Knockout Mouse Consortium (IKMC) is a scientific endeavour to produce a collection of mouse embryonic stem cell lines that together lack every gene in the genome, and then to distribute the cells to scientific researchers to create knockout mice to study. Many of the targeted alleles are designed so that they can generate both complete and conditional gene knockout mice. For more details please visit </p>
+                <button class="accordion" style="border-color: white;"><span>DETC</span></button>
+                <div class="panel" style="font-size: 15px">
+                    <p>Dendritic Epidermal T Cells (DETC) are TCRγδ-positive T cells that populate the mouse epidermis where they are in close contact with Langerhans cells (LC).</p>
+                </div>
+
+                <button class="accordion" style="border-color: white;"><span>IKMC</span></button>
+                <div class="panel" style="font-size: 15px">
+                    <p>The International Knockout Mouse Consortium (IKMC) is a scientific endeavour to produce a collection of mouse embryonic stem cell lines that together lack every gene in the genome, and then to distribute the cells to scientific researchers to create knockout mice to study. Many of the targeted alleles are designed so that they can generate both complete and conditional gene knockout mice.
+                        For more details please visit <a href="http://http://www.mousephenotype.org/">www.mousephenotype.org/martsearch_ikmc_project.</a> </p>
+                </div>
+
+                <button class="accordion" style="border-color: white;"><span>IMPC</span></button>
+                <div class="panel" style="font-size: 15px">
+                    <p>The International Mouse Phenotyping Consortium (IMPC) is an international scientific endeavour to create and characterize the phenotype of 20,000 knockout mouse strains. Launched in September 2011,[1] the consortium consists of over 15 research institutes across four continents with funding provided by the NIH, European national governments and the partner institutions.</p>
+                    <p>See <a href="http://www.mousephenotype.org/">http://www.mousephenotype.org/</a> for more details</p>
+                </div>
+
+                <button class="accordion" style="border-color: white;"><span>LC </span></button>
+                <div class="panel" style="font-size: 15px">
+                    <p>Langerhanc cells (LC) are dendritic cells found in the skin and mucosa of mice and humans. In mice, Langerhans cells and dendritic epidermal T cells (DETC) form a network of cells in the epidermis.</p>
+                </div>
+
+
+
             </div>
-        <button class="accordion" style="border-color: white;">IMPC</button>
-        <div class="panel">
-            <p>The International Mouse Phenotyping Consortium (IMPC) is an international scientific endeavour to create and characterize the phenotype of 20,000 knockout mouse strains. Launched in September 2011,[1] the consortium consists of over 15 research institutes across four continents with funding provided by the NIH, European national governments and the partner institutions.</p>
-            <p>See<a href="http://www.mousephenotype.org/">http://www.mousephenotype.org/</a></p>
-        </div>
 
-        <button class="accordion" style="border-color: white;">LC</button>
-        <div class="panel">
-            <p>Langerhanc cells (LC) are dendritic cells found in the skin and mucosa of mice and humans. In mice, Langerhans cells and dendritic epidermal T cells (DETC) form a network of cells in the epidermis.</p>
-        </div>
+            <br/>
+            <br/>
+            <br/>
 
         </div>
-
 
     </div>
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
-    <footer>
-        <div class="foot_content">
-            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-            <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
-            </ul> </div>
+        for (i = 0; i < acc.length; i++) {
 
-        </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
-    </footer>
-</div>
-<script type="text/javascript">
-    /*<![CDATA[*/
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-
-        acc[i].onclick = function(){
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
+            acc[i].onclick = function(){
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
             }
         }
-    }
 
 
-    /*]]>*/
+        /*]]>*/
 
 
-</script>
+    </script>
+
+</div>
+
+<footer id="procedure">
+    <div class="centercontent">
+    <div class="foot_content"  >
+        <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+        <div  id="foot_list"> <ul>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+            <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+
+        </ul> </div>
+
+    </div>
+        <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
+            © 2018 Wellcome Trust Sanger Institute</p>
+    </div>
+</footer>
 
 </body>
 </html>

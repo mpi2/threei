@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/default.js}"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+
+
     <title> Publications page</title>
 </head>
 
@@ -14,27 +22,33 @@
     <th:block th:include="fragments/slideshow::slideshow"></th:block>
 
     <div id="main" class="content">
-        <div id="welcome" style="top:190px; font-size:30px;z-index: 9999;" >
-            <h1>Publications </h1>
-        </div><br/>
 
-        <div class="panel_glossary">
+        <div id="welcome"  >
+            <h1>Publications</h1>
+        </div>
+
+        <div id="region region-content" style="width:68%; float:left;">
+            <div class="intro"><h2 >We have compiled the following list of relevant publications. </h2> </div>
+            <p></p>
+            <p></p>
+            <div class="panel_glossary" style="width:65%; ">
             <i class="fa fa-list-alt"></i>
             Publications
         </div>
-
-        <div id="accordian1_main" style="position: absolute;top: 380px; border: 1px solid #eee; width: 65%;">
+            <br/><br/><br/><br/>
+            <div id="accordian1_main" style=" border: 1px solid #eee; width: 100%; padding:1em">
             <p></p>
-             Bradley et al (2012) Mammalian Genome 23, 580-6<br/>
-        <b>The mammalian gene function resource: the International Knockout Mouse Consortium.</b><br/>
-        This paper gives an overview of the ES cell resources available through the International Knockout mouse consortium (IKMC).<br/>
+            <br/>
+            Bradley et al (2012) Mammalian Genome 23, 580-6<br/>
+            <b>The mammalian gene function resource: the International Knockout Mouse Consortium.</b><br/>
+            This paper gives an overview of the ES cell resources available through the International Knockout mouse consortium (IKMC).<br/>
             <span><a href="https://www.ncbi.nlm.nih.gov/pubmed/22968824">http://www.ncbi.nlm.nih.gov/pubmed/22968824</a></span>
-        <ul class="ul-pdf">
-            <li><span>
+            <ul class="ul-pdf">
+                <li><span>
                 <img th:src="@{/images/pdf.png}" href="..static/images/pdf.png" width="20" height="20" />
                 <a href="/publications-pdfs/Bradley 2012 IKMC.pdf">Bradley 2012 IKMC.pdf</a></span>
-            </li>
-        </ul>
+                </li>
+            </ul>
 
             <p></p>
             Skarnes et al. (2011) Nature, 474, 337-42<br/>
@@ -73,28 +87,14 @@
                 </li>
             </ul>
 
+             <br/>
+            <br/>
 
         </div>
 
 
     </div>
-    <footer>
-        <div class="foot_content">
-            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-            <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
-            </ul> </div>
 
-        </div>
-        <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
-    </footer>
 
 </div>
 
@@ -104,9 +104,7 @@
     /*<![CDATA[*/
     var acc = document.getElementsByClassName("accordion");
     var i;
-
     for (i = 0; i < acc.length; i++) {
-
         acc[i].onclick = function(){
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
@@ -117,12 +115,38 @@
             }
         }
     }
-
-
     /*]]>*/
-
-
 </script>
 
+
+</div>
+
+
+
+<footer id="procedure" style="top:1500px">
+    <div class="centercontent">
+    <div class="foot_content" >
+        <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+        <div  id="foot_list"> <ul>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+            <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+
+        </ul> </div>
+
+    </div>
+        <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
+            © 2018 Wellcome Trust Sanger Institute</p>
+    </div>
+</footer>
+
+
+
 </body>
+
 </html>

@@ -14,12 +14,12 @@
     <th:block th:include="fragments/slideshow::slideshow"></th:block>
     <div id="main" class="content" style="height: 800px;">
 
-        <div id="welcome" style="top:200px; font-size:30px;z-index: 9999;" >
+        <div id="welcome"  >
             <h1>Learn more </h1>
         </div><br/>
         <p></p>
         <div id="region region-content" style="width:68%; float:left;height:100% ">
-            <div class="intro"><h2 style=" font-size:25px ">Do not hesitate to contact us if you cannot find a answer to your question below. </h2> </div>
+            <div class="intro"><h2>Do not hesitate to contact us if you cannot find a answer to your question below. </h2> </div>
             <p></p>
             <p></p>
             <h3 style="font-size: 25px;">FREQUENTLY ASKED QUESTIONS</h3><p></p>
@@ -43,6 +43,7 @@
 </div>
 
 <footer>
+    <div class="centercontent">
     <div class="foot_content">
         <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
         <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
@@ -54,10 +55,13 @@
             <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
             <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
             <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+            <li>Software v0.0.6</li>
         </ul> </div>
 
     </div>
-    <p class="textright" style="text-align: right;word-spacing: normal;">© 2018 Wellcome Trust Sanger Institute</p>
+        <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
+            © 2018 Wellcome Trust Sanger Institute</p>
+    </div>
 </footer>
 
 </body>
