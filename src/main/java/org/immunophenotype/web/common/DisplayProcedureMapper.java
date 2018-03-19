@@ -1,7 +1,9 @@
 package org.immunophenotype.web.common;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DisplayProcedureMapper {
@@ -60,6 +62,17 @@ public class DisplayProcedureMapper {
 	
 	public static String[] getDisplayHeaderOrder(){
 		return displayHeaderOrder;
+	}
+	
+	public static List<String> getProceduresFromDisplayName(String displayName){
+		List<String> procedures=new ArrayList<>();
+		for(String procedure:realProcedureTodDisplayName.values()){
+			if(displayName.equals(procedure)){
+			procedures.add(procedure);
+			}
+		}
+		
+		return procedures;
 	}
 //	private class ProcedureBean{
 //		

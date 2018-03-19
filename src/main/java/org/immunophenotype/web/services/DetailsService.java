@@ -2,6 +2,7 @@ package org.immunophenotype.web.services;
 
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.immunophenotype.web.common.DisplayProcedureMapper;
 import org.immunophenotype.web.common.Result;
 import org.immunophenotype.web.common.SexType;
 import org.immunophenotype.web.common.SignificanceType;
@@ -17,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -36,12 +38,17 @@ public class DetailsService {
         this.geneService=geneService;
     }
 
+    /*
+     * procedureName is now the blessed ones from Lucie and so we need to map these back to the real procedure names before giving the page
+     */
     public Set<ParameterDetails> getParametersForGeneAndProcedure(String gene, String procedureName) {
 
         Map<String, ParameterDetails> parameters = new HashMap<>();
         //strip quotes off procedureName
         procedureName=procedureName.replaceAll("\"", "");
-        System.out.println("gene"+gene+" procedureName="+procedureName);
+        List<String> procedureList=DisplayProcedureMapper.getProceduresFromDisplayName(procedureName);
+        
+        System.out.println("blah gene"+gene+" procedureName="+procedureList);
         
 
         try (Connection conn = dataSource.getConnection(); PreparedStatement statement = conn.prepareStatement(query)) {
