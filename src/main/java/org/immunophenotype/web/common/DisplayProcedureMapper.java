@@ -11,7 +11,7 @@ public class DisplayProcedureMapper {
 			"Homozygous viability at P14",
 	         "Homozygous Fertility",
 	        "Haematology",
-	         "Peripheral Blo od Leukocytes",
+	         "Peripheral Blood Leukocytes",
 	       "Spleen",
 	         "Mesenteric Lymph Node",
 	       "Bone Marrow",
@@ -42,7 +42,7 @@ public class DisplayProcedureMapper {
         aMap.put("Anti-nuclear antibody assay","Anti-nuclear Antibodies");
         aMap.put("Antigen Specific Immunoglobulin Assay", "Salmonella Challenge");
         aMap.put("Salmonella Challenge", "Salmonella Challenge");
-        aMap.put("CTL Assay","Cytotoxic T Cell Function");
+        aMap.put("CTL assay","Cytotoxic T Cell Function");
         aMap.put("3i DSS Challenge","DSS Challenge");
         aMap.put("Infection Challenge Weights", "Influenza");
         aMap.put("3i Trichurus Challenge","Trichuris Challenge");

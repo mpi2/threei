@@ -1,6 +1,7 @@
 package org.immunophenotype.web.services;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
+import org.immunophenotype.web.common.DisplayProcedureMapper;
 import org.immunophenotype.web.common.WebStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -14,10 +15,10 @@ import java.util.*;
 @Service
 public class HeatmapService implements WebStatus{
 
-	public static final String [] headerArray={	"Viability Primary Screen", "Fertility of Homozygous Knock-out Mice",  "Haematology",	"Buffy coat peripheral blood leukocyte immunophenotyping", "Whole blood peripheral blood leukocyte immunophenotyping", "Spleen Immuno Phenotyping", 	"Mesenteric Lymph Node Immunophenotyping", 	"Bone marrow immunophenotyping", "Ear epidermis immunophenotyping",	"Anti-nuclear antibody assay", "Antigen Specific Immunoglobulin Assay", "CTL assay", "3i DSS Challenge", "Infection Challenge Weights",	"3i Trichurus Challenge",	"Salmonella Challenge"	};
+	//public static final String [] headerArray={	"Viability Primary Screen", "Fertility of Homozygous Knock-out Mice",  "Haematology",	"Buffy coat peripheral blood leukocyte immunophenotyping", "Whole blood peripheral blood leukocyte immunophenotyping", "Spleen Immuno Phenotyping", 	"Mesenteric Lymph Node Immunophenotyping", 	"Bone marrow immunophenotyping", "Ear epidermis immunophenotyping",	"Anti-nuclear antibody assay", "Antigen Specific Immunoglobulin Assay", "CTL assay", "3i DSS Challenge", "Infection Challenge Weights",	"3i Trichurus Challenge",	"Salmonella Challenge"	};
 			
 	
-	public static final List<String> headerOrder =  new ArrayList<>(Arrays.asList(headerArray)); 
+	public static final List<String> headerOrder =  new ArrayList<>(Arrays.asList(DisplayProcedureMapper.getDisplayHeaderOrder())); 
 	
     public static List<String> getHeaderorder() {
 		return headerOrder;
@@ -54,8 +55,8 @@ public class HeatmapService implements WebStatus{
 				} else {
 					row = rows.get(gene);
 				}
-
-				String procedureName = results.getString("ProcedureName");
+				System.out.println("|"+results.getString("ProcedureName")+"|");
+				String procedureName = DisplayProcedureMapper.getDisplayNameForProcedure(results.getString("ProcedureName"));
 				String callType = results.getString("CallType");
 
 				// System.out.println("adding
