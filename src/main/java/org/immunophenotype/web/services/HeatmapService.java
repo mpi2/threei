@@ -55,7 +55,7 @@ public class HeatmapService implements WebStatus{
 				} else {
 					row = rows.get(gene);
 				}
-				System.out.println("|"+results.getString("ProcedureName")+"|");
+				//System.out.println("|"+results.getString("ProcedureName")+"|");
 				String procedureName = DisplayProcedureMapper.getDisplayNameForProcedure(results.getString("ProcedureName"));
 				String callType = results.getString("CallType");
 
