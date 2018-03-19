@@ -14,8 +14,7 @@ public class HeatmapRow {
     private String construct;
     Map<String, Integer> procedureSignificance = new HashMap<>();//map of procedure name to significance string.
 
-
-    public Map<String, Integer> getProcedureSignificance() {
+	public Map<String, Integer> getProcedureSignificance() {
         return procedureSignificance;
     }
 
