@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class DisplayProcedureMapper {
 	
@@ -19,7 +20,6 @@ public class DisplayProcedureMapper {
 	       "Bone Marrow",
 	        "Ear Epidermis",
 	        "Anti-nuclear Antibodies",
-	        "Salmonella Challenge",
 	        "Cytotoxic T Cell Function",
 	        "DSS Challenge",
 	         "Influenza",
@@ -66,11 +66,18 @@ public class DisplayProcedureMapper {
 	
 	public static List<String> getProceduresFromDisplayName(String displayName){
 		List<String> procedures=new ArrayList<>();
-		for(String procedure:realProcedureTodDisplayName.values()){
-			if(displayName.equals(procedure)){
-			procedures.add(procedure);
+		for(Entry<String, String> entry:realProcedureTodDisplayName.entrySet()){
+			if(displayName.equals(entry.getValue())){
+			procedures.add(entry.getKey());
 			}
 		}
+		
+//		Set<T> keys = new HashSet<T>();
+//	    for (Entry<T, E> entry : map.entrySet()) {
+//	        if (Objects.equals(value, entry.getValue())) {
+//	            keys.add(entry.getKey());
+//	        }
+//	    }
 		
 		return procedures;
 	}

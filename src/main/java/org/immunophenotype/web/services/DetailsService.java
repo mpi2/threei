@@ -50,61 +50,69 @@ public class DetailsService {
         
         System.out.println("blah gene"+gene+" procedureName="+procedureList);
         
+		for (String procedureNameFromList : procedureList) {
 
-        try (Connection conn = dataSource.getConnection(); PreparedStatement statement = conn.prepareStatement(query)) {
-            statement.setString(1, gene);
-            statement.setString(2, procedureName);
+			try (Connection conn = dataSource.getConnection();
+					PreparedStatement statement = conn.prepareStatement(query)) {
+				statement.setString(1, gene);
+				statement.setString(2, procedureNameFromList);
 
-            System.out.println(statement);
+				System.out.println(statement);
 
-            ResultSet r = statement.executeQuery();
+				ResultSet r = statement.executeQuery();
 
-            while (r.next()) {
+				while (r.next()) {
 
-                String parameter = r.getString("ParameterName");
-                if(parameter==null || parameter.equals("")){
-                	parameter="Viability Primary Screen";//seems like all the ones with empty parameter name ar viabiility??
-                }
+					String parameter = r.getString("ParameterName");
+					if (parameter == null || parameter.equals("")) {
+						parameter = "Viability Primary Screen";// seems like all
+																// the ones with
+																// empty
+																// parameter
+																// name ar
+																// viabiility??
+					}
 
-                // If we have not seen this parameter yet, add a new ParameterDetails object to the map
-                if ( ! parameters.containsKey(parameter)) {
-                    ParameterDetails p = new ParameterDetails();
-                    p.setName(parameter);
-                    parameters.put(parameter, p);
-                }
+					// If we have not seen this parameter yet, add a new
+					// ParameterDetails object to the map
+					if (!parameters.containsKey(parameter)) {
+						ParameterDetails p = new ParameterDetails();
+						p.setName(parameter);
+						parameters.put(parameter, p);
+					}
 
-                ParameterDetails p = parameters.get(parameter);
-                String parameterId=r.getString("ParameterId");
-                p.setParameterId(parameterId);
-                String callType=r.getString("CallType");
-                SignificanceType sig=SignificanceType.fromString(callType);
-                String gender=r.getString("Gender").toLowerCase();
-                System.out.println(callType+" "+gender);
-                String zygosity=r.getString("genotype");
-         
-                Result result=new Result();
-                result.setZygosityType(ZygosityType.valueOf(zygosity));
-                result.setSignificant(sig);
-                if(gender.equals("male")) {
-                	result.setSexType(SexType.male);
-                    p.addMaleResult(result);
-                }
+					ParameterDetails p = parameters.get(parameter);
+					String parameterId = r.getString("ParameterId");
+					p.setParameterId(parameterId);
+					String callType = r.getString("CallType");
+					SignificanceType sig = SignificanceType.fromString(callType);
+					String gender = r.getString("Gender").toLowerCase();
+					System.out.println(callType + " " + gender);
+					String zygosity = r.getString("genotype");
 
-                if(gender.toLowerCase().equals("female")) {
-                	result.setSexType(SexType.female);
-                    p.addFemaleResult(result);
-                   // p.setMaleSignificant(SignificanceType.not_significant);
-                }
-                if(gender.toLowerCase().equals("both")) {
-                	result.setSexType(SexType.both);
-                    p.addBothSexResult(result);
-                }
-                
-            }
-        } catch (Exception e) {
-            logger.info("Sql exception when getting details for gene %s, procedure %s", gene, procedureName, e);
-        }
+					Result result = new Result();
+					result.setZygosityType(ZygosityType.valueOf(zygosity));
+					result.setSignificant(sig);
+					if (gender.equals("male")) {
+						result.setSexType(SexType.male);
+						p.addMaleResult(result);
+					}
 
+					if (gender.toLowerCase().equals("female")) {
+						result.setSexType(SexType.female);
+						p.addFemaleResult(result);
+						// p.setMaleSignificant(SignificanceType.not_significant);
+					}
+					if (gender.toLowerCase().equals("both")) {
+						result.setSexType(SexType.both);
+						p.addBothSexResult(result);
+					}
+
+				}
+			} catch (Exception e) {
+				logger.info("Sql exception when getting details for gene %s, procedure %s", gene, procedureName, e);
+			}
+		}
         return new HashSet<>(parameters.values());
 
     }

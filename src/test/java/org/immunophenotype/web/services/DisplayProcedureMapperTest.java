@@ -41,5 +41,15 @@ public class DisplayProcedureMapperTest {
 		for(String name: order){
 			System.out.println(name);
 		}
+		
+	}
+	
+	@Test
+	public final void testGetProceduresFromDisplayName(){
+		List<String> procedures=DisplayProcedureMapper.getProceduresFromDisplayName("Homozygous viability at P14");
+		for(String procedure: procedures){	
+			System.out.println(procedure);
+		}
+		assertTrue(procedures.size()>0);
 	}
 }
