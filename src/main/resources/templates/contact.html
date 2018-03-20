@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" th:src="@{/js/default.js}"></script>
-    <title> Contact page</title>
+    <link th:href="@{/css/contact.css}" href="../static/css/contact.css"  rel="stylesheet" type="text/css"  />
+    <title> CONTACT | 3i Consortium - Wellcome Trust Sanger Institute</title>
+    <link rel="icon" type="image/png" href="images/index.ico">
 </head>
 
 <body>
@@ -128,7 +130,9 @@
         </div>
 
     </div>
-    <footercontact>
+
+    <th:block   th:include="fragments/footer::footer1" > </th:block>
+   <!-- <footercontact>
         <div class="centercontent">
         <div class="foot_content" >
             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
@@ -148,7 +152,7 @@
             <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
                 © 2018 Wellcome Trust Sanger Institute</p>
         </div>
-    </footercontact>
+    </footercontact>  -->
 
 
 </div>

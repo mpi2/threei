@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
-    <title> Glossary page</title>
+    <link th:href="@{/css/glossary.css}" href="../static/css/glossary.css"  rel="stylesheet" type="text/css"  />
+    <title> GLOSSARY | 3i Consortium - Wellcome Trust Sanger Institute</title>
+    <link rel="icon" type="image/png" href="images/index.ico">
 </head>
 
 <body>
@@ -103,7 +105,8 @@
 
 </div>
 
-<footer id="procedure">
+<th:block   th:include="fragments/footer::footer1" > </th:block>
+<!--<footer id="procedure">
     <div class="centercontent">
     <div class="foot_content"  >
         <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
@@ -123,7 +126,7 @@
         <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
             © 2018 Wellcome Trust Sanger Institute</p>
     </div>
-</footer>
+</footer> -->
 
 </body>
 </html>
