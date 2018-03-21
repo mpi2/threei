@@ -42,12 +42,31 @@ public class DetailsService {
     
     
     public Set<ParameterDetails> getParametersForGeneAndDisplayName(String gene, String displayName){
+    	Map<String, Set<ParameterDetails>> procedureDetailsMap=new HashMap<>();
     	Set<ParameterDetails> combinedSet=new HashSet<>();
     	displayName=displayName.replaceAll("\"", "");
         List<String> procedureList=DisplayProcedureMapper.getProceduresFromDisplayName(displayName);
         for(String procedureName: procedureList){
-        	combinedSet.addAll(this.getParametersForGeneAndProcedure(gene, procedureName));
+        	//combinedSet.addAll(this.getParametersForGeneAndProcedure(gene, procedureName));
+        	procedureDetailsMap.put(procedureName, this.getParametersForGeneAndProcedure(gene, procedureName));
         }
+        
+        if(procedureDetailsMap.containsKey("Whole blood peripheral blood leukocyte immunophenotyping")){
+        	if(procedureDetailsMap.get("Whole blood peripheral blood leukocyte immunophenotyping").size()>0){
+        		System.out.println("whole blood found so just returning whole blood");
+        		return procedureDetailsMap.get("Whole blood peripheral blood leukocyte immunophenotyping");
+        	}else{
+        		if(procedureDetailsMap.containsKey("Buffy coat peripheral blood leukocyte immunophenotyping")){
+        			return procedureDetailsMap.get("Buffy coat peripheral blood leukocyte immunophenotyping");
+        		}
+        	}
+        }else{
+        	//if not blood related just add results together
+        	for(String key: procedureDetailsMap.keySet()){
+        		combinedSet.addAll(procedureDetailsMap.get(key));
+        	}
+        }
+        
         return combinedSet;
     }
     
@@ -62,16 +81,16 @@ public class DetailsService {
         //strip quotes off procedureName
         
         procedureName=procedureName.replaceAll("\"", "");
-        
+        //System.out.println("procedureName="+procedureName);
         
 		
 
 			try (Connection conn = dataSource.getConnection();
-					PreparedStatement statement = conn.prepareStatement(query)) {
+				PreparedStatement statement = conn.prepareStatement(query)) {
 				statement.setString(1, gene);
 				statement.setString(2, procedureName);
 
-				System.out.println(statement);
+				//System.out.println(statement);
 
 				ResultSet r = statement.executeQuery();
 
@@ -101,7 +120,7 @@ public class DetailsService {
 					String callType = r.getString("CallType");
 					SignificanceType sig = SignificanceType.fromString(callType);
 					String gender = r.getString("Gender").toLowerCase();
-					System.out.println(callType + " " + gender);
+					//System.out.println(callType + " " + gender);
 					String zygosity = r.getString("genotype");
 
 					Result result = new Result();
@@ -126,7 +145,7 @@ public class DetailsService {
 			} catch (Exception e) {
 				logger.info("Sql exception when getting details for gene %s, procedure %s", gene, procedureName, e);
 			}
-		
+		System.out.println(parameters.size());
         return new HashSet<>(parameters.values());
 
     }

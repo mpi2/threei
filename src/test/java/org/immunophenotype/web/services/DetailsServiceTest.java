@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {AppServiceTestConfig.class})
 public class DetailsServiceTest {
@@ -96,6 +97,16 @@ public class DetailsServiceTest {
 				assertTrue(parameterDetails.size() > 0);
 			}
 		}
+	}
+	
+	@Test
+	public void testGetParametersForGeneAndDisplayNamePeripheralBloodLeukocytes(){
+		//This procedure has special rules in that if there is data for "whole blood.." use that only when not use "Buffy coat..." parameters.
+		Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a",
+				"Peripheral Blood Leukocytes");
+		System.out.println("parameters size="+parameterDetails.size());
+		assertTrue(parameterDetails.size()>0);
+		
 	}
 	
 	

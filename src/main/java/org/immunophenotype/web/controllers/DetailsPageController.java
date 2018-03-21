@@ -30,7 +30,7 @@ public class DetailsPageController {
         
         Set<String> headers=new HashSet<String>();
         for(ParameterDetails details:parameters){
-        	System.out.println("parameterDetails="+details);
+        	//System.out.println("parameterDetails="+details);
         	Set headerKeys=details.getHeaderKeysForParameter();
         	headers.addAll(headerKeys);
         }
