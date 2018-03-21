@@ -78,5 +78,11 @@ public class DetailsServiceTest {
 		}
 		assertTrue(parameterDetails.size()==2);
 	}
+	
+	@Test
+	public final void testGetProceduresFromDisplayNameTrmt2a(){
+		Set<ParameterDetails> parameterDetails=detailsService.getParametersForGeneAndDisplayName("Trmt2a","Homozygous Viability at P14");
+		assertTrue(parameterDetails.size()>0);
+	}
 
 }
