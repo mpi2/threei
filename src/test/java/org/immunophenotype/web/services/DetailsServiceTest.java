@@ -1,6 +1,6 @@
 package org.immunophenotype.web.services;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 import java.util.Set;
@@ -80,9 +80,24 @@ public class DetailsServiceTest {
 	}
 	
 	@Test
-	public final void testGetProceduresFromDisplayNameTrmt2a(){
-		Set<ParameterDetails> parameterDetails=detailsService.getParametersForGeneAndDisplayName("Trmt2a","Homozygous Viability at P14");
-		assertTrue(parameterDetails.size()>0);
+	public final void testGetProceduresFromDisplayNameTrmt2a() {
+		// for all the procedures for this gene Trmt2a there is at least one
+		// result apart from influenza and Trichuris Challenge and should always
+		// be?
+		for (String displayHeader : DisplayProcedureMapper.getDisplayHeaderOrder()) {
+			Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a",
+					displayHeader);
+			System.out.println(displayHeader + " details size is " + parameterDetails.size());
+			if (displayHeader.equalsIgnoreCase("influenza")) {
+				assertTrue(parameterDetails.size() == 1);
+			} else if (displayHeader.equalsIgnoreCase("Trichuris Challenge")) {
+				assertFalse(parameterDetails.size() > 0);
+			} else {
+				assertTrue(parameterDetails.size() > 0);
+			}
+		}
 	}
+	
+	
 
 }
