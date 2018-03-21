@@ -2,7 +2,7 @@ package org.immunophenotype.web;
 
 
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
-//import org.h2.server.web.WebServlet;
+import org.h2.server.web.WebServlet;
 import org.immunophenotype.web.services.GeneService;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -36,12 +36,12 @@ public class Application {
 	
 	
 	
-//	@Bean
-//    ServletRegistrationBean h2servletRegistration(){
-//        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-//        registrationBean.addUrlMappings("/console/*");
-//        return registrationBean;
-//    }
+	@Bean
+    ServletRegistrationBean h2servletRegistration(){
+        ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
+        registrationBean.addUrlMappings("/console/*");
+        return registrationBean;
+    }
 	
 	
 	@Bean
