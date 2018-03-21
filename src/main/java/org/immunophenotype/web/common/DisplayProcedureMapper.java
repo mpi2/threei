@@ -67,7 +67,7 @@ public class DisplayProcedureMapper {
 	public static List<String> getProceduresFromDisplayName(String displayName){
 		List<String> procedures=new ArrayList<>();
 		for(Entry<String, String> entry:realProcedureTodDisplayName.entrySet()){
-			if(displayName.equals(entry.getValue())){
+			if(displayName.equalsIgnoreCase(entry.getValue())){
 			procedures.add(entry.getKey());
 			}
 		}

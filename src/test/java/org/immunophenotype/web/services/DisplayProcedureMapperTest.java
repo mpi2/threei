@@ -52,4 +52,13 @@ public class DisplayProcedureMapperTest {
 		}
 		assertTrue(procedures.size()>0);
 	}
+	
+	@Test
+	public final void testGetProceduresFromDisplayNameSalmonella(){
+		List<String> procedures=DisplayProcedureMapper.getProceduresFromDisplayName("Salmonella Challenge");
+		for(String procedure: procedures){	
+			System.out.println(procedure);
+		}
+		assertTrue(procedures.size()==2);
+	}
 }

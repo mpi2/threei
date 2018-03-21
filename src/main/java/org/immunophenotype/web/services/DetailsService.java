@@ -38,6 +38,21 @@ public class DetailsService {
         this.geneService=geneService;
     }
 
+    
+    
+    
+    public Set<ParameterDetails> getParametersForGeneAndDisplayName(String gene, String displayName){
+    	Set<ParameterDetails> combinedSet=new HashSet<>();
+    	displayName=displayName.replaceAll("\"", "");
+        List<String> procedureList=DisplayProcedureMapper.getProceduresFromDisplayName(displayName);
+        for(String procedureName: procedureList){
+        	combinedSet.addAll(this.getParametersForGeneAndProcedure(gene, procedureName));
+        }
+        return combinedSet;
+    }
+    
+    
+    
     /*
      * procedureName is now the blessed ones from Lucie and so we need to map these back to the real procedure names before giving the page
      */
@@ -45,17 +60,16 @@ public class DetailsService {
 
         Map<String, ParameterDetails> parameters = new HashMap<>();
         //strip quotes off procedureName
+        
         procedureName=procedureName.replaceAll("\"", "");
-        List<String> procedureList=DisplayProcedureMapper.getProceduresFromDisplayName(procedureName);
         
-        System.out.println("blah gene"+gene+" procedureName="+procedureList);
         
-		for (String procedureNameFromList : procedureList) {
+		
 
 			try (Connection conn = dataSource.getConnection();
 					PreparedStatement statement = conn.prepareStatement(query)) {
 				statement.setString(1, gene);
-				statement.setString(2, procedureNameFromList);
+				statement.setString(2, procedureName);
 
 				System.out.println(statement);
 
@@ -112,7 +126,7 @@ public class DetailsService {
 			} catch (Exception e) {
 				logger.info("Sql exception when getting details for gene %s, procedure %s", gene, procedureName, e);
 			}
-		}
+		
         return new HashSet<>(parameters.values());
 
     }
