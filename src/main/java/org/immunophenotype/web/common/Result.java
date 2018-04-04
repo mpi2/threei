@@ -2,6 +2,11 @@ package org.immunophenotype.web.common;
 
 public class Result {
 		
+		@Override
+	public String toString() {
+		return "Result [sexType=" + sexType + ", zygosityType=" + zygosityType + ", significant=" + significant + "]";
+	}
+
 		private SexType sexType;
 		private ZygosityType zygosityType;
 		private SignificanceType significant;
