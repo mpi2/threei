@@ -52,7 +52,7 @@ ol, ul {
     list-style: none;
 }
 #mn{position:absolute;margin-left:25%;margin-top:54px;top:1px;}
-#mn li{float:left;font-size:1.2em;margin-right:0.3em;}
+#mn li{float:left;font-size:1em;margin-right:0.3em;}
 #mn li li{float:none;font-size:0.8em;font-weight:400;background:#eee;margin-right:0;border-left:#ccc 1px solid;border-right:#ccc 1px solid;}
 #mn li.active > a,#mn li.active-trail > a,#mn li:hover > a{border-left-color:#666;background:#EF7B0B;color:#fff;}
 #mn li:hover + li a{border-left-color:#eee;}
@@ -71,7 +71,10 @@ ol, ul {
     text-decoration: none;
     color: #666;
     display: block;
-    padding: 0.3em 0.6em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
 li {
@@ -2323,19 +2326,7 @@ div#block-block-contact {
     border-radius: 4px 4px 0px 0px;
     font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
-footercontact {
-    position: absolute;
-    top: 2000px;
-    width: 100%;
-    height: 150px;
-    color: white;
-    background-color: #666;
-    clear: left;
-    padding:50px;
-    word-spacing:20px;
-    left:0px;
-    font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
-}
+
 
 footerack {
     position: absolute;
@@ -2379,22 +2370,7 @@ spandata{
     font-family:"source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
 }
 
-#footerprocedure {
 
-    position: absolute;
-    height:150px;
-    width: 100%;
-    bottom: 0px;
-    left: 0px;
-    right: 0;
-    clear:left;
-    color: white;
-    background-color: #666;
-    padding:50px;
-    word-spacing:20px;
-    font-family: "source sans pro" ,"Euphemia UCAS","Kannada Sangam MN";
-
-}
 
 .push{
     height:150px;

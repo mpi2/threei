@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" th:src="@{/js/default.js}"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    <link th:href="@{/css/publications.css}" href="../static/css/publications.css"  rel="stylesheet" type="text/css"  />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
-
-
-    <title> Publications page</title>
+    <link rel="icon" type="image/png" href="images/index.ico">
+    <title> PUBLICATIONS | 3i Consortium - Wellcome Trust Sanger Institute</title>
 </head>
 
 <body>
@@ -23,7 +22,7 @@
 
     <div id="main" class="content">
 
-        <div id="welcome"  >
+        <div id="welcome" >
             <h1>Publications</h1>
         </div>
 
@@ -46,7 +45,7 @@
             <ul class="ul-pdf">
                 <li><span>
                 <img th:src="@{/images/pdf.png}" href="..static/images/pdf.png" width="20" height="20" />
-                <a href="/publications-pdfs/Bradley 2012 IKMC.pdf">Bradley 2012 IKMC.pdf</a></span>
+                <a href="/mi/impc/threei/dev/webapp/publications-pdfs/Bradley 2012 IKMC.pdf">Bradley 2012 IKMC.pdf</a></span>
                 </li>
             </ul>
 
@@ -58,7 +57,7 @@
             <ul class="ul-pdf">
                 <li><span>
                 <img th:src="@{/images/pdf.png}" href="..static/images/pdf.png" width="20" height="20" />
-                <a href="/publications-pdfs/Skarnes 2011 KO design.pdf"> Skarnes 2011 KO design.pdf</a></span>
+                <a href="/mi/impc/threei/dev/webapp/publications-pdfs/Skarnes 2011 KO design.pdf"> Skarnes 2011 KO design.pdf</a></span>
                 </li>
             </ul>
 
@@ -71,7 +70,7 @@
             <ul class="ul-pdf">
                 <li><span>
                 <img th:src="@{/images/pdf.png}" href="..static/images/pdf.png" width="20" height="20" />
-                <a href="/publications-pdfs/White 2013 MPG screen.pdf"> White 2013 MPG screen.pdf</a></span>
+                <a href="/mi/impc/threei/dev/webapp/publications-pdfs/White 2013 MPG screen.pdf"> White 2013 MPG screen.pdf</a></span>
                 </li>
             </ul>
 
@@ -83,7 +82,7 @@
             <ul class="ul-pdf">
                 <li><span>
                 <img th:src="@{/images/pdf.png}" href="..static/images/pdf.png" width="20" height="20" />
-                <a href="/publications-pdfs/Brown and Moore 2012 IMPC.pdf"> Brown and Moore 2012 IMPC.pdf</a></span>
+                <a href="/mi/impc/threei/dev/webapp/publications-pdfs/Brown and Moore 2012 IMPC.pdf"> Brown and Moore 2012 IMPC.pdf</a></span>
                 </li>
             </ul>
 
@@ -121,8 +120,8 @@
 
 </div>
 
-
-
+<th:block   th:include="fragments/footer::footer1" > </th:block>
+<!--
 <footer id="procedure" style="top:1500px">
     <div class="centercontent">
     <div class="foot_content" >
@@ -143,7 +142,7 @@
         <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
             © 2018 Wellcome Trust Sanger Institute</p>
     </div>
-</footer>
+</footer>  -->
 
 
 

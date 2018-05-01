@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" th:src="@{/js/default.js}"></script>
-    
+    <link th:href="@{/css/procedure.css}" href="../static/css/procedure.css"  rel="stylesheet" type="text/css"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
-    
-
-    <title> Procedure Page</title>
+    <link rel="icon" type="image/png" href="images/index.ico">
+    <title> PROCEDURE | 3i Consortium - Wellcome Trust Sanger Institute</title>
 </head>
 
 
@@ -98,8 +97,8 @@
 
     </div>
 </div>
-
-    <footer id="procedure">
+<th:block   th:include="fragments/footer::footer1" > </th:block>
+<!--    <footer id="procedure">
 
         <div class="foot_content" >
             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
@@ -118,7 +117,7 @@
         </div>
         <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
             © 2018 Wellcome Trust Sanger Institute</p>
-    </footer>
+    </footer>  -->
 
 </body>
 </html>

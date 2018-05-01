@@ -6,7 +6,9 @@
     <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
     <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <title> Image acknowledgements page</title>
+    <link th:href="@{/css/acknowledgements.css}" href="../static/css/acknowledgements.css"  rel="stylesheet" type="text/css"  />
+    <title> Image acknowledgements | 3i Consortium - Wellcome Trust Sanger Institute</title>
+    <link rel="icon" type="image/png" href="images/index.ico">
 </head>
 
 <body>
@@ -119,7 +121,8 @@
     </div>
 </div>
 
-    <footerack>
+<th:block   th:include="fragments/footer::footer1" > </th:block>
+  <!--  <footerack>
         <div class="centercontent">
         <div class="foot_content" >
             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
@@ -140,7 +143,7 @@
                 © 2018 Wellcome Trust Sanger Institute</p>
         </div>
     </footerack>
-    </footerack>
+    </footerack>  -->
 
 
 </body>
