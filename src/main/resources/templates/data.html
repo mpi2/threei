@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" th:src="@{/js/default.js}"></script>
+
     <link th:href="@{/css/data.css}" href="../static/css/data.css"  rel="stylesheet" type="text/css"  />
     <title> Data Search | 3i Consortium - Wellcome Trust Sanger Institute</title>
     <link rel="icon" type="image/png" href="images/index.ico">
+
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+
+
 </head>
 
 <body>
@@ -94,6 +99,7 @@
 
 
                         <script type="text/javascript" th:inline="javascript">
+
                         /*<![CDATA[*/
 
                          var heatmap_rows = /*[(${heatmap_rows})]*/ 'defaultanyvalue';
@@ -352,6 +358,15 @@
                             _heatmap_render();
 
 
+                        $(document).ready(function(){
+
+                            var geneid = getUrlParameter('gene');
+                            if (geneid != undefined) {
+                                document.getElementById("heatmap_filter_gene").value = geneid;
+                                heatmap_filter();
+                            }
+
+                        });
 
 
                         $(function(){
