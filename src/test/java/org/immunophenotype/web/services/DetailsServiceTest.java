@@ -1,7 +1,8 @@
 package org.immunophenotype.web.services;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {AppServiceTestConfig.class})
@@ -36,6 +38,7 @@ public class DetailsServiceTest {
 
 	@Test
 	public final void testGetParametersForGeneAndProcedure() {
+		//uses real procedureName
 		Set<ParameterDetails> details = detailsService.getParametersForGeneAndProcedure("Nxn", "CTL assay");
 		System.out.println("details size="+details.size());
 		assertTrue(details.size()>0);
@@ -43,23 +46,21 @@ public class DetailsServiceTest {
 		assertTrue(parameter.getMaleResults().get(0).getZygosityType().equals(ZygosityType.Het));
 		assertTrue(parameter.getMaleResults().get(0).getSignificant().equals(SignificanceType.not_significant));
 		}
-		//one 
-		Set<ParameterDetails> details2 = detailsService.getParametersForGeneAndDisplayName("Nxn", "Cytotoxic T cell function");
-		System.out.println("details size="+details.size());
-		assertTrue(details.size()>0);
-		assertTrue(details.size()==details2.size());
+		
 		
 	}
 	
 	@Test
-	public final void testGetParametersForGeneAndDisplayName() {
-		Set<ParameterDetails> details = detailsService.getParametersForGeneAndDisplayName("Nxn", "CTL assay");
-		System.out.println("details size="+details.size());
-		assertTrue(details.size()>0);
-		for(ParameterDetails parameter :details){
-		assertTrue(parameter.getMaleResults().get(0).getZygosityType().equals(ZygosityType.Het));
-		assertTrue(parameter.getMaleResults().get(0).getSignificant().equals(SignificanceType.not_significant));
-		}
+	public final void testGetCTLDisplayNameResults(){
+		//uses display name
+				Set<ParameterDetails> details2 = detailsService.getParametersForGeneAndDisplayName("Nxn", "Cytotoxic T cell function");	
+				Set<String> paramNames=new HashSet<>();
+				for(ParameterDetails detail:details2){
+					System.out.println("detail for ctl="+detail.getName());
+					paramNames.add(detail.getName());
+				}
+				//we had a bug where ctl would be showing parameters for fluffy coat so lets make sure it doesn't happen again
+				assertTrue(paramNames.contains("% CD4+"));//this isn't a ctl param
 	}
 	
 	@Test
@@ -74,9 +75,40 @@ public class DetailsServiceTest {
 	public final void testGetProceduresFromDisplayNameSalmonella(){
 		Set<ParameterDetails> parameterDetails=detailsService.getParametersForGeneAndDisplayName("Trmt2a","Salmonella Challenge");
 		for(ParameterDetails paramDtail: parameterDetails){	
-			System.out.println(paramDtail);
+			System.out.println("paramdetail="+paramDtail);
 		}
-		assertTrue(parameterDetails.size()==2);
+		assertTrue(parameterDetails.size()>=1);
 	}
+	
+	@Test
+	public final void testGetProceduresFromDisplayNameTrmt2a() {
+		// for all the procedures for this gene Trmt2a there is at least one
+		// result apart from influenza and Trichuris Challenge and should always
+		// be?
+		for (String displayHeader : DisplayProcedureMapper.getDisplayHeaderOrder()) {
+			Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a",
+					displayHeader);
+			System.out.println(displayHeader + " details size is " + parameterDetails.size());
+			if (displayHeader.equalsIgnoreCase("influenza")) {
+				assertTrue(parameterDetails.size() == 1);
+			} else if (displayHeader.equalsIgnoreCase("Trichuris Challenge")) {
+				assertFalse(parameterDetails.size() > 0);
+			} else {
+				assertTrue(parameterDetails.size() > 0);
+			}
+		}
+	}
+	
+	@Test
+	public void testGetParametersForGeneAndDisplayNamePeripheralBloodLeukocytes(){
+		//This procedure has special rules in that if there is data for "whole blood.." use that only when not use "Buffy coat..." parameters.
+		Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a",
+				"Peripheral Blood Leukocytes");
+		System.out.println("parameters size="+parameterDetails.size());
+		assertTrue(parameterDetails.size()>0);
+		
+	}
+	
+	
 
 }

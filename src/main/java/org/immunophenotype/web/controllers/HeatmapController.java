@@ -19,7 +19,8 @@ import java.util.List;
 @Controller
 public class HeatmapController {
 	
-
+	JSONArray heatmap = null;
+	JSONArray columnHeadersJson=null;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private HeatmapService heatmapService;
@@ -34,19 +35,21 @@ public class HeatmapController {
     public String dataController(Model model) {
 
         //need to get the data from a service so we can replace a data source behind it easily
-
+    	if(heatmap==null && columnHeadersJson == null){
+    		
         try {
+        	heatmap = new JSONArray();
             List<HeatmapRow> rows = heatmapService.getHeatmapRows();
             List<String> columnHeaders = heatmapService.getDistinctProcedureNames(rows);
             List<String> headerOrder = HeatmapService.getHeaderorder();
-            JSONArray columnHeadersJson=new JSONArray(headerOrder);
+            columnHeadersJson=new JSONArray(headerOrder);
             if(headerOrder.size()==columnHeaders.size()){
             	columnHeaders=headerOrder;//if size the same then lets just convert the ordered column headers to the ones we use
             }else{
                 	System.err.println("!!!!!! column headers or order has changed as the number of headers is not the same as the number of ordered headers specified headerOrder.size="+headerOrder.size()+" columnHeaders size="+columnHeaders.size());
                 }
             // JSON object representing the rows in the heatmap
-            JSONArray heatmap = new JSONArray();
+            
 
             for (HeatmapRow row : rows) {
 
@@ -70,13 +73,14 @@ public class HeatmapController {
                 
             
 
-            model.addAttribute("columnHeadersJson", columnHeadersJson);
-            model.addAttribute("heatmap_rows", heatmap);
+           
 
         } catch (SQLException e) {
             logger.warn("SQL error occurred when retrieving entries for heatmap", e);
         }
-
+    }
+        model.addAttribute("columnHeadersJson", columnHeadersJson);
+        model.addAttribute("heatmap_rows", heatmap);
         return "data";
     }
 
