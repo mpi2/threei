@@ -56,9 +56,9 @@
 
                 <div class="content"><div id="node-203" class="node node-page">
                     <h2 class="page__title title" id="page-title" style="font-size: 35px">Data Search</h2>
-<!-- <table>
-	<td th:text="${columnHeaders}"></td>
-</table> -->
+                    <!-- <table>
+                        <td th:text="${columnHeaders}"></td>
+                    </table> -->
 
                     <div class="clear"></div>
 
@@ -71,40 +71,44 @@
                 <div class="content"><div class="head" style="display:none;">3i Heatmap</div>
                     <div class="content">
                         <div id="heatmap-filters">
-                        <div class="filter-gene">Gene Name<br/>
-                            <input id="heatmap_filter_gene" type="text" value=""/>
+                            <div class="filter-gene">Gene Name<br/>
+                                <input id="heatmap_filter_gene" type="text" value="" onsubmit="heatmap_filter()"  />
                             </div>
                             <div class="filter-construct">Construct<br/>
                                 <select id="heatmap_filter_construct">
                                     <option selected="">- Any -</option>
-                                    <option></option><option>7em1J</option>
-                                    <option>em1Wtsi</option><option>em2Marc</option><option>tm1</option>
-                                    <option>tm1.1</option><option>tm1a</option><option>tm1b</option>
-                                    <option>tm1e</option><option>tm2</option><option>tm2a</option>
-                                    <option>tm2b</option><option>tm3a</option><option>tm3b</option>
-                                    <option>tm4a</option>
+
+                                    <th:block th:each="construct : ${constructlist}">
+
+                                        <option th:text="${construct}">  </option>
+
+                                    </th:block>
+
+
+
+
                                 </select>
                             </div>
                             <div class="filter-buttons"><br/>
-                                <button onclick="heatmap_filter();">Filter</button>&nbsp;&nbsp;&nbsp;
+                                <button id="enterbtn" onclick="heatmap_filter();" >Filter</button>&nbsp;&nbsp;&nbsp;
                                 <button onclick="heatmap_clear_filter();">Clear Filter</button></div></div><br/><br/><br/>
                         <br/>
                         <br/><br/><br/>
                         <br/><br/><br/><br/>
                         <div id="heatmap" >
 
-                            
+
                         </div>
 
 
 
                         <script type="text/javascript" th:inline="javascript">
 
-                        /*<![CDATA[*/
+                            /*<![CDATA[*/
 
-                         var heatmap_rows = /*[(${heatmap_rows})]*/ 'defaultanyvalue';
-                        var column_headers= /*[(${columnHeadersJson})]*/ 'defaultanyvalue';
-                        console.log(heatmap_rows);
+                            var heatmap_rows = /*[(${heatmap_rows})]*/ 'defaultanyvalue';
+                            var column_headers= /*[(${columnHeadersJson})]*/ 'defaultanyvalue';
+                            console.log(heatmap_rows);
                             var _heatmap_data_filtered = false;
                             var _heatmap_sortBy = null;
                             var _heatmap_sortByReversed = false;
@@ -168,12 +172,12 @@
                                 row+='<div class="gene"><a class="active" onClick="_heatmap_sortByCol(0)">Gene</a></div>';
                                 row+='<div class="cons"><a class="active" onClick="_heatmap_sortByCol(1)">Construct</a></div>';
                                 for(i=0; i <column_headers.length; i++){
-                                	var col_number=i+2;
-                                row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol("+col_number+")\">"+column_headers[i]+"</a></span></div></div>";
-                                /*
-                                row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(3)\">Homozygous Fertility</a></span></div></div>";
-                                row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(4)\">Hematology</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(5)\">Peripheral Blood Leukocytes</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(6)\">Spleen</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(7)\">Mesenteric Lymph Nodes</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(8)\">Bone Marrow</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(9)\">Ear epidermis</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(10)\">Anti-nuclear antibodies</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(11)\">Cytotoxic T cell function</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(12)\">DSS Challenge</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(13)\">Influenza</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(14)\">Trichuris Challenge</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(15)\">Salmonella Challenge</a></span></div></div>";
-                                 */}
+                                    var col_number=i+2;
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol("+col_number+")\">"+column_headers[i]+"</a></span></div></div>";
+                                    /*
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(3)\">Homozygous Fertility</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(4)\">Hematology</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(5)\">Peripheral Blood Leukocytes</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(6)\">Spleen</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(7)\">Mesenteric Lymph Nodes</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(8)\">Bone Marrow</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(9)\">Ear epidermis</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(10)\">Anti-nuclear antibodies</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(11)\">Cytotoxic T cell function</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(12)\">DSS Challenge</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(13)\">Influenza</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(14)\">Trichuris Challenge</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(15)\">Salmonella Challenge</a></span></div></div>";
+                                     */}
                                 _heatmap_header.innerHTML=row;
 
 
@@ -358,30 +362,30 @@
                             _heatmap_render();
 
 
-                        $(document).ready(function(){
+                            $(document).ready(function(){
 
-                            var geneid = getUrlParameter('gene');
-                            if (geneid != undefined) {
-                                document.getElementById("heatmap_filter_gene").value = geneid;
-                                heatmap_filter();
-                            }
-
-                        });
-
-
-                        $(function(){
-                            var stickyHeaderTop = $('#stickytypeheader').offset().top;
-
-                            $(window).scroll(function(){
-                                if( $(window).scrollTop() > stickyHeaderTop ) {
-                                    $('#stickytypeheader').css({position: 'fixed', top: '0px'});
-                                    $('#sticky').css('display', 'block');
-                                } else {
-                                    $('#stickytypeheader').css({position: 'static', top: '0px'});
-                                    $('#sticky').css('display', 'none');
+                                var geneid = getUrlParameter('gene');
+                                if (geneid != undefined) {
+                                    document.getElementById("heatmap_filter_gene").value = geneid;
+                                    heatmap_filter();
                                 }
+
                             });
-                        });
+
+
+                            $(function(){
+                                var stickyHeaderTop = $('#stickytypeheader').offset().top;
+
+                                $(window).scroll(function(){
+                                    if( $(window).scrollTop() > stickyHeaderTop ) {
+                                        $('#stickytypeheader').css({position: 'fixed', top: '0px'});
+                                        $('#sticky').css('display', 'block');
+                                    } else {
+                                        $('#stickytypeheader').css({position: 'static', top: '0px'});
+                                        $('#sticky').css('display', 'none');
+                                    }
+                                });
+                            });
 
 
 
@@ -397,6 +401,29 @@
                                     header.classList.remove("sticky");
                                 }
                             }
+
+
+
+
+
+
+
+
+
+
+
+                            /*]]>*/
+                        </script>
+
+                        <script type="text/javascript" th:inline="javascript">
+                            /*<![CDATA[*/
+                            var input = document.getElementById("heatmap_filter_gene");
+                            input.addEventListener("keyup", function(event) {
+                                event.preventDefault();
+                                if (event.keyCode === 13) {
+                                    document.getElementById("enterbtn").click();
+                                }
+                            });
                             /*]]>*/
                         </script>
                     </div><div class="clear"></div></div>
@@ -405,27 +432,27 @@
     </div>
 
     <th:block   th:include="fragments/footer::footer1" > </th:block>
-   <!-- <footerdata>
-        <div class="centercontent">
-        <div class="foot_content" >
-            <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
-            <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
-            <div  id="foot_list"> <ul>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
-                <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
-                <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
-                <li>Software v0.0.6</li>
-            </ul> </div>
+    <!-- <footerdata>
+         <div class="centercontent">
+         <div class="foot_content" >
+             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+             <div  id="foot_list"> <ul>
+                 <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+                 <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+                 <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+                 <li>Software v0.0.6</li>
+             </ul> </div>
 
-        </div>
-            <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.8<br/>
-                © 2018 Wellcome Trust Sanger Institute</p>
-        </div>
-    </footerdata> -->
+         </div>
+             <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.8<br/>
+                 © 2018 Wellcome Trust Sanger Institute</p>
+         </div>
+     </footerdata> -->
 </div>
 
 </body>
