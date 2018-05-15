@@ -1,6 +1,7 @@
 package org.immunophenotype.web.controllers;
 
 
+import org.immunophenotype.web.services.ConstructService;
 import org.immunophenotype.web.services.HeatmapRow;
 import org.immunophenotype.web.services.HeatmapService;
 import org.json.JSONArray;
@@ -10,11 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Set;
 import java.util.List;
+
 
 @Controller
 public class HeatmapController {
@@ -23,10 +23,12 @@ public class HeatmapController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private HeatmapService heatmapService;
+    private ConstructService constructService;
 
-    public HeatmapController(HeatmapService heatmapService) {
+    public HeatmapController(HeatmapService heatmapService, ConstructService constructService) {
         Assert.notNull(heatmapService, "Heatmapservice cannot be null");
         this.heatmapService = heatmapService;
+        this.constructService=constructService;
     }
 
 
@@ -68,10 +70,13 @@ public class HeatmapController {
                 heatmap.put(heatmapRow);
                 }
                 
-            
+              Set constructList = constructService.getConstructs();
+
+
 
             model.addAttribute("columnHeadersJson", columnHeadersJson);
             model.addAttribute("heatmap_rows", heatmap);
+            model.addAttribute("constructlist",constructList);
 
         } catch (SQLException e) {
             logger.warn("SQL error occurred when retrieving entries for heatmap", e);
