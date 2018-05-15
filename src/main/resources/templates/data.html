@@ -71,22 +71,26 @@
                 <div class="content"><div class="head" style="display:none;">3i Heatmap</div>
                     <div class="content">
                         <div id="heatmap-filters">
-                        <div class="filter-gene">Gene Name<br/>
-                            <input id="heatmap_filter_gene" type="text" value=""/>
+                        <div id="genename" class="filter-gene">Gene Name<br/>
+                            <input id="heatmap_filter_gene" type="text" value="" onsubmit="heatmap_filter()" />
                             </div>
                             <div class="filter-construct">Construct<br/>
                                 <select id="heatmap_filter_construct">
                                     <option selected="">- Any -</option>
-                                    <option></option><option>7em1J</option>
-                                    <option>em1Wtsi</option><option>em2Marc</option><option>tm1</option>
-                                    <option>tm1.1</option><option>tm1a</option><option>tm1b</option>
-                                    <option>tm1e</option><option>tm2</option><option>tm2a</option>
-                                    <option>tm2b</option><option>tm3a</option><option>tm3b</option>
-                                    <option>tm4a</option>
+
+                                    <th:block th:each="construct : ${constructlist}">
+
+                                        <option th:text="${construct}"> THE CONSTRUCT SHOWS HERE </option>
+
+                                    </th:block>
+
+
+
+
                                 </select>
                             </div>
                             <div class="filter-buttons"><br/>
-                                <button onclick="heatmap_filter();">Filter</button>&nbsp;&nbsp;&nbsp;
+                                <button id="enter" onclick="heatmap_filter(); ">Filter</button>&nbsp;&nbsp;&nbsp;
                                 <button onclick="heatmap_clear_filter();">Clear Filter</button></div></div><br/><br/><br/>
                         <br/>
                         <br/><br/><br/>
@@ -397,6 +401,29 @@
                                     header.classList.remove("sticky");
                                 }
                             }
+
+
+
+
+
+
+
+
+
+
+
+                            /*]]>*/
+                        </script>
+
+                        <script type="text/javascript" th:inline="javascript">
+                            /*<![CDATA[*/
+                            var input = document.getElementById("genename");
+                            input.addEventListener("keyup", function(event) {
+                                event.preventDefault();
+                                if (event.keyCode === 13) {
+                                    document.getElementById("enter").click();
+                                }
+                            });
                             /*]]>*/
                         </script>
                     </div><div class="clear"></div></div>
