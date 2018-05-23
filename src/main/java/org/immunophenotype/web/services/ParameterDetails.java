@@ -61,12 +61,18 @@ public class ParameterDetails {
 
    
 
+    
+    
     @Override
 	public String toString() {
-		return "ParameterDetails [resultsBySex=" + resultsBySex + ", name=" + name + "]";
+		return "ParameterDetails [resultsBySex=" + resultsBySex + ", parameterId=" + parameterId + ", name=" + name
+				+ "]";
 	}
-    
-    public List<Result> getMaleResults(){
+
+
+
+
+	public List<Result> getMaleResults(){
     	return resultsBySex.get(SexType.male);
     }
     
