@@ -42,6 +42,7 @@ public class ConstructService {
                     String[] constructs = construct.split("\\(");
                     construct = constructs[0];
                 }
+
                 constructlist.add(construct.trim());
 
             }
