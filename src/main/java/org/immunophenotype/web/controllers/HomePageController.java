@@ -73,5 +73,13 @@ public class HomePageController {
         return "phenotypeofthemonth";
     }
 
+    @RequestMapping("/privacypolicy")
+    public String PrivacypolicyController(Model model) {
+        return "privacypolicy";
+    }
+
+
+
+
 
 }
