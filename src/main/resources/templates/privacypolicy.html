@@ -12,7 +12,7 @@
     <link th:href="@{/css/publications.css}" href="../static/css/publications.css"  rel="stylesheet" type="text/css"  />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
     <link rel="icon" type="image/png" href="images/index.ico">
-    <title> PRIVACY POLICY| 3i Consortium - Wellcome Trust Sanger Institute</title>
+    <title> PRIVACY | 3i Consortium - Wellcome Trust Sanger Institute</title>
 </head>
 
 <body>
@@ -27,19 +27,27 @@
         </div>
 
         <div id="region region-content" style="width:68%; float:left;">
-
+            <div class="intro"><h2 >Information about the 3I privacy policy </h2> </div>
             <p></p>
             <p></p>
             <div class="panel_glossary" style="width:65%; ">
-
-                Privacy Policy
-            </div>
+            <i class="fa fa-list-alt"></i>
+            Privacy Policy
+        </div>
             <br/><br/><br/><br/>
             <div id="accordian1_main" style=" border: 1px solid #eee; width: 100%; padding:1em">
+            <p> The General Data Protection Regulation (GDPR) will apply in the UK
+from 25 May 2018. It will replace the 1998 Data Protection Act and
+introduce new rules on privacy notices, as well as processing and
+safeguarding personal data.
 
+More details about our privacy policy can be found by following the links below.</p>
+            <br/>
+           <br/>
+            <span><a href="https://www.ebi.ac.uk/data-protection/privacy-notice/three-i-website">Three I project website</a></span>
+           applies to usage of the Three I <a href="http://www.immunophenotype.org/">www.immunophenotyping.org</a> website.
 
-            </div>
-
+            
 
         </div>
 
@@ -47,29 +55,54 @@
     </div>
 
 
+</div>
 
-    <script type="text/javascript">
-        /*<![CDATA[*/
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        for (i = 0; i < acc.length; i++) {
-            acc[i].onclick = function(){
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
+
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
             }
         }
-        /*]]>*/
-    </script>
+    }
+    /*]]>*/
+</script>
 
 
 </div>
 
 <th:block   th:include="fragments/footer::footer1" > </th:block>
+<!--
+<footer id="procedure" style="top:1500px">
+    <div class="centercontent">
+    <div class="foot_content" >
+        <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+        <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+        <div  id="foot_list"> <ul>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+            <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+            <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+
+        </ul> </div>
+
+    </div>
+        <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.6<br/>
+            © 2018 Wellcome Trust Sanger Institute</p>
+    </div>
+</footer>  -->
 
 
 

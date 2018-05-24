@@ -33,7 +33,7 @@ public class HeatmapService implements WebStatus{
 
 	public List<HeatmapRow> getHeatmapRows() throws SQLException {
 		Map<String, HeatmapRow> rows = new HashMap<>();
-
+		//"select Gene, Construct, ProcedureName, CallType from threei.threei_data_for_heat_map where Gene='herc1'";
 		String query = "select Gene, Construct, ProcedureName, CallType from threei_data_for_heat_map order by Gene";
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement p = connection.prepareStatement(query)) {
