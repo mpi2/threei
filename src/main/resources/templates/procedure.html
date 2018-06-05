@@ -72,15 +72,18 @@
 
                 <th:block th:each="header : ${headers}">
 
-                    <th:block th:each="result : ${parameterDetails.results}">
-                        <div th:switch="${result.headerKey}">
+                    <th:block th:each="result : ${parameterDetails.mostSignificantResults}" th:switch="${header}">
+                       
 
 
-                            <td th:case="${header}" th:class="${result.significant}">
-                                <a th:title="${result.significant}"></a>
+                            <td th:case="${result.headerKey}" th:class="${result.significant}">
+                                <a th:title="${result}"></a>
                             </td>
+                            <!-- <td th:case="*">
+                                <a th:text="${result}"></a>
+                            </td> -->
 
-                        </div>
+                       
 
 
                     </th:block>

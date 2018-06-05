@@ -2,6 +2,7 @@ package org.immunophenotype.web.services;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.immunophenotype.web.common.DisplayProcedureMapper;
+import org.immunophenotype.web.common.SignificanceType;
 import org.immunophenotype.web.common.WebStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -32,6 +33,7 @@ public class HeatmapService implements WebStatus{
     }
 
 	public List<HeatmapRow> getHeatmapRows() throws SQLException {
+		//key should be gene_construct now as we want a row per this combination
 		Map<String, HeatmapRow> rows = new HashMap<>();
 		//"select Gene, Construct, ProcedureName, CallType from threei.threei_data_for_heat_map where Gene='herc1'";
 		String query = "select Gene, Construct, ProcedureName, CallType from threei_data_for_heat_map order by Gene";
@@ -43,17 +45,18 @@ public class HeatmapService implements WebStatus{
 
 				String gene = results.getString("Gene");
 				String construct = results.getString("Construct");
+				String key=gene +"_"+construct;
 				if (construct.contains("(")) {
 					String[] constructs = construct.split("\\(");
 					construct = constructs[0];
 				}
 
 				HeatmapRow row = null;
-				if (!rows.containsKey(gene)) {
+				if (!rows.containsKey(key)) {
 					row = new HeatmapRow(gene, construct);
-					rows.put(gene, row);
+					rows.put(key, row);
 				} else {
-					row = rows.get(gene);
+					row = rows.get(key);
 				}
 				//System.out.println("|"+results.getString("ProcedureName")+"|");
 				String procedureName = DisplayProcedureMapper.getDisplayNameForProcedure(results.getString("ProcedureName"));
@@ -93,39 +96,7 @@ public class HeatmapService implements WebStatus{
 
     private Integer getRankFromSignificanceName(String significanceString) {
 
-        //1 not enough data yet
-        //2 not significantly different from WT calls
-        //3 high sig
-        //4 or 0 no data, call it 0 before display as ranks senisbly then
-        int rank = 0;
-
-        if (significanceString == null) {
-            return 0;
-        }
-
-        switch (significanceString.toLowerCase()) {
-            case "not significant":
-                rank = 2;
-                break;
-                //if 4 then call it 0 and change all 0s to 4s at the end when creating rows.
-            case "pending":
-                rank = 1;
-                break;
-//            case "not performed or applicable":
-//                significance = 4;
-//                break;
-            case "significant":
-                rank = 3;
-                break;
-            case "early indication of possible phenotype":
-                rank = 1;
-                break;
-            default:
-                rank = 0;
-                break;
-        }
-
-        return rank;
+       return  SignificanceType.getRankFromSignificanceName(significanceString);
 
     }
 

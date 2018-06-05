@@ -2,13 +2,14 @@ package org.immunophenotype.web.services;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.immunophenotype.web.common.Result;
 import org.immunophenotype.web.common.SexType;
+import org.immunophenotype.web.common.SignificanceType;
 
 public class ParameterDetails {
 	
@@ -110,12 +111,50 @@ public class ParameterDetails {
 		return allResults;
 	}
 	
+	public List<Result> getMostSignificantResults() {
+		//some parameters have multiple entries for the same sex zyg combination which we just need the most significant one
+		List<Result> allResults=new ArrayList<>();
+		for(SexType key: resultsBySex.keySet()){
+			HashMap<String, Result> zygositySet=new HashMap<String, Result>();
+			List<Result> sexResults = resultsBySex.get(key);
+			for(Result result: sexResults) {
+				//System.out.println(result);
+				if(zygositySet.containsKey(result.getHeaderKey())) {
+					zygositySet.put(result.getHeaderKey(), addOnlyMostSignificantResultForHeader(zygositySet, result));
+				}else {
+					zygositySet.put(result.getHeaderKey(),result);
+				}
+				
+			}
+			allResults.addAll(zygositySet.values());//add all the values for the sex that have had duplicates with different sig values removed to be just the highest significant one.
+		}
+		
+		return allResults;
+	}
+
+
+
+
+	private Result addOnlyMostSignificantResultForHeader(HashMap<String, Result> zygositySet,
+			Result result) {
+		SignificanceType resSig = result.getSignificant();
+		SignificanceType prevSig= zygositySet.get(result.getHeaderKey()).getSignificant();
+		//System.out.println(resSig +" "+prevSig);
+		if(SignificanceType.getRankFromSignificanceName(resSig.name()) > SignificanceType.getRankFromSignificanceName(prevSig.name())){
+			return result;
+		}else {
+			return zygositySet.get(result.getHeaderKey());
+		}
+		
+	}
+	
+	
 	/**
 	 * get keys that will represent headers male het, female hom etc
 	 * @return
 	 */
 	public Set<String> getHeaderKeysForParameter() {
-		Set<String> headerKeys=new HashSet<>();
+		Set<String> headerKeys=new TreeSet<>();
 		for(SexType key: resultsBySex.keySet()){
 			List<Result> sexResults = resultsBySex.get(key);
 			for(Result result: sexResults){

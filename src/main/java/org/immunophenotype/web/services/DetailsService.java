@@ -27,7 +27,7 @@ public class DetailsService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private String query = "SELECT ParameterName, ParameterId, Gender, Genotype, CallType FROM threei_data_for_heat_map WHERE Gene = ? AND ProcedureName = ?";
+    private String query = "SELECT ParameterName, ParameterId, Gender, Genotype, CallType FROM threei_data_for_heat_map WHERE Gene = ? AND ProcedureName = ? AND Construct like  ?";
     private DataSource dataSource;
 
 	private GeneService geneService;
@@ -41,14 +41,14 @@ public class DetailsService {
     
     
     
-    public Set<ParameterDetails> getParametersForGeneAndDisplayName(String gene, String displayName){
+    public Set<ParameterDetails> getParametersForGeneAndDisplayName(String gene, String construct, String displayName){
     	Map<String, Set<ParameterDetails>> procedureDetailsMap=new HashMap<>();
     	Set<ParameterDetails> combinedSet=new HashSet<>();
     	displayName=displayName.replaceAll("\"", "");
         List<String> procedureList=DisplayProcedureMapper.getProceduresFromDisplayName(displayName);
         for(String procedureName: procedureList){
         	//combinedSet.addAll(this.getParametersForGeneAndProcedure(gene, procedureName));
-        	procedureDetailsMap.put(procedureName, this.getParametersForGeneAndProcedure(gene, procedureName));
+        	procedureDetailsMap.put(procedureName, this.getParametersForGeneAndProcedure(gene, construct, procedureName));
         }
         
         if(procedureDetailsMap.containsKey("Whole blood peripheral blood leukocyte immunophenotyping")){
@@ -75,20 +75,21 @@ public class DetailsService {
     /*
      * procedureName is now the blessed ones from Lucie and so we need to map these back to the real procedure names before giving the page
      */
-    public Set<ParameterDetails> getParametersForGeneAndProcedure(String gene, String procedureName) {
+    public Set<ParameterDetails> getParametersForGeneAndProcedure(String gene, String construct, String procedureName) {
 
         Map<String, ParameterDetails> parameters = new HashMap<>();
         //strip quotes off procedureName
         
         procedureName=procedureName.replaceAll("\"", "");
         //System.out.println("procedureName="+procedureName);
-        
+        construct=construct.replaceAll("\"", "");
 		
 
 			try (Connection conn = dataSource.getConnection();
 				PreparedStatement statement = conn.prepareStatement(query)) {
 				statement.setString(1, gene);
 				statement.setString(2, procedureName);
+				statement.setString(3, construct+"%");
 
 				//System.out.println(statement);
 
@@ -144,6 +145,7 @@ public class DetailsService {
 				}
 			} catch (Exception e) {
 				logger.info("Sql exception when getting details for gene %s, procedure %s", gene, procedureName, e);
+				e.printStackTrace();
 			}
 		System.out.println(parameters.size());
         return new HashSet<>(parameters.values());

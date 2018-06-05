@@ -231,7 +231,7 @@
                                             }
                                             row+='"';
 
-                                            if (call>0) row+=' style="cursor:pointer;" onClick="_heatmap_link(2,\'' +heatmap_rows[a][0]+'*'+(c-2)+ '\')" ';
+                                            if (call>0) row+=' style="cursor:pointer;" onClick="_heatmap_link(2,\'' +heatmap_rows[a][0]+'*'+(c-2)+ '\', \''+$con+'\')" ';
 
                                             row +='>';
                                             row +='</div>';
@@ -340,7 +340,7 @@
                             }
 
 
-                            function _heatmap_link(kind,value)
+                            function _heatmap_link(kind,value, construct)
                             {
                                 value+='';
                                 switch(kind)
@@ -351,7 +351,7 @@
                                     case 2:		var param = value.split('*');
                                         var marker_symbol 	= param[0];
                                         var heatmap_col 	= param[1];
-                                        var link='link?gene='+marker_symbol+'&procedure="'+column_headers[heatmap_col]+'"';
+                                        var link='link?gene='+marker_symbol+'&procedure="'+column_headers[heatmap_col]+'&construct="'+construct+'"';
                                         window.open(link); break;
                                     default:	break;
                                 }

@@ -83,6 +83,7 @@ public class HeatmapController {
 
         } catch (SQLException e) {
             logger.warn("SQL error occurred when retrieving entries for heatmap", e);
+            e.printStackTrace();
         }
     }
     	model.addAttribute("columnHeadersJson", columnHeadersJson);

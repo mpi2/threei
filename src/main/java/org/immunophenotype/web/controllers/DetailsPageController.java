@@ -2,6 +2,7 @@ package org.immunophenotype.web.controllers;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.immunophenotype.web.services.DetailsService;
 import org.immunophenotype.web.services.ParameterDetails;
@@ -22,18 +23,21 @@ public class DetailsPageController {
     @RequestMapping("/link")
     public String linkPage(Model model,
                            @RequestParam("gene") String gene,
+                           @RequestParam("construct") String construct,
                            @RequestParam("procedure") String procedure) {
 
-        Set<ParameterDetails> parameters = detailsService.getParametersForGeneAndDisplayName(gene, procedure);
+        Set<ParameterDetails> parameters = detailsService.getParametersForGeneAndDisplayName(gene,construct, procedure);
         String accession=detailsService.getAccessionForGene(gene);
         System.out.println("parameters.size="+parameters.size());
+        System.out.println("parameters="+parameters);
         
-        Set<String> headers=new HashSet<String>();
+        Set<String> headers=new TreeSet<String>();
         for(ParameterDetails details:parameters){
         	//System.out.println("parameterDetails="+details);
-        	Set headerKeys=details.getHeaderKeysForParameter();
+        	Set<String> headerKeys=details.getHeaderKeysForParameter();
         	headers.addAll(headerKeys);
         }
+        System.out.println("headers="+headers);
         model.addAttribute("accession", accession);
         model.addAttribute("headers", headers);
         model.addAttribute("parameters", parameters);
