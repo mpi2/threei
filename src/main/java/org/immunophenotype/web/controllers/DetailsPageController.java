@@ -42,6 +42,7 @@ public class DetailsPageController {
         model.addAttribute("headers", headers);
         model.addAttribute("parameters", parameters);
         model.addAttribute("gene", gene);
+        model.addAttribute("construct", construct);
         model.addAttribute("procedure", procedure);
         return "procedure";
 
