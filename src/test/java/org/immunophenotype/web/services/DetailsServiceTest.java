@@ -39,7 +39,7 @@ public class DetailsServiceTest {
 	@Test
 	public final void testGetParametersForGeneAndProcedure() {
 		//uses real procedureName
-		Set<ParameterDetails> details = detailsService.getParametersForGeneAndProcedure("Nxn", "CTL assay");
+		Set<ParameterDetails> details = detailsService.getParametersForGeneAndProcedure("Nxn", "tm1b","CTL assay");
 		System.out.println("details size="+details.size());
 		assertTrue(details.size()>0);
 		for(ParameterDetails parameter :details){
@@ -53,7 +53,7 @@ public class DetailsServiceTest {
 	@Test
 	public final void testGetCTLDisplayNameResults(){
 		//uses display name
-				Set<ParameterDetails> details2 = detailsService.getParametersForGeneAndDisplayName("Nxn", "Cytotoxic T cell function");	
+				Set<ParameterDetails> details2 = detailsService.getParametersForGeneAndDisplayName("Nxn", "tm1b","Cytotoxic T cell function");	
 				Set<String> paramNames=new HashSet<>();
 				for(ParameterDetails detail:details2){
 					System.out.println("detail for ctl="+detail.getName());
@@ -73,7 +73,7 @@ public class DetailsServiceTest {
 	
 	@Test
 	public final void testGetProceduresFromDisplayNameSalmonella(){
-		Set<ParameterDetails> parameterDetails=detailsService.getParametersForGeneAndDisplayName("Trmt2a","Salmonella Challenge");
+		Set<ParameterDetails> parameterDetails=detailsService.getParametersForGeneAndDisplayName("Trmt2a","tm2b","Salmonella Challenge");
 		for(ParameterDetails paramDtail: parameterDetails){	
 			System.out.println("paramdetail="+paramDtail);
 		}
@@ -86,7 +86,7 @@ public class DetailsServiceTest {
 		// result apart from influenza and Trichuris Challenge and should always
 		// be?
 		for (String displayHeader : DisplayProcedureMapper.getDisplayHeaderOrder()) {
-			Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a",
+			Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a", "tm2b",
 					displayHeader);
 			System.out.println(displayHeader + " details size is " + parameterDetails.size());
 			if (displayHeader.equalsIgnoreCase("influenza")) {
@@ -102,7 +102,7 @@ public class DetailsServiceTest {
 	@Test
 	public void testGetParametersForGeneAndDisplayNamePeripheralBloodLeukocytes(){
 		//This procedure has special rules in that if there is data for "whole blood.." use that only when not use "Buffy coat..." parameters.
-		Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a",
+		Set<ParameterDetails> parameterDetails = detailsService.getParametersForGeneAndDisplayName("Trmt2a","tm2b",
 				"Peripheral Blood Leukocytes");
 		System.out.println("parameters size="+parameterDetails.size());
 		assertTrue(parameterDetails.size()>0);
