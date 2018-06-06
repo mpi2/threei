@@ -110,7 +110,10 @@ public class ParameterDetails {
 		
 		return allResults;
 	}
-	
+	/**
+	 * used by procedure page to only display data for each header type and not multiples per header
+	 * @return
+	 */
 	public List<Result> getMostSignificantResults() {
 		//some parameters have multiple entries for the same sex zyg combination which we just need the most significant one
 		List<Result> allResults=new ArrayList<>();
@@ -120,7 +123,7 @@ public class ParameterDetails {
 			for(Result result: sexResults) {
 				//System.out.println(result);
 				if(zygositySet.containsKey(result.getHeaderKey())) {
-					zygositySet.put(result.getHeaderKey(), addOnlyMostSignificantResultForHeader(zygositySet, result));
+					zygositySet.put(result.getHeaderKey(), getOnlyMostSignificantResultForHeader(zygositySet, result));
 				}else {
 					zygositySet.put(result.getHeaderKey(),result);
 				}
@@ -135,11 +138,11 @@ public class ParameterDetails {
 
 
 
-	private Result addOnlyMostSignificantResultForHeader(HashMap<String, Result> zygositySet,
+	private Result getOnlyMostSignificantResultForHeader(HashMap<String, Result> zygositySet,
 			Result result) {
 		SignificanceType resSig = result.getSignificant();
 		SignificanceType prevSig= zygositySet.get(result.getHeaderKey()).getSignificant();
-		//System.out.println(resSig +" "+prevSig);
+		System.out.println(resSig +" "+prevSig);
 		if(SignificanceType.getRankFromSignificanceName(resSig.name()) > SignificanceType.getRankFromSignificanceName(prevSig.name())){
 			return result;
 		}else {

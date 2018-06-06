@@ -1995,6 +1995,15 @@ td.not_significant {
     float: left; */
 }
 
+td.pending {
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: grey;
+    /* width: 32px;
+    height: 32px;
+    float: left; */
+}
+
 div.cell-Green {
     border: 1px solid #ccc;
     text-align: center;

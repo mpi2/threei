@@ -28,8 +28,8 @@ public class DetailsPageController {
 
         Set<ParameterDetails> parameters = detailsService.getParametersForGeneAndDisplayName(gene,construct, procedure);
         String accession=detailsService.getAccessionForGene(gene);
-        System.out.println("parameters.size="+parameters.size());
-        System.out.println("parameters="+parameters);
+//        System.out.println("parameters.size="+parameters.size());
+//        System.out.println("parameters="+parameters);
         
         Set<String> headers=new TreeSet<String>();
         for(ParameterDetails details:parameters){
@@ -37,7 +37,7 @@ public class DetailsPageController {
         	Set<String> headerKeys=details.getHeaderKeysForParameter();
         	headers.addAll(headerKeys);
         }
-        System.out.println("headers="+headers);
+        //System.out.println("headers="+headers);
         model.addAttribute("accession", accession);
         model.addAttribute("headers", headers);
         model.addAttribute("parameters", parameters);
