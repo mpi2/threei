@@ -115,9 +115,12 @@ public class DetailsServiceTest {
 		//http://localhost:8080/link?gene=Cxcr2&procedure=%22Mesenteric%20Lymph%20Node&construct=%22tm1a%22
 		Set<ParameterDetails> parameterDetails=detailsService.getParametersForGeneAndDisplayName("Cxcr2","tm1a","Mesenteric Lymph Node");
 		for(ParameterDetails paramDetail: parameterDetails){	
-			//System.out.println("paramdetail="+paramDetail);
-			System.out.println("all results       ="+paramDetail.getResults());
-			System.out.println("significant sorted="+paramDetail.getMostSignificantResults());
+			System.out.println("paramdetail="+paramDetail);
+			//System.out.println("all results       ="+paramDetail.getResults());
+			if(paramDetail.getResults().size()>0) {
+				System.out.println("size is "+paramDetail.getResults().size());
+			}
+			//System.out.println("significant sorted="+paramDetail.getMostSignificantResults());
 		}
 		assertTrue(parameterDetails.size()>=1);
 	}

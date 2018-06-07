@@ -70,23 +70,29 @@
 
                 <td th:text="${parameterDetails.name}">No Parameter name</td>
 
-                <th:block th:each="header : ${headers}">
+                <th:block th:each="header : ${headers}" th:with="headerFound=${'false'}">
 
                     <th:block th:each="result : ${parameterDetails.mostSignificantResults}" th:switch="${header}">
                        
 
 
-                            <td th:case="${result.headerKey}" th:class="${result.significant}" th:title="${result.significant}">
-                                <a></a>
+                            <td th:case="${result.headerKey}" th:class="${result.significant}">
+                                <a th:text="${result.headerKey}" th:with="headerFound= ${'true'}"></a>
                             </td>
-                           <!--  <td th:case="*">
-                                <a th:text="${result}"></a>
+                            <!-- <td th:case="*">
+                                <a th:text="${result.headerKey}"></a>
                             </td> -->
 
                        
 
 
                     </th:block>
+                    
+                    <!-- if no result for header found we need to add a no result td -->
+                    <td th:unless="${headerFound}">
+                                <a th:text="${headerFound}"></a>
+                    </td>
+                    
                 </th:block>
 
 
