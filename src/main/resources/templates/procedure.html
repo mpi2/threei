@@ -66,7 +66,7 @@
 
             <!-- Loop through the parameters for this gene -->
 
-            <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" data-fancybox data-type="iframe" th:attr="data-src='https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession='+${accession}+'&parameter_stable_id='+${parameterDetails.parameterId}+'&chart_only=true'" href="javascript:;">
+            <!-- <tr th:each="parameterDetails : ${parameters}" style="cursor:pointer;" data-fancybox data-type="iframe" th:attr="data-src='https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession='+${accession}+'&parameter_stable_id='+${parameterDetails.parameterId}+'&chart_only=true'" href="javascript:;">
 
                 <td th:text="${parameterDetails.name}">No Parameter name</td>
 
@@ -79,16 +79,16 @@
                             <td th:case="${result.headerKey}" th:class="${result.significant}">
                                 <a th:text="${result.headerKey}" th:with="headerFound= ${'true'}"></a>
                             </td>
-                            <!-- <td th:case="*">
+                            <td th:case="*">
                                 <a th:text="${result.headerKey}"></a>
-                            </td> -->
+                            </td>
 
                        
 
 
                     </th:block>
                     
-                    <!-- if no result for header found we need to add a no result td -->
+                    if no result for header found we need to add a no result td
                     <td th:unless="${headerFound}">
                                 <a th:text="${headerFound}"></a>
                     </td>
@@ -97,8 +97,24 @@
 
 
             </tr>
+ -->
 
-
+					<tr th:each="row : ${rows}" style="cursor:pointer;" data-fancybox data-type="iframe" th:attr="data-src='https://www.mousephenotype.org/data/charts?phenotyping_center=WTSI&bare=true&accession='+${accession}+'&parameter_stable_id='+${row.parameterId}+'&chart_only=true'" href="javascript:;">
+						<td th:text="${row.parameterName}">No Parameter name</td>
+							<th:block th:each="header : ${headers}">
+								 <th:block th:each="result : ${row.headerKeyToResult}" th:switch="${header}">
+								 	<td th:case="${result.key}" th:class="${result.value.significant}" th:title="${result.value.sexType+' '+result.value.zygosityType+' '+result.value.significant}">
+                                		<a th:text="${result.value.significant+' ' + result.key}"></a>
+                            		</td>
+								 </th:block>
+							</th:block>
+					
+					
+					</tr>
+           
+           
+           
+           
             </tbody>
 
         </table>

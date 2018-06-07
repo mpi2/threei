@@ -1,9 +1,15 @@
 package org.immunophenotype.web.controllers;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.immunophenotype.web.common.Result;
+import org.immunophenotype.web.common.SexType;
+import org.immunophenotype.web.common.SignificanceType;
+import org.immunophenotype.web.common.ZygosityType;
 import org.immunophenotype.web.services.DetailsService;
 import org.immunophenotype.web.services.ParameterDetails;
 import org.springframework.stereotype.Controller;
@@ -30,13 +36,40 @@ public class DetailsPageController {
         String accession=detailsService.getAccessionForGene(gene);
 //        System.out.println("parameters.size="+parameters.size());
 //        System.out.println("parameters="+parameters);
+
+		Set<String> headers = generateUniqueColumnHeaders(parameters);
+		// now we need to just keep the most signficant hits for each column header and
+		// store these in a row object with blanks where non exist for table display and
+		// column alignment
+
+		List<ParameterRow> rows=new ArrayList<>();
+		for (ParameterDetails param : parameters) {
+			ParameterRow row=new ParameterRow(param.getName(), param.getParameterId());
+			for (String header : headers) {
+				boolean headerFound = false;
+				List<Result> resultsForParam = param.getMostSignificantResults();
+				for (Result result : resultsForParam) {
+					if (header.equalsIgnoreCase(result.getHeaderKey())) {
+						//System.out.println("headerkey found");
+						headerFound = true;
+						row.addResult(result);
+
+					}
+				}
+				if(!headerFound) {
+					Result blankResult=new Result();
+					blankResult.setSignificant(SignificanceType.no_data);
+					String[] sexNZyg=header.split(" ");
+					blankResult.setSexType(SexType.getByDisplayName(sexNZyg[0]));
+					blankResult.setZygosityType(ZygosityType.valueOf(sexNZyg[1]));
+					row.addResult(blankResult);
+				}
+			}
+			rows.add(row);
+		}
         
-        Set<String> headers=new TreeSet<String>();
-        for(ParameterDetails details:parameters){
-        	//System.out.println("parameterDetails="+details);
-        	Set<String> headerKeys=details.getHeaderKeysForParameter();
-        	headers.addAll(headerKeys);
-        }
+        
+        model.addAttribute("rows", rows);
         //System.out.println("headers="+headers);
         model.addAttribute("accession", accession);
         model.addAttribute("headers", headers);
@@ -47,6 +80,16 @@ public class DetailsPageController {
         return "procedure";
 
     }
+
+	private Set<String> generateUniqueColumnHeaders(Set<ParameterDetails> parameters) {
+		Set<String> headers=new TreeSet<String>();
+        for(ParameterDetails details:parameters){
+        	//System.out.println("parameterDetails="+details);
+        	Set<String> headerKeys=details.getHeaderKeysForParameter();
+        	headers.addAll(headerKeys);
+        }
+		return headers;
+	}
     
     
 //    @RequestMapping(value = "/chart", produces = "text/html;charset=UTF-8")
