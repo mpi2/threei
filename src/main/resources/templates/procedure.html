@@ -104,7 +104,7 @@
 							<th:block th:each="header : ${headers}">
 								 <th:block th:each="result : ${row.headerKeyToResult}" th:switch="${header}">
 								 	<td th:case="${result.key}" th:class="${result.value.significant}" th:title="${result.value.sexType+' '+result.value.zygosityType+' '+result.value.significant}">
-                                		<a th:text="${result.value.significant+' ' + result.key}"></a>
+                                		<a></a>
                             		</td>
 								 </th:block>
 							</th:block>

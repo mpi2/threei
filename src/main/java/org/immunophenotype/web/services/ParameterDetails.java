@@ -133,11 +133,7 @@ public class ParameterDetails {
 			}
 			allResults.addAll(zygositySet.values());//add all the values for the sex that have had duplicates with different sig values removed to be just the highest significant one.
 		}
-		for(Result result: allResults) {
-			if(result.getSexType().equals(SexType.male)) {
-			System.out.println("all results headerkey added "+result.getHeaderKey() +" sign "+result.getSignificant());
-			}
-		}
+
 		return allResults;
 	}
 
@@ -148,7 +144,7 @@ public class ParameterDetails {
 			Result result) {
 		SignificanceType resSig = result.getSignificant();
 		SignificanceType prevSig= zygositySet.get(result.getHeaderKey()).getSignificant();
-		System.out.println(resSig +" "+prevSig);
+		//System.out.println(resSig +" "+prevSig);
 		if(SignificanceType.getRankFromSignificanceName(resSig.name()) >= SignificanceType.getRankFromSignificanceName(prevSig.name())){
 			return result;
 		}else {
