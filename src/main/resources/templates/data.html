@@ -22,7 +22,7 @@
 <div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <th:block th:include="fragments/header::header"> </th:block>
 
-    <div id="main" class="content"style="padding-top: 102px;" >
+    <div id="main" class="content" style="padding-top: 102px;" >
 
         <aside id="sidebar" style="position:absolute; top:400px ;left:800px;">
 
@@ -111,11 +111,11 @@
                             console.log(heatmap_rows);
                             var _heatmap_data_filtered = false;
                             var _heatmap_sortBy = null;
-                            var _heatmap_sortByReversed = false;
+                            var _heatmap_sortByReversed = true;
 
 
-                            var _heatmap_start 		= 0;
-                            var _heatmap_size 		= 100;
+                            var _heatmap_start    = 0;
+                            var _heatmap_size     = 100;
 
                             var _heatmap_header;
                             var _heatmap_data;
@@ -124,42 +124,45 @@
 
                             function _heatmap_render(sortByCol,start,size)
                             {
-                                if (start!=null)		_heatmap_start = start;
-                                if (size!=null)			_heatmap_size = size;
+                                if (start!=null)      _heatmap_start = start;
+                                if (size!=null)          _heatmap_size = size;
 
-                                if (sortByCol!=-1)	{
-                                    if (sortByCol==null)	sortByCol=0;
-                                    else	// populated
+                                if (sortByCol!=-1) {
+                                    if (sortByCol==null)   sortByCol=0;
+                                    else   // populated
                                     if (_heatmap_sortBy == sortByCol)
                                         _heatmap_sortByReversed=(_heatmap_sortByReversed?false:true);
 
                                     _heatmap_sortBy = sortByCol;
+                                    //console.log('sortByCol:::', sortByCol);
+                                    //console.log('rows:::', JSON.stringify(heatmap_rows));
                                     heatmap_rows.sort(function(a,b) {
+                                        if(a[sortByCol] > 3 || b[sortByCol] > 3) {
+                                            a[sortByCol] = b[sortByCol] = 0;
+                                        }
+                                        //console.log('sortByCol A:::', a[sortByCol]);
                                         if(a[sortByCol]<b[sortByCol]) return (_heatmap_sortByReversed?1:-1)
                                         if(a[sortByCol]>b[sortByCol]) return (_heatmap_sortByReversed?-1:1)
                                         return 0;
+
                                     })
                                 }
-
-
-
-
                                 var heatmap = document.getElementById('heatmap');
                                 heatmap.innerHTML="";
                                 /*
 
 
                                 var table = document.createElement('table');
-                                table.cellPadding	= '0';
-                                table.border		= '1';
-                                table.id			= 'heatmap-table';
+                                table.cellPadding  = '0';
+                                table.border      = '1';
+                                table.id         = 'heatmap-table';
 
                                 var thead = document.createElement('thead');
-                                thead.id	= 'heatmap-table-header';
+                                thead.id   = 'heatmap-table-header';
                                 table.appendChild(thead);
 
                                 var tbody = document.createElement('tbody');
-                                tbody.id	= 'heatmap-table-body';
+                                tbody.id   = 'heatmap-table-body';
                                 table.appendChild(tbody);
                                 */
 
@@ -169,23 +172,30 @@
 
                                 // Table header
                                 var row = '';
-                                row+='<div class="gene"><a class="active" onClick="_heatmap_sortByCol(0)">Gene</a></div>';
+                                row+='<div class="gene"><a class="active" onClick="_heatmap_sortByCol(0)" >Gene</a></div>';
                                 row+='<div class="cons"><a class="active" onClick="_heatmap_sortByCol(1)">Construct</a></div>';
+
                                 for(i=0; i <column_headers.length; i++){
                                     var col_number=i+2;
                                     row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol("+col_number+")\">"+column_headers[i]+"</a></span></div></div>";
                                     /*
                                     row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(3)\">Homozygous Fertility</a></span></div></div>";
-                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(4)\">Hematology</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(5)\">Peripheral Blood Leukocytes</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(6)\">Spleen</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(7)\">Mesenteric Lymph Nodes</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(8)\">Bone Marrow</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(9)\">Ear epidermis</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(10)\">Anti-nuclear antibodies</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(11)\">Cytotoxic T cell function</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(12)\">DSS Challenge</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(13)\">Influenza</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(14)\">Trichuris Challenge</a></span></div></div>";row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(15)\">Salmonella Challenge</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(4)\">Hematology</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(5)\">Peripheral Blood Leukocytes</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(6)\">Spleen</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(7)\">Mesenteric Lymph Nodes</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(8)\">Bone Marrow</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(9)\">Ear epidermis</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(10)\">Anti-nuclear antibodies</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(11)\">Cytotoxic T cell function</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(12)\">DSS Challenge</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(13)\">Influenza</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(14)\">Trichuris Challenge</a></span></div></div>";
+                                    row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol(15)\">Salmonella Challenge</a></span></div></div>";
                                      */}
                                 _heatmap_header.innerHTML=row;
-
-
-
                                 _heatmap_data=document.createElement('div');
                                 _heatmap_data.id="heatmap-data";
-
-
 
                                 var filter_gene = document.getElementById('heatmap_filter_gene').value;
                                 var filter_construct = document.getElementById('heatmap_filter_construct').value;
@@ -196,7 +206,7 @@
                                 var row_curr=-1;
                                 for (a=0;a<heatmap_rows.length;a++) {
                                     row_curr++;
-                                    if (_heatmap_data_filtered)	{
+                                    if (_heatmap_data_filtered)    {
                                         if (filter_gene!="" && heatmap_rows[a][0].toLowerCase().indexOf(filter_gene.toLowerCase())==-1)
                                             continue;
 
@@ -220,20 +230,26 @@
                                         for (c=2;c<heatmap_rows[a].length;c++) {
                                             var call = heatmap_rows[a][c];
                                             row+='<div class="';
+
+                                            if(+call > 3 || +call < 1) {
+                                                call = 0;
+                                            }
+
                                             switch(call) {
-                                                case -3:	break;	// Significant 		NO LINK
-                                                case -2:	break;	// Not enough		NO LINK
-                                                case -1:	break;	// Not Significant	NO LINK
-                                                case 1: 	row+='cell-Grey'; 	break; 	// not significantly different from wild type controls
-                                                case 2: 	row+='cell-Blue'; 	break; 	// not enough data (yet) to make a call
-                                                case 3: 	row+='cell-Red';  	break; 	// significantly different from wild type controls
-                                                default:	row+='cell-White'; 	break;	// no data / test not performed
+                                                case -3:   break; // Significant        NO LINK
+                                                case -2:   break; // Not enough     NO LINK
+                                                case -1:   break; // Not Significant NO LINK
+                                                case 1:    row+='cell-Grey';  break;     // not significantly different from wild type controls
+                                                case 2:    row+='cell-Blue';  break;     // not enough data (yet) to make a call
+                                                case 3:    row+='cell-Red';   break;     // significantly different from wild type controls
+                                                case 0:    row+='cell-White ' + call;     break; // no data / test not performed
                                             }
                                             row+='"';
 
                                             if (call>0) row+=' style="cursor:pointer;" onClick="_heatmap_link(2,\'' +heatmap_rows[a][0]+'*'+(c-2)+ '\', \''+$con+'\')" ';
 
                                             row +='>';
+                                            //row += heatmap_rows[a][c];
                                             row +='</div>';
                                         }
 
@@ -242,19 +258,12 @@
 
                                 }
 
-
-
-
                                 var pager ='';
                                 var pager_pages = Math.ceil(row_count/_heatmap_size);
                                 var pager_curr  = _heatmap_start/_heatmap_size;
 
-
-
                                 if (row_count>_heatmap_size) {
                                     pager+='<div class="heatmap_pager">';
-
-
                                     for(p=0;p<pager_pages;p++)
                                     {
                                         if (p==0 && pager_pages>1)
@@ -264,14 +273,10 @@
                                             else
                                                 pager+='<a class="prev" onClick="_heatmap_render(-1,'+((pager_curr-1)*_heatmap_size)+')">&lt</a> ';
                                         }
-
-
                                         if (p==pager_curr)
                                             pager+=' <a class="current disabled">'+(p+1)+'</a> ';
                                         else
                                             pager+=' <a onClick="_heatmap_render(-1,'+(p*_heatmap_size)+')">'+(p+1)+'</a> ';
-
-
                                         if (p==pager_pages-1 && pager_pages>1)
                                         {
                                             if (pager_curr==(pager_pages-1))
@@ -286,18 +291,13 @@
                                     pager+='</div>';
                                 }
 
-
-
-
-
-
                                 var footer='';
 
                                 if (row_count>0)
                                 {
                                     heatmap.appendChild(_heatmap_header);
                                     heatmap.appendChild(_heatmap_data);
-                                    footer+="<div style=\"width:100%;color:#aaa;text-align:right;font-size:0.8em;\">Sanger call data last updated: January 29 2018 21:39:18.</div>";	if (pager!='') footer+=pager;
+                                    footer+="<div style=\"width:100%;color:#aaa;text-align:right;font-size:0.8em;\">Sanger call data last updated: January 29 2018 21:39:18.</div>";   if (pager!='') footer+=pager;
                                     footer+='<p>Click on the individual fields to see the data.<br /><br />';
                                     footer+='To learn more about non-immunological data that has been generated for this mouse and to order the ES cells or the mouse line via the International Mouse Phenotyping Consortium (IMPC), please click the search button below.<br />';
                                     footer+='</p>';
@@ -312,8 +312,6 @@
 
 
                             }
-
-
                             function heatmap_filter()
                             {
                                 _heatmap_start = 0;
@@ -358,8 +356,8 @@
                             }
 
 
-
                             _heatmap_render();
+                            _heatmap_sortByCol(0).onclick=true;
 
 
                             $(document).ready(function(){
@@ -387,8 +385,6 @@
                                 });
                             });
 
-
-
                             window.onscroll = function() {myFunction()};
 
                             var header = document.getElementById("heatmap-header ");
@@ -401,14 +397,6 @@
                                     header.classList.remove("sticky");
                                 }
                             }
-
-
-
-
-
-
-
-
 
 
 
@@ -457,3 +445,7 @@
 
 </body>
 </html>
+
+
+
+
