@@ -357,7 +357,9 @@
 
 
                             _heatmap_render();
-                            _heatmap_sortByCol(0).onclick=true;
+                            if(_heatmap_sortByCol(0)){//need to check this is defined otherwise javascript throww error
+                            	_heatmap_sortByCol(0).onclick=true;
+                            }
 
 
                             $(document).ready(function(){

@@ -1,7 +1,10 @@
 package org.immunophenotype.web.controllers;
 
 
+import org.apache.solr.client.solrj.SolrServerException;
 import org.immunophenotype.web.services.ConstructService;
+import org.immunophenotype.web.services.GeneDTO;
+import org.immunophenotype.web.services.GeneService;
 import org.immunophenotype.web.services.HeatmapRow;
 import org.immunophenotype.web.services.HeatmapService;
 import org.json.JSONArray;
@@ -11,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Set;
 import java.util.List;
@@ -27,11 +32,14 @@ public class HeatmapController {
 
     private HeatmapService heatmapService;
     private ConstructService constructService;
+	private GeneService geneService;
+	private List<GeneDTO> genes;
 
-    public HeatmapController(HeatmapService heatmapService, ConstructService constructService) {
+    public HeatmapController(HeatmapService heatmapService, ConstructService constructService, GeneService geneService) {
         Assert.notNull(heatmapService, "Heatmapservice cannot be null");
         this.heatmapService = heatmapService;
         this.constructService=constructService;
+        this.geneService=geneService;
     }
 
 
@@ -39,7 +47,7 @@ public class HeatmapController {
     public String dataController(Model model) {
 
         //need to get the data from a service so we can replace a data source behind it easily
-    	if(heatmap==null || columnHeadersJson == null || constructList == null){
+    	if(heatmap==null || columnHeadersJson == null || constructList == null || genes==null){
     		
         try {
         	heatmap = new JSONArray();
@@ -47,6 +55,15 @@ public class HeatmapController {
             List<String> columnHeaders = heatmapService.getDistinctProcedureNames(rows);
             List<String> headerOrder = HeatmapService.getHeaderorder();
             columnHeadersJson=new JSONArray(headerOrder);
+//            try {
+//				this.genes=geneService.getGeneDtosForWtsi();
+//			} catch (SolrServerException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
             if(headerOrder.size()==columnHeaders.size()){
             	columnHeaders=headerOrder;//if size the same then lets just convert the ordered column headers to the ones we use
             }else{

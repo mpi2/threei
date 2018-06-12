@@ -74,5 +74,28 @@ public class GeneService implements WebStatus{
 	public String getServiceName() {
 		return "GeneService";
 	}
+
+
+
+
+
+	public List<GeneDTO> getGeneDtosForWtsi() throws SolrServerException, IOException {
+		//all 3i data is from WTSI so filter genes on latest_phenotyping_centre:WTSI
+
+		SolrQuery query = new SolrQuery();
+		query.setQuery(GeneDTO.LATEST_PHENOTYPING_CENTER + ":" + "WTSI");
+		query.setRows(Integer.MAX_VALUE);
+		
+		QueryResponse rsp = solr.query(query);
+
+		List<GeneDTO> genes = rsp.getBeans(GeneDTO.class);
+		if(genes.size()>0){
+			return genes;
+		}else{
+			System.err.println("too few genes returned from 3i solr service for WTSI genes");
+			return null;
+		}
+		
+	}
     
 }
