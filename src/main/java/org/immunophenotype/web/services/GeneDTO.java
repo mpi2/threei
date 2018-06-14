@@ -66,4 +66,11 @@ public class GeneDTO {
 	public static String getMgiAccessionId() {
 		return MGI_ACCESSION_ID;
 	}
+
+	@Override
+	public String toString() {
+		return "GeneDTO [markerSymbol=" + markerSymbol + ", markerName=" + markerName + ", markerSynonym="
+				+ markerSynonym + ", accession=" + accession + "]";
+	}
+	
 }

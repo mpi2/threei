@@ -2,8 +2,9 @@ package org.immunophenotype.web.services;
 
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -79,18 +80,24 @@ public class GeneService implements WebStatus{
 
 
 
-	public List<GeneDTO> getGeneDtosForWtsi() throws SolrServerException, IOException {
+	public Map<String, GeneDTO> getGeneByKeywords(String keyword) throws SolrServerException, IOException {
 		//all 3i data is from WTSI so filter genes on latest_phenotyping_centre:WTSI
 
 		SolrQuery query = new SolrQuery();
-		query.setQuery(GeneDTO.LATEST_PHENOTYPING_CENTER + ":" + "WTSI");
+		query.setQuery("auto_suggest"+":"+"\""+keyword+"\"");
+		query.addFilterQuery("latest_phenotyping_centre" + ":" + "WTSI");//all 3i are WTSI phenotyping center??
 		query.setRows(Integer.MAX_VALUE);
 		
 		QueryResponse rsp = solr.query(query);
 
 		List<GeneDTO> genes = rsp.getBeans(GeneDTO.class);
 		if(genes.size()>0){
-			return genes;
+			Map<String, GeneDTO> geneSymbolToGene=new HashMap<>();
+			for(GeneDTO gene: genes) {
+				geneSymbolToGene.put(gene.getMarkerSymbol(), gene);
+			}
+			
+			return geneSymbolToGene;
 		}else{
 			System.err.println("too few genes returned from 3i solr service for WTSI genes");
 			return null;

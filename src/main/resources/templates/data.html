@@ -71,12 +71,13 @@
                 <div class="content"><div class="head" style="display:none;">3i Heatmap</div>
                     <div class="content">
                         <div id="heatmap-filters">
+                        <form action="data" method="get">
                             <div class="filter-gene">Gene Name<br/>
-                                <input id="heatmap_filter_gene" type="text" value="" onsubmit="heatmap_filter()"  />
+                                <input id="heatmap_filter_gene" value="" name="keywords" type="text"  />
                             </div>
                             <div class="filter-construct">Construct<br/>
-                                <select id="heatmap_filter_construct">
-                                    <option selected="">- Any -</option>
+                                <select id="heatmap_filter_construct" name="construct">
+                                    <option  selected="">- Any -</option>
 
                                     <th:block th:each="construct : ${constructlist}">
 
@@ -89,9 +90,13 @@
 
                                 </select>
                             </div>
+                            
                             <div class="filter-buttons"><br/>
-                                <button id="enterbtn" onclick="heatmap_filter();" >Filter</button>&nbsp;&nbsp;&nbsp;
-                                <button onclick="heatmap_clear_filter();">Clear Filter</button></div></div><br/><br/><br/>
+                                <button>Filter</button>&nbsp;&nbsp;&nbsp;
+                                <button onclick="heatmap_clear_filter();">Clear Filter</button></div>
+                             </form>
+                             </div><br/><br/><br/>
+                            
                         <br/>
                         <br/><br/><br/>
                         <br/><br/><br/><br/>
@@ -364,9 +369,15 @@
 
                             $(document).ready(function(){
 
-                                var geneid = getUrlParameter('gene');
+                                var geneid = getUrlParameter('keywords');
                                 if (geneid != undefined) {
                                     document.getElementById("heatmap_filter_gene").value = geneid;
+                                    heatmap_filter();
+                                }
+                                
+                                var construct = getUrlParameter('construct');
+                                if (geneid != undefined) {
+                                    document.getElementById("heatmap_filter_construct").value = construct;
                                     heatmap_filter();
                                 }
 
