@@ -70,8 +70,9 @@
 
                 <div class="content"><div class="head" style="display:none;">3i Heatmap</div>
                     <div class="content">
+                     <form action="data" method="get">
                         <div id="heatmap-filters">
-                        <form action="data" method="get">
+                       
                             <div class="filter-gene">Gene Name<br/>
                                 <input id="heatmap_filter_gene" value="" name="keywords" type="text"  />
                             </div>
@@ -94,8 +95,11 @@
                             <div class="filter-buttons"><br/>
                                 <button>Filter</button>&nbsp;&nbsp;&nbsp;
                                 <button onclick="heatmap_clear_filter();">Clear Filter</button></div>
+                             
+                             </div>
                              </form>
-                             </div><br/><br/><br/>
+                             
+                             <br/><br/><br/>
                             
                         <br/>
                         <br/><br/><br/>
