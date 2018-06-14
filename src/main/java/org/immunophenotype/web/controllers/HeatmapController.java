@@ -28,14 +28,13 @@ import java.util.Map;
 @Controller
 public class HeatmapController {
 	
-	JSONArray heatmap = null;
 	JSONArray columnHeadersJson=null;
 	Set constructList=null;
 	
 	List<String> headerOrder=null;
 	List<String> columnHeaders=null;
 	List<HeatmapRow> rows = null;
-
+	JSONArray heatmap = new JSONArray();
 	
 	 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -56,31 +55,73 @@ public class HeatmapController {
     @RequestMapping("/data")
 	public String dataController(Model model, @RequestParam(value = "keywords", required = false) String keyword,
 			@RequestParam(value = "construct", required = false) String construct) {
+		System.out.println("keywords=" + keyword + " construct=" + construct);
 		Map<String, GeneDTO> symbolToGene = new HashMap<>();
-		if (keyword != null) {
+		if (keyword != null && !keyword.equals("")) {
 			symbolToGene = getGenesForKeywords(keyword, symbolToGene);
 		}
 
+		JSONArray filteredHeatmap = new JSONArray();
+		List<HeatmapRow> filteredRows = new ArrayList<>();
+
 		// need to get the data from a service so we can replace a data source behind it
 		// easily
-		if (heatmap == null || columnHeadersJson == null || constructList == null || headerOrder == null
+		if (rows == null || columnHeadersJson == null || constructList == null || headerOrder == null
 				|| columnHeaders == null) {
 
 			generateCachedObjectsForAllHeatmap();
-		}
+			model.addAttribute("heatmap_rows", heatmap);
+		} else {
 
-		if (symbolToGene != null && symbolToGene.size() > 0) {
-			JSONArray filteredHeatmap = new JSONArray();
-			for (HeatmapRow filteredHeatmapRow : rows) {
-				JSONArray heatmapRow = new JSONArray();
-				if (symbolToGene.containsKey(filteredHeatmapRow.getGene())) {
-					System.out.println("adding row with gene=" + filteredHeatmapRow.getGene());
-					addRow(headerOrder, filteredHeatmapRow, heatmapRow, filteredHeatmap);
+			if (symbolToGene != null && symbolToGene.size() > 0) {
 
+				for (HeatmapRow filteredHeatmapRow : rows) {
+					JSONArray heatmapRow = new JSONArray();
+					if (symbolToGene.containsKey(filteredHeatmapRow.getGene())) {
+						System.out.println("adding row with gene=" + filteredHeatmapRow.getGene());
+						// heatmapRow=createJsonArrayforRow(headerOrder, filteredHeatmapRow,
+						// heatmapRow);
+						filteredRows.add(filteredHeatmapRow);
+						// heatmap.put(heatmapRow);
+					}
 				}
+				// heatmap=filteredHeatmap;
+			}
+
+			if (construct != null && !construct.equalsIgnoreCase("Any")) {
+				List<HeatmapRow> filteredRows2 = new ArrayList<>();
+				if (filteredRows.isEmpty()) {
+					filteredRows.addAll(rows);
+				}
+				for (HeatmapRow row : filteredRows) {
+					if (construct.equalsIgnoreCase(row.getConstruct())) {
+						System.out.println("adding row after construct filter with gene=" + row.getGene());
+						filteredRows2.add(row);
+						// heatmapRow=createJsonArrayforRow(headerOrder, filteredHeatmapRow,
+						// heatmapRow);
+						// heatmap.put(heatmapRow);
+					}
+				}
+				// heatmap=filteredHeatmap;
+				filteredRows = filteredRows2;
+			}
+
+			// if(!filteredRows.size()>0) {
+			//
+			//
+			// }else {
+			//
+			// }
+
+			for (HeatmapRow filteredHeatmapRow : filteredRows) {
+				JSONArray heatmapRow = new JSONArray();
+				heatmapRow = createJsonArrayforRow(headerOrder, filteredHeatmapRow, heatmapRow);
+				filteredHeatmap.put(heatmapRow);
 			}
 			model.addAttribute("heatmap_rows", filteredHeatmap);
-		} else {
+		}
+		
+		if((keyword==null || keyword.equals("")) && (construct==null ||construct.equals("Any"))) {
 			model.addAttribute("heatmap_rows", heatmap);
 		}
 
@@ -93,7 +134,7 @@ public class HeatmapController {
 
 	private void generateCachedObjectsForAllHeatmap() {
 		try {
-        	heatmap = new JSONArray();
+        	System.out.println("generating cache objects");
             rows = heatmapService.getHeatmapRows();
             columnHeaders = heatmapService.getDistinctProcedureNames(rows);
             headerOrder = HeatmapService.getHeaderorder();
@@ -111,7 +152,8 @@ public class HeatmapController {
 
 					JSONArray heatmapRow = new JSONArray();
 
-					addRow(headerOrder, row, heatmapRow, heatmap);
+					heatmapRow=createJsonArrayforRow(headerOrder, row, heatmapRow);
+					heatmap.put(heatmapRow);
 
 				}
 
@@ -130,7 +172,7 @@ public class HeatmapController {
 	}
 
 
-	private void addRow(List<String> headerOrder, HeatmapRow row, JSONArray heatmapRow, JSONArray heatmap) {
+	private JSONArray createJsonArrayforRow(List<String> headerOrder, HeatmapRow row, JSONArray heatmapRow) {
 		heatmapRow.put(row.getGene()).put(row.getConstruct());
 		// put the numbers in for each column header to insure column numbers same and
 		// same order
@@ -141,7 +183,7 @@ public class HeatmapController {
 			Integer call = row.getProcedureSignificance().getOrDefault(key, 4);
 			heatmapRow.put(call);
 		}
-		heatmap.put(heatmapRow);
+		return heatmapRow;
 	}
 
 

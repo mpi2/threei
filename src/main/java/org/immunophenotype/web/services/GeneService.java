@@ -99,7 +99,7 @@ public class GeneService implements WebStatus{
 			
 			return geneSymbolToGene;
 		}else{
-			System.err.println("too few genes returned from 3i solr service for WTSI genes");
+			System.err.println("too few genes returned from 3i solr service for keywords");
 			return null;
 		}
 		

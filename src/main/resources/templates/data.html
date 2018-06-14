@@ -78,7 +78,7 @@
                             </div>
                             <div class="filter-construct">Construct<br/>
                                 <select id="heatmap_filter_construct" name="construct">
-                                    <option  selected="">- Any -</option>
+                                    <option  selected="">Any</option>
 
                                     <th:block th:each="construct : ${constructlist}">
 
@@ -373,17 +373,17 @@
 
                             $(document).ready(function(){
 
-                                var geneid = getUrlParameter('keywords');
+                               var geneid = getUrlParameter('keywords');
                                 if (geneid != undefined) {
                                     document.getElementById("heatmap_filter_gene").value = geneid;
-                                    heatmap_filter();
+                                   // heatmap_filter();
                                 }
                                 
                                 var construct = getUrlParameter('construct');
                                 if (geneid != undefined) {
                                     document.getElementById("heatmap_filter_construct").value = construct;
-                                    heatmap_filter();
-                                }
+                                    //heatmap_filter();
+                                } 
 
                             });
 
@@ -424,12 +424,12 @@
                             /*<![CDATA[*/
                             var input = document.getElementById("heatmap_filter_gene");
                             input.addEventListener("keyup", function(event) {
-                                event.preventDefault();
+                                /* event.preventDefault();
                                 if (event.keyCode === 13) {
                                     document.getElementById("enterbtn").click();
-                                }
+                                } */
                             });
-                            /*]]>*/
+                            /*]]>*/ 
                         </script>
                     </div><div class="clear"></div></div>
             </div>
