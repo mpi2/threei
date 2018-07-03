@@ -37,7 +37,7 @@
                                     <li class="last leaf" th:classappend="${#strings.startsWith(view,'/publications') ? 'active' : ''}"><a th:href="@{/publications}">Publications</a></li>
                                     <li class="last leaf" th:classappend="${#strings.startsWith(view,'/privacypolicy')?'active':''}"><a th:href="@{/privacypolicy}">Privacy Policy</a></li>
                                 </ul></li>
-                    </ul><div class="clear"></div></div>
+                        </ul><div class="clear"></div></div>
                 </div>
             </div>
             </nav>
@@ -57,7 +57,15 @@
                             <div class="view-content">
                                 <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
                                     <div class="views-field views-field-php">
-                                        <span class="field-content"><p><a name="phenotype-of-the-month-view" href="/phenotypeofthemonth" class="simple-dialog simpleDialogProcessed" style="font-size: 1.5em;" rel="width:680;position:[center,160];" data-hasqtip="68" oldtitle="Phenotype of the Month" title="">Cxcr2</a></p></span>
+                                        <span class="field-content">
+                                            <p>
+                                                <a name="phenotype-of-the-month-view" href="/phenotypeofthemonth"
+                                                   class="simple-dialog simpleDialogProcessed" style="font-size: 1.5em;"
+                                                   rel="width:680;position:[center,160];" data-hasqtip="68"
+                                                   oldtitle="Phenotype of the Month"  th:text="${phenotypeofthemonth}">
+                                                    ...
+                                                </a>
+                                            </p></span>
                                     </div>
                                 </div>
                             </div>
@@ -124,9 +132,9 @@
                     <div class="content">
                         <p>
                             <a href="http://www.wellcome.ac.uk/" >
-                            <img th:src="@{/images/slider/wt_logo.png}" href="../static/images/slider/wt_logo.png" width="300" height="39"/></a><br/>
+                                <img th:src="@{/images/slider/wt_logo.png}" href="../static/images/slider/wt_logo.png" width="300" height="39"/></a><br/>
                             <a href="https://www.immunology.org/" >
-                            <img th:src="@{/images/slider/bsi_logo-250x52.png}" href="../static/images/slider/bsi_logo-250x52.png" target="blank"  width="250" height="52"/></a><br/>
+                                <img th:src="@{/images/slider/bsi_logo-250x52.png}" href="../static/images/slider/bsi_logo-250x52.png" target="blank"  width="250" height="52"/></a><br/>
                             <a href="http://www.mousephenotype.org/" >
                                 <img th:src="@{/images/slider/impc_logo-150x50.png}" href="../static/images/slider/impc_logo-150x50.png" width="150" height="50"/></a></p>
 
@@ -142,8 +150,8 @@
             <div id="block-block-3" class="block block-block">
                 <div class="content"><div style="width: 100%; text-align: center; padding-bottom: 20px;">
                     <div style="width: 500px; margin: auto;">
-                        <form id="home-search-form" action="/mi/impc/threei/dev/webapp/data?gene=" method="get" >
-                            <input id="home-search-box" name="gene" style="width: 300px;" type="text" placeholder="Search by gene or phenotype..." >
+                        <form id="home-search-form" action="/data?keywords=" method="get" >
+                            <input id="home-search-box" name="keywords" style="width: 300px;" type="text" placeholder="Search by gene or phenotype..." >
                             <input id="home-search-submit" class="btn" style="width: 200px;" type="submit" value="Advanced Search">
 
                         </form>
