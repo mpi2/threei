@@ -134,17 +134,17 @@ public class HomePageController {
         month = Calendar.getInstance().get(Calendar.MONTH)+1;
 
         switch (month){
-            case 1: phenotype = "adgrd1"; break;
-            case 2: phenotype = "bivm";break;
-            case 3: phenotype =  "chd9";break;
-            case 4: phenotype =  "clpp";break;
-            case 5: phenotype =  "cxcr2";break;
-            case 6: phenotype = "gimap6";break;
-            case 7: phenotype = "gmds";break;
-            case 8: phenotype = "paf";break;
-            case 9: phenotype = "peptidase";break;
-            case 10: phenotype = "setd5"; break;
-            case 11: phenotype = "wdtc1";break;
+            case 1: phenotype = "Adgrd1"; break;
+            case 2: phenotype = "Bivm";break;
+            case 3: phenotype =  "Chd9";break;
+            case 4: phenotype =  "Clpp";break;
+            case 5: phenotype =  "Cxcr2";break;
+            case 6: phenotype = "Gimap6";break;
+            case 7: phenotype = "Gmds";break;
+            case 8: phenotype = "Paf";break;
+            case 9: phenotype = "Peptidase";break;
+            case 10: phenotype = "Setd5"; break;
+            case 11: phenotype = "Wdtc1";break;
             case 12: phenotype = "Zfp408"; break;
             default: phenotype = "phenotypeofthemonth";
 
