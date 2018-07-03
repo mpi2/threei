@@ -22,7 +22,7 @@
 <div  id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
     <th:block th:include="fragments/header::header"> </th:block>
 
-    <div id="main" class="content"style="padding-top: 102px;" >
+    <div id="main" class="content" style="padding-top: 102px;" >
 
         <aside id="sidebar" style="position:absolute; top:400px ;left:800px;">
 
@@ -70,28 +70,37 @@
 
                 <div class="content"><div class="head" style="display:none;">3i Heatmap</div>
                     <div class="content">
-                        <div id="heatmap-filters">
-                            <div class="filter-gene">Gene Name<br/>
-                                <input id="heatmap_filter_gene" type="text" value="" onsubmit="heatmap_filter()"  />
+                        <form action="data" method="get">
+                            <div id="heatmap-filters">
+
+                                <div class="filter-gene">Gene Name<br/>
+                                    <input id="heatmap_filter_gene" value="" name="keywords" type="text"  />
+                                </div>
+                                <div class="filter-construct">Construct<br/>
+                                    <select id="heatmap_filter_construct" name="construct">
+                                        <option  selected="">Any</option>
+
+                                        <th:block th:each="construct : ${constructlist}">
+
+                                            <option th:text="${construct}">  </option>
+
+                                        </th:block>
+
+
+
+
+                                    </select>
+                                </div>
+
+                                <div class="filter-buttons"><br/>
+                                    <button>Filter</button>&nbsp;&nbsp;&nbsp;
+                                    <button onclick="heatmap_clear_filter();">Clear Filter</button></div>
+
                             </div>
-                            <div class="filter-construct">Construct<br/>
-                                <select id="heatmap_filter_construct">
-                                    <option selected="">- Any -</option>
+                        </form>
 
-                                    <th:block th:each="construct : ${constructlist}">
+                        <br/><br/><br/>
 
-                                        <option th:text="${construct}">  </option>
-
-                                    </th:block>
-
-
-
-
-                                </select>
-                            </div>
-                            <div class="filter-buttons"><br/>
-                                <button id="enterbtn" onclick="heatmap_filter();" >Filter</button>&nbsp;&nbsp;&nbsp;
-                                <button onclick="heatmap_clear_filter();">Clear Filter</button></div></div><br/><br/><br/>
                         <br/>
                         <br/><br/><br/>
                         <br/><br/><br/><br/>
@@ -114,7 +123,7 @@
                             var _heatmap_sortByReversed = true;
 
 
-                            var _heatmap_start        = 0;
+                            var _heatmap_start    = 0;
                             var _heatmap_size     = 100;
 
                             var _heatmap_header;
@@ -172,8 +181,9 @@
 
                                 // Table header
                                 var row = '';
-                                row+='<div class="gene"><a class="active" onClick="_heatmap_sortByCol(0)">Gene</a></div>';
+                                row+='<div class="gene"><a class="active" onClick="_heatmap_sortByCol(0)" >Gene</a></div>';
                                 row+='<div class="cons"><a class="active" onClick="_heatmap_sortByCol(1)">Construct</a></div>';
+
                                 for(i=0; i <column_headers.length; i++){
                                     var col_number=i+2;
                                     row+="<div class=\"rotate\"><div><span><a class=\"active\" onClick=\"_heatmap_sortByCol("+col_number+")\">"+column_headers[i]+"</a></span></div></div>";
@@ -195,6 +205,7 @@
                                 _heatmap_header.innerHTML=row;
                                 _heatmap_data=document.createElement('div');
                                 _heatmap_data.id="heatmap-data";
+
                                 var filter_gene = document.getElementById('heatmap_filter_gene').value;
                                 var filter_construct = document.getElementById('heatmap_filter_construct').value;
                                 if (filter_construct=="- Any -")
@@ -245,7 +256,6 @@
                                             row+='"';
 
                                             if (call>0) row+=' style="cursor:pointer;" onClick="_heatmap_link(2,\'' +heatmap_rows[a][0]+'*'+(c-2)+ '\', \''+$con+'\')" ';
-                                            
 
                                             row +='>';
                                             //row += heatmap_rows[a][c];
@@ -290,7 +300,6 @@
                                     pager+='</div>';
                                 }
 
-
                                 var footer='';
 
                                 if (row_count>0)
@@ -312,10 +321,6 @@
 
 
                             }
-
-
-
-
                             function heatmap_filter()
                             {
                                 _heatmap_start = 0;
@@ -360,16 +365,24 @@
                             }
 
 
-
                             _heatmap_render();
+                            if(_heatmap_sortByCol(0)){//need to check this is defined otherwise javascript throww error and breaks page when searching based on parameter
+                                _heatmap_sortByCol(0).onclick=true;
+                            }
 
 
                             $(document).ready(function(){
 
-                                var geneid = getUrlParameter('gene');
+                                var geneid = getUrlParameter('keywords');
                                 if (geneid != undefined) {
                                     document.getElementById("heatmap_filter_gene").value = geneid;
-                                    heatmap_filter();
+                                    // heatmap_filter();
+                                }
+
+                                var construct = getUrlParameter('construct');
+                                if (geneid != undefined) {
+                                    document.getElementById("heatmap_filter_construct").value = construct;
+                                    //heatmap_filter();
                                 }
 
                             });
@@ -390,7 +403,6 @@
                             });
 
                             window.onscroll = function() {myFunction()};
-                            document.onload(_heatmap_sortByCol(0).click());
 
                             var header = document.getElementById("heatmap-header ");
                             var sticky = header.offsetTop;
@@ -403,6 +415,8 @@
                                 }
                             }
 
+
+
                             /*]]>*/
                         </script>
 
@@ -410,10 +424,10 @@
                             /*<![CDATA[*/
                             var input = document.getElementById("heatmap_filter_gene");
                             input.addEventListener("keyup", function(event) {
-                                event.preventDefault();
+                                /* event.preventDefault();
                                 if (event.keyCode === 13) {
                                     document.getElementById("enterbtn").click();
-                                }
+                                } */
                             });
                             /*]]>*/
                         </script>
@@ -423,7 +437,27 @@
     </div>
 
     <th:block   th:include="fragments/footer::footer1" > </th:block>
-    
+    <!-- <footerdata>
+         <div class="centercontent">
+         <div class="foot_content" >
+             <a style="text-decoration: none; color: white;" th:href="@{/}">HOME</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/data}">DATA</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/analysis}">ANALYSIS</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/methods}">METHODS</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/contact}">CONTACT</a>
+             <a style="text-decoration: none; color: white;" th:href="@{/learnmore}">LEARNMORE</a>
+             <div  id="foot_list"> <ul>
+                 <li>   <a style="text-decoration: none;color: white;" th:href="@{/faq}">FAQ</a></li>
+                 <li>   <a style="text-decoration: none;color: white;" th:href="@{/glossary}">Glossary</a></li>
+                 <li>    <a style="text-decoration: none;color:white;" th:href="@{/publications}">Publications</a> </li>
+                 <li>Software v0.0.6</li>
+             </ul> </div>
+
+         </div>
+             <p class="textright" style="text-align: right;word-spacing: normal;font-size:12px">Software v0.0.8<br/>
+                 © 2018 Wellcome Trust Sanger Institute</p>
+         </div>
+     </footerdata> -->
 </div>
 
 </body>
