@@ -70,37 +70,37 @@
 
                 <div class="content"><div class="head" style="display:none;">3i Heatmap</div>
                     <div class="content">
-                        <form action="data" method="get">
-                            <div id="heatmap-filters">
-
-                                <div class="filter-gene">Gene Name<br/>
-                                    <input id="heatmap_filter_gene" value="" name="keywords" type="text"  />
-                                </div>
-                                <div class="filter-construct">Construct<br/>
-                                    <select id="heatmap_filter_construct" name="construct">
-                                        <option  selected="">Any</option>
-
-                                        <th:block th:each="construct : ${constructlist}">
-
-                                            <option th:text="${construct}">  </option>
-
-                                        </th:block>
-
-
-
-
-                                    </select>
-                                </div>
-
-                                <div class="filter-buttons"><br/>
-                                    <button>Filter</button>&nbsp;&nbsp;&nbsp;
-                                    <button onclick="heatmap_clear_filter();">Clear Filter</button></div>
-
+                     <form action="data" method="get">
+                        <div id="heatmap-filters">
+                       
+                            <div class="filter-gene">Gene Name<br/>
+                                <input id="heatmap_filter_gene" value="" name="keywords" type="text"  />
                             </div>
-                        </form>
+                            <div class="filter-construct">Construct<br/>
+                                <select id="heatmap_filter_construct" name="construct">
+                                    <option  selected="">Any</option>
 
-                        <br/><br/><br/>
+                                    <th:block th:each="construct : ${constructlist}">
 
+                                        <option th:text="${construct}">  </option>
+
+                                    </th:block>
+
+
+
+
+                                </select>
+                            </div>
+                            
+                            <div class="filter-buttons"><br/>
+                                <button>Filter</button>&nbsp;&nbsp;&nbsp;
+                                <button onclick="heatmap_clear_filter();">Clear Filter</button></div>
+                             
+                             </div>
+                             </form>
+                             
+                             <br/><br/><br/>
+                            
                         <br/>
                         <br/><br/><br/>
                         <br/><br/><br/><br/>
@@ -367,23 +367,23 @@
 
                             _heatmap_render();
                             if(_heatmap_sortByCol(0)){//need to check this is defined otherwise javascript throww error and breaks page when searching based on parameter
-                                _heatmap_sortByCol(0).onclick=true;
+                            	_heatmap_sortByCol(0).onclick=true;
                             }
 
 
                             $(document).ready(function(){
 
-                                var geneid = getUrlParameter('keywords');
+                               var geneid = getUrlParameter('keywords');
                                 if (geneid != undefined) {
                                     document.getElementById("heatmap_filter_gene").value = geneid;
-                                    // heatmap_filter();
+                                   // heatmap_filter();
                                 }
-
+                                
                                 var construct = getUrlParameter('construct');
                                 if (geneid != undefined) {
                                     document.getElementById("heatmap_filter_construct").value = construct;
                                     //heatmap_filter();
-                                }
+                                } 
 
                             });
 
@@ -429,7 +429,7 @@
                                     document.getElementById("enterbtn").click();
                                 } */
                             });
-                            /*]]>*/
+                            /*]]>*/ 
                         </script>
                     </div><div class="clear"></div></div>
             </div>

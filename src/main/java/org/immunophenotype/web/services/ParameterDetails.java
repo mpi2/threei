@@ -64,7 +64,12 @@ public class ParameterDetails {
 
     
     
-    @Override
+    
+
+
+
+
+	@Override
 	public String toString() {
 		return "ParameterDetails [resultsBySex=" + resultsBySex + ", parameterId=" + parameterId + ", name=" + name
 				+ "]";
@@ -133,7 +138,6 @@ public class ParameterDetails {
 			}
 			allResults.addAll(zygositySet.values());//add all the values for the sex that have had duplicates with different sig values removed to be just the highest significant one.
 		}
-
 		return allResults;
 	}
 

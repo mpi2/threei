@@ -25,6 +25,7 @@ public enum SexType {
 			case "hermaphrodite": return SexType.hermaphrodite;
 			case "male": return SexType.male;
 			case "no data": return SexType.no_data;
+			case "Male/Female": return SexType.both;
 			default: throw new IllegalArgumentException("No enum constant " + SexType.class + "." + displayName);
 		}
 	}
