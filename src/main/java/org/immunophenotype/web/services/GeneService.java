@@ -104,5 +104,32 @@ public class GeneService implements WebStatus{
 		}
 		
 	}
+	
+	
+	//geneQf use this field for gene, synonym and human gene info. Seems to work with lower and upper case mixes
+	public Map<String, GeneDTO> getGeneSymbolOrSynonymOrNameOrHuman(String keyword) throws SolrServerException, IOException {
+		//all 3i data is from WTSI so filter genes on latest_phenotyping_centre:WTSI
+
+		SolrQuery query = new SolrQuery();
+		query.setQuery("geneQf"+":"+"\""+keyword+"\"");
+		query.addFilterQuery("latest_phenotyping_centre" + ":" + "WTSI");//all 3i are WTSI phenotyping center??
+		query.setRows(Integer.MAX_VALUE);
+		
+		QueryResponse rsp = solr.query(query);
+
+		List<GeneDTO> genes = rsp.getBeans(GeneDTO.class);
+		if(genes.size()>0){
+			Map<String, GeneDTO> geneSymbolToGene=new HashMap<>();
+			for(GeneDTO gene: genes) {
+				geneSymbolToGene.put(gene.getMarkerSymbol(), gene);
+			}
+			
+			return geneSymbolToGene;
+		}else{
+			System.err.println("too few genes returned from 3i gene solr service for keywords");
+			return null;
+		}
+		
+	}
     
 }

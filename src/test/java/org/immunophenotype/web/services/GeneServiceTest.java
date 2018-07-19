@@ -36,6 +36,42 @@ public class GeneServiceTest {
 		}
 		assertTrue(genes.containsKey("Il4i1b"));
 		assertTrue(genes.containsKey("Il27"));
+		//assertTrue(genes.containsKey("il27"));
+	}
+	
+	@Test
+	public void getGeneSymbolOrSynonymOrNameOrHuman() {
+		String keywords="interleukin";
+		Map<String, GeneDTO> genes=null;
+		try {
+			genes = geneService.getGeneSymbolOrSynonymOrNameOrHuman(keywords);
+			
+			System.out.println("genes="+genes);
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//assertTrue(genes.containsKey("Il4i1b"));
+		assertTrue(genes.containsKey("Il27"));
+		
+		String keywords2="il27";//show it's case insensitive
+		Map<String, GeneDTO> genes2=null;
+		try {
+			genes2 = geneService.getGeneSymbolOrSynonymOrNameOrHuman(keywords);
+			
+			System.out.println("genes="+genes2);
+		} catch (SolrServerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//assertTrue(genes.containsKey("Il4i1b"));
+		assertTrue(genes.containsKey("Il27"));
 	}
 
 }
