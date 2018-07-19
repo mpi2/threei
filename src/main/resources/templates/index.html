@@ -37,7 +37,7 @@
                                     <li class="last leaf" th:classappend="${#strings.startsWith(view,'/publications') ? 'active' : ''}"><a th:href="@{/publications}">Publications</a></li>
                                     <li class="last leaf" th:classappend="${#strings.startsWith(view,'/privacypolicy')?'active':''}"><a th:href="@{/privacypolicy}">Privacy Policy</a></li>
                                 </ul></li>
-                    </ul><div class="clear"></div></div>
+                        </ul><div class="clear"></div></div>
                 </div>
             </div>
             </nav>
@@ -57,7 +57,15 @@
                             <div class="view-content">
                                 <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
                                     <div class="views-field views-field-php">
-                                        <span class="field-content"><p><a name="phenotype-of-the-month-view" href="/phenotypeofthemonth" class="simple-dialog simpleDialogProcessed" style="font-size: 1.5em;" rel="width:680;position:[center,160];" data-hasqtip="68" oldtitle="Phenotype of the Month" title="">Cxcr2</a></p></span>
+                                        <span class="field-content">
+                                            <p>
+                                                <a name="phenotype-of-the-month-view" href="/phenotypeofthemonth"
+                                                   class="simple-dialog simpleDialogProcessed" style="font-size: 1.5em;"
+                                                   rel="width:680;position:[center,160];" data-hasqtip="68"
+                                                   oldtitle="Phenotype of the Month"  th:text="${phenotypeofthemonth}">
+                                                    ...
+                                                </a>
+                                            </p></span>
                                     </div>
                                 </div>
                             </div>
@@ -92,21 +100,15 @@
                                     </div>
                                     <div class="views-field views-field-body">
                                         <div class="field-content">
-                                            <p>The Crick<br/>15th June 2018<br/>10.30 am to 4 pm</p>
+                                            <p>The Crick<br/>25th September 2018<br/>10.30 am to 4 pm</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="views-row views-row-2 views-row-even views-row-last">
                                     <div class="views-field views-field-title">
-							<span class="field-content">
-								<a href="/wgc-advanced-course-immunophenotyping" target="_blank">WGC Advanced Course Immunophenotyping</a>
-							</span>
+
                                     </div>
-                                    <div class="views-field views-field-body">
-                                        <div class="field-content">
-                                            <p>18-24 February 2018&nbsp; - <a href="https://coursesandconferences.wellcomegenomecampus.org/events/item.aspx?e=679">apply now</a><br></br></p>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -124,9 +126,9 @@
                     <div class="content">
                         <p>
                             <a href="http://www.wellcome.ac.uk/" >
-                            <img th:src="@{/images/slider/wt_logo.png}" href="../static/images/slider/wt_logo.png" width="300" height="39"/></a><br/>
+                                <img th:src="@{/images/slider/wt_logo.png}" href="../static/images/slider/wt_logo.png" width="300" height="39"/></a><br/>
                             <a href="https://www.immunology.org/" >
-                            <img th:src="@{/images/slider/bsi_logo-250x52.png}" href="../static/images/slider/bsi_logo-250x52.png" target="blank"  width="250" height="52"/></a><br/>
+                                <img th:src="@{/images/slider/bsi_logo-250x52.png}" href="../static/images/slider/bsi_logo-250x52.png" target="blank"  width="250" height="52"/></a><br/>
                             <a href="http://www.mousephenotype.org/" >
                                 <img th:src="@{/images/slider/impc_logo-150x50.png}" href="../static/images/slider/impc_logo-150x50.png" width="150" height="50"/></a></p>
 

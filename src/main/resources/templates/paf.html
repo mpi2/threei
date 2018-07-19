@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link th:href="@{/css/imageslider.css}" href="../static/css/imageslider.css" rel="stylesheet" type="text/css"  />
+    <link th:href="@{/css/threei.css}" href="../static/css/threei.css"  rel="stylesheet" type="text/css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>Paf</title>
+    <link rel="icon" type="image/png" href="images/index.ico">
+</head>
+
+
+<body id="top" class="html front not-logged-in one-sidebar sidebar-second page-home">
+<th:block th:include="fragments/header::header"> </th:block>
+
+<div id="wrapper">
+
+    <div id="main">
+        <!--Side bar Starts-->
+
+        <p></p>
+        <p><h1 style="font-size: 30px; color:#0978A1;"><b>Phenotype of the month</b></h1></p>
+        <p></p>
+        <p></p>
+        <p><b style="font-size: 20px; color:#0978A1;">PAF</b></p>
+        <p></p>
+        <p><h1>P15(PAF)/ mKIAA0101/ RIKEN cDNA 2810417H13</h1></p>
+        <p><span><a href="http://www.mousephenotype.org/data/genes/MGI:1915276" target="_blank" >Mice at IMPC</a></span></p>
+        <p></p>
+        <p></p>
+        <p><h1 style="font-size: 20px;"><b>Phenotype Summary:</b></h1></p>
+        <p></p>
+        <b>Spleen - </b> Increased conventional DCs low (CD11b low), decreased conventional DCs high (CD11b high), decreased plasmacytoid DCs, decreased CD5+ γδ T cells, decreased immature NK cells and increased mature NK cells<br/>
+        <b>Mesenteric lymph nodes - </b>Decreased total DCs<br/>
+        <b>Bone Marrow - </b>Decreased plasma cells, decreased pro B cells Hardy fraction A, and decreased CD3+ T cells <br/>
+        <b>Peripheral blood leukocytes - </b>Decreased CD4+ regulatory T cells<br/>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p><h1 style="font-size: 20px;"><b>Gene information:</b></h1></p>
+        <ul style="list-style-type:disc">
+            <li>•	p15(PAF) is a 12 kDa nuclear protein that acts as a regulator of DNA repair during DNA replication (see reference 1 below)</li>
+            <li>•	genetic disruption of PAF by homologous recombination in mice results in altered hematopoietic stem cells function, disrupted progenitor development and leukopenia (see reference 2 below)</li>
+            <li>•	overexpressed in several types of human cancer and is associated with poor prognosis (see reference 3 below)</li>
+        </ul>
+        <p></p>
+        <p><span><a href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=PCLAF" target="_blank">Genecards</a> </span>&nbsp;
+            <span><a href="http://www.informatics.jax.org/marker/MGI:1915276" target="_blank">MGI</a></span>&nbsp;
+        </p>
+        <p></p>
+        <p></p>
+        <p><h1 style="font-size: 20px;"><b>Read more:</b></h1></p>
+        <ul style="list-style-type:disc">
+            <li>•	L. Turchi et al. ATF3 and p15PAF are novel gatekeepers of genomic integrity upon UV stress (2009). Cell Death and Differentiation 16, 728–737<br/><span><a href="https://www.nature.com/articles/cdd20092" target="_blank">Pubmed Link</a></span></li>
+            <li>•	Y.M Amrani et al. The Paf oncogene is essential for hematopoietic stem cell function and development (2011). JEM  208 (9), 1757-1765<br/><span><a href="http://jem.rupress.org/content/208/9/1757" target="_blank">Pubmed Link</a></span></li>
+            <li>•	S. Jun et al. PAF-Mediated MAPK Signaling Hyperactivation via LAMTOR3 Induces Pancreatic Tumorigenesis (2013). Cell Rep 5(2), 314–322<br/><span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4157353/pdf/nihms622445.pdf" target="_blank">Pubmed Link</a></span></li>
+            </ul>
+
+        <p></p>
+        <p></p>
+
+
+
+    </div>
+</div>
+
+<th:block th:include="fragments/footer::footer1"> </th:block>
+
+</body>
+</html>

@@ -18,8 +18,8 @@ public class Application {
 
 	private final static Integer INITIAL_POOL_CONNECTIONS = 1; 
 	@NotNull
-	@Value("${solr.host}")
-	//@Value("http://ves-ebi-d0.ebi.ac.uk:8090/mi/impc/dev/solr")
+	//@Value("${solr.host}")
+	@Value("http://ves-ebi-d0.ebi.ac.uk:8090/mi/impc/dev/solr")
 	private String solrBaseUrl;
 	
 	@Value("${datasource.komp2.url}")

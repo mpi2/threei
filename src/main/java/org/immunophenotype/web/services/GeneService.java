@@ -22,12 +22,7 @@ public class GeneService implements WebStatus{
 	@Autowired
 	@Qualifier("geneCore")
 	private SolrClient solr;
-
-    
-   
-    
-    
-    public String getMgiAccessionFromGeneSymbol(String geneSymbol) throws IOException, SolrServerException {
+	public String getMgiAccessionFromGeneSymbol(String geneSymbol) throws IOException, SolrServerException {
 
 		if (geneSymbol == null) {
 			System.err.println("null entered for gene symbol to get accession");
