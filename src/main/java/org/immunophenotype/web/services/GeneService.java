@@ -30,17 +30,17 @@ public class GeneService implements WebStatus{
 		}
 
 		SolrQuery query = new SolrQuery();
-		query.setQuery(GeneDTO.MARKER_SYMBOL + ":" + geneSymbol);
+		query.setQuery(GeneDTO.MARKER_SYMBOL + ":" + geneSymbol+"  OR "+ GeneDTO.MARKER_SYNONYM+":"+geneSymbol);
 		query.setRows(Integer.MAX_VALUE);
 		query.setFields(GeneDTO.MARKER_SYMBOL, GeneDTO.MGI_ACCESSION_ID);
 		
 		QueryResponse rsp = solr.query(query);
 
 		List<GeneDTO> genes = rsp.getBeans(GeneDTO.class);
-		if(genes.size()>0 && genes.size()<2){
+		if(genes.size()==1){
 			return genes.get(0).getAccession();
 		}else{
-			System.err.println("too many or too few genes returned from 3i solr service");
+			System.err.println("blah too many or too few genes returned from 3i solr service");
 			return "";
 		}
 
